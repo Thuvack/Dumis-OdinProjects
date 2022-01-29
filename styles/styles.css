@@ -1,4 +1,29 @@
-* {
-    background-color: DeepSkyBlue
+
+
+.header-main,
+.header-sub {
+    background-color: #45f44a;
+    text-align: center;
+    padding: 1px 0px 10px;
 }
 
+.header-main {
+    font-size: 75px;
+    color: white;
+    border-style: solid;
+    border-color: white white black white;
+}
+
+.header-sub {
+    color: red;
+    font-size: 25px;
+}
+
+.body-main {
+    font-size: 20px;
+    background-color:goldenrod;
+    border-style: solid;
+    border-color: black white white white;
+    padding: 10px 5px 20px;
+    text-indent: 15pt;
+}
