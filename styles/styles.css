@@ -1,43 +1,79 @@
 
 /*Global Styling */
 * {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    /* border: solid; */
   }
   
 /*Style headers */
+.main-container{
+    margin: 10px;
+}
+
 .header-main,
 .header-sub {
     background-color: #45f44a;
     text-align: center;
-    padding: 1px 0px 10px;
+    width:100%;
 }
 
 .header-main {
-    font-size: 75px;
-    color: white;
-    border-style: solid;
-    border-color: white white black white;
+    font-size: 50px;
+    padding: 1px 0px 0px;
+    color:#f1f1f1;
+    height: 200px;
 }
 
 .header-sub {
     color: red;
     font-size: 25px;
+    height: 60px;
+    padding: 0px 0px 0px;
+    margin-top: -45px;
+}
+
+.header-container{
+    border-bottom-style: solid;
+    border-bottom-width: 7px;
 }
 
 /*Style body */
 .body-main {
     font-size: 20px;
     background-color:goldenrod;
-    border-style: solid;
-    border-color: black white white white;
     padding: 10px 5px 20px;
     text-indent: 15pt;
+    min-height: 400px;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Style floating boxes */
+#left,
+#right,
+#center{
+    border-style: solid;
+    background-color: grey;
+    text-align: center;
+    word-wrap: break-word;
+    width:30%;
+    height:100px;
+    line-height: 100px;
+}
+
+#left{
+    float:left;
+    margin-left: 3%;
+}
+
+#right{
+    float:right;
+    margin-right: 3%;
+}
+
+#center{
+    margin:2% auto;
 }
 
 /* Style the footer */
