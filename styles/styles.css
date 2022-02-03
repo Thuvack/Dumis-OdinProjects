@@ -20,13 +20,13 @@ h3 {
 
 /*Style headers */
 .main-container{
-    margin: 10px;
+   margin: 5px; 
 }
 
 .header-container{
-    top: 0;
-    margin: 0px !important;
     min-height: 190px;
+    border-bottom-style: solid;
+    border-bottom-width: 7px;
 }
 
 .header-main,
@@ -50,11 +50,6 @@ h3 {
     height: 20%;
     padding: 0px 0px 0px;
     margin: 0 !important;
-}
-
-.header-container{
-    border-bottom-style: solid;
-    border-bottom-width: 7px;
 }
 
 /*Style body */
