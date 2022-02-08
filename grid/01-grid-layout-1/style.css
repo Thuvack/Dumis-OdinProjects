@@ -8,6 +8,9 @@ body, html {
   height: 100%;
   padding: 16px;
   box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
 }
 
 .container div {
@@ -21,18 +24,23 @@ body, html {
 
 .header {
   background-color: #FFDE22;
+  grid-column: 1 / span 2;
 }
 
 .sidebar {
   background-color: #FF7755;
+  grid-row: 2 / span 2;
+ 
 }
 
 .nav {
   background-color: #00DDFF;
+
 }
 
 .article {
   background-color: #bccbde;
+  
 }
 
 .article p {
@@ -44,4 +52,5 @@ body, html {
 
 .footer {
   background-color: #393f4d;
+  grid-column: 1 / span 2;
 }
