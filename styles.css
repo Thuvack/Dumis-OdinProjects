@@ -1,0 +1,156 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px auto 50px;
+}
+
+/* Styling for the header */
+.header {
+    background-color:#1F3927;
+    color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.header-cont {
+    display: flex;
+    flex-basis: 800px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.right-links {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+/* Styling body container */
+.body-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Styling body-head section */
+.body-head-cont {
+    background-color:#1F3927;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex:1;
+}
+
+.body-head {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styling body-top section */
+.body-top-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex:1;
+}
+
+.body-top {
+    color: #1F2937;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styling body-head section */
+.body-middle-cont {
+    background-color:#E5E7EB;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex:1;
+}
+
+.body-middle {
+    color: #1F2937;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Styling body-head section */
+.body-bottom-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex:1;
+}
+
+.body-bottom {
+    color: #1F2937;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* Styling of the footer */
+.footer {
+    background-color:#1F3927;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 15px;
+}
+
+/* --       Styling for other properties        -- */
+ul {
+    /* Removes the dots on the list items  */
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+  }
+  
+  a {
+    /* Removes the line under the links */
+    font-size: 12px;
+    text-decoration: none;
+    color: gray;
+  }
