@@ -54,6 +54,7 @@ body{
     font-weight: 800;
 }
 
+
 /* Styling body container */
 .body-container {
     display: flex;
@@ -94,10 +95,10 @@ body{
 }
 
 .header-main-imagebox {
-    background-color: dimgrey;
     flex: 1 1 50%;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: stretch;
+
 }
 
 .header-title {
@@ -287,7 +288,7 @@ ul {
     display: flex;
     margin: 0;
     padding: 0;
-    gap: 10px;
+    gap: 30px;
   }
   
   a {
