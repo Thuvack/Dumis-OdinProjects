@@ -41,6 +41,19 @@ body{
     margin-bottom: 15px;
 }
 
+.yellow-text {
+    font-family: 'Courier New' !important;
+    font-size: 20px;
+    color: yellow;
+}
+
+.red-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: red;
+    font-weight: 800;
+}
+
 /* Styling body container */
 .body-container {
     display: flex;
