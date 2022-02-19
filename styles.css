@@ -1,3 +1,9 @@
+/* Global declarations */
+
+* {
+    font-family: sans-serif !important;
+}
+
 html, body {
     height: 100%;
     width: 100%;
@@ -12,29 +18,27 @@ body{
 }
 
 /* Styling for the header */
+
+.header, .header-cont,
+.right-links {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
 .header {
     background-color:#1F3927;
     color: white;
-    display: flex;
-    flex-flow: row nowrap;
     justify-content: center;
-    align-items: center;
     padding: 0;
     margin: 0;
 }
 
 .header-cont {
-    display: flex;
     flex-basis: 950px;
     justify-content: space-between;
-    align-items: center;
     margin-top: 15px;
     margin-bottom: 15px;
-}
-
-.right-links {
-    display: flex;
-    flex-flow: row nowrap;
 }
 
 /* Styling body container */
@@ -45,10 +49,16 @@ body{
 }
 
 /* Styling body-head section */
-.body-head-cont {
-    background-color:#1F3927;
+
+.body-head-cont, .body-head, 
+.header-main-textbox, 
+.header-main-imagebox {
     display: flex;
     flex-direction: row;
+}
+
+.body-head-cont {
+    background-color:#1F3927;
     justify-content: space-around;
     align-items: center;
     margin: 0;
@@ -58,8 +68,6 @@ body{
 
 .body-head {
     color: white;
-    display: flex;
-    flex-direction: row;
     flex-basis: 950px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -68,14 +76,12 @@ body{
 }
 
 .header-main-textbox {
-    display:flex;
     flex: 1 1 50%;
     flex-flow: row wrap;
 }
 
 .header-main-imagebox {
     background-color: dimgrey;
-    display: flex;
     flex: 1 1 50%;
     justify-content: center;
     align-items: center;
@@ -103,6 +109,7 @@ button.signup {
   }
 
 /* Styling body-top section */
+
 .body-top-cont {
     display: flex;
     flex-direction: row;
@@ -167,6 +174,7 @@ button.signup {
 }
 
 /* Styling body-middle section */
+
 .body-middle-cont {
     background-color:#E5E7EB;
     display: flex;
