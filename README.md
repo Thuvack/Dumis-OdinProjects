@@ -5,7 +5,7 @@ This is project submission as part of the foundation path in web development cou
 
 ## Page content choice
 
-I chose to create a page about South African national symbols. Firstly to refresh my knowledge about these, but secondly, because I really think they are aesthetically appealing. 
+I chose to create a page about Johannesburg, a city in South Africa. I have lived in this city my whole life, and so it made sense to do a mock-up about tit and possible tourist locations. 
 
 ## Image References
 - Johannesburg Artistic Silhouette image by Slashme, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via [Wikimedia Commons](https://commons.wikimedia.org) 
