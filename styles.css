@@ -173,9 +173,12 @@ button.signup {
 }
 
 .image-holder {
+    display: flex;
     background: white;
     border: 5px solid royalblue;
     color: white;
+    justify-content: center;
+    align-items: center;
     border-radius: 8px;
     width: 180px;
     height: 200px;
@@ -223,6 +226,13 @@ button.signup {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 50px;
+}
+
+.cite-text {
+    color: dimgrey;
+    font-style: italic;
+    font-size: medium;
+    font-weight: 300;
 }
 
 /* Styling body-bottom section */
