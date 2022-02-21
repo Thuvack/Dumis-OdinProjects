@@ -54,6 +54,31 @@ body{
     font-weight: 800;
 }
 
+/* Style hover effects on links */
+
+ .right-links ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #ffee10;
+    transition: .5s;
+    transform: scale(.9);
+    z-index: -1;
+  }
+  
+ .right-links ul li:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+  }
+  
+ .right-links ul li:hover {
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+  }
+  
 
 /* Styling body container */
 .body-container {
