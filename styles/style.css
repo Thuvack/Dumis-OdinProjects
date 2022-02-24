@@ -57,6 +57,20 @@ body{
     font-weight: 800;
 }
 
+.blue-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: blue;
+    font-weight: 800;
+}
+
+.green-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: green;
+    font-weight: 800;
+}
+
 /* Style hover effects on links */
 
 .right-links ul li::before {
@@ -93,14 +107,14 @@ body{
 /* Styling body-head section */
 
 .body-head-cont, .body-head,
-.header-main-textbox,
-.header-main-imagebox {
+.header-main-ls,
+.header-main-rs {
     display: flex;
     flex-direction: row;
 }
 
 .body-head-cont {
-    background-color:#1F3927;
+    background-color: darkolivegreen;
     justify-content: space-around;
     align-items: center;
     margin: 0;
@@ -117,16 +131,17 @@ body{
     gap: 10px;
 }
 
-.header-main-textbox {
+.header-main-ls {
     flex: 1 1 50%;
     flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.header-main-imagebox {
+.header-main-rs {
     flex: 1 1 50%;
-    justify-content: flex-end;
-    align-items: flex-start;
-
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .header-title {
@@ -137,6 +152,14 @@ body{
 .header-text {
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.header-text-lg {
+    font-size: 23px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-basis: 300px;
 }
 
 button {
@@ -150,10 +173,29 @@ button.signup {
     color: white;
 }
 
+.header-button-ct {
+    background-color: darkolivegreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+/* Game body section */
+
+.game-container {
+    background-color: aliceblue;
+    display: flex;
+    flex-basis: 200px;
+   /* min-height: 300px; */
+}
+
 /* Styling body-top section */
 
 .body-top-cont {
     display: flex;
+    flex-direction: row;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
