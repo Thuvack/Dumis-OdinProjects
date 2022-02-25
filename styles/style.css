@@ -104,57 +104,59 @@ body{
     flex: 1;
 }
 
-/* Styling body-head section */
+/* Styling screen-1 section */
 
-.body-head-cont, .body-head,
-.header-main-ls,
-.header-main-rs {
+.body-sc1-cont {
     display: flex;
-    flex-direction: row;
-}
-
-.body-head-cont {
+    flex-direction: column;
     background-color: darkolivegreen;
     justify-content: space-around;
     align-items: center;
     margin: 0;
     padding: 0;
-    flex:1;
+    flex: 1;
 }
 
-.body-head {
+.sub-sc1-cont,
+.body-sc1,
+.body-sc1-ls,
+.body-sc1-rs {
+    display: flex;
+    flex-direction: row;
+}
+
+.sub-sc1-cont {
     color: white;
-    flex-basis: 950px;
+    margin: 0;
+    padding: 0px;
+    justify-content: center;
+    gap: 5px;
+}
+
+.body-sc1 {
+    color: white;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-right: 40px;
     justify-content: center;
     gap: 10px;
+    flex-basis: 600px;
 }
 
-.header-main-ls {
-    flex: 1 1 50%;
+.body-sc1-ls {
+    flex: 1 1 60%;
     flex-flow: row wrap;
     justify-content: flex-end;
     align-items: center;
 }
 
-.header-main-rs {
-    flex: 1 1 50%;
+.body-sc1-rs {
+    flex: 1 1 40%;
     justify-content: flex-start;
     align-items: center;
 }
 
-.header-title {
-    font-size: 48px;
-    font-weight: 900;
-}
-
-.header-text {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.header-text-lg {
+.body-sc1-text-lg {
     font-size: 23px;
     font-weight: 500;
     padding-top: 10px;
@@ -173,7 +175,7 @@ button.signup {
     color: white;
 }
 
-.header-button-ct {
+.sc1-button-ct {
     background-color: darkolivegreen;
     display: flex;
     justify-content: center;
@@ -184,170 +186,71 @@ button.signup {
 
 /* Game body section */
 
-.game-container {
+.game-cont {
     background-color: aliceblue;
     display: flex;
-    flex-basis: 200px;
-   /* min-height: 300px; */
+    flex: 1;
 }
 
-/* Styling body-top section */
-
-.body-top-cont {
+.game-sub-cont {
     display: flex;
-    flex-direction: row;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    flex:1;
 }
 
-.body-top {
-    color: #1F2937;
+/* Styling Screen-4 section: End game */
+
+.body-sc3-cont {
+    background-color: darkolivegreen;
     display: flex;
     flex-direction: column;
-    flex-basis: 950px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.body-top-text{
-    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 36px;
-    font-weight: 900;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    flex: 1;
 }
 
-.body-top-cards {
+.sub-sc3-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-sc3-top {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
-    align-self: center;
-}
-
-.card {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-self: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    flex-basis: 180px;
-    gap: 10px;
-}
-
-.image-holder {
-    display: flex;
-    background: white;
-    border: 5px solid royalblue;
-    color: white;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
-    width: 180px;
-    height: 200px;
+    padding: 25px 25px;
+    flex-basis: 600px;
 }
 
-.text {
-    display: flex;
-    flex-flow: column wrap;
-    text-align: center;
-}
-
-/* Styling body-middle section */
-
-.body-middle-cont {
-    background-color:#E5E7EB;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    flex:1;
-}
-
-.body-middle {
-    color: #1F2937;
-    display: flex;
-    flex-direction: column;
-    flex-basis: 950px;
-}
-
-.body-middle-quote {
-    margin-top: 50px;
-    margin-bottom: 5px;
-    display: flex;
-    font-size: 36px;
-    font-style: italic;
-}
-
-.body-middle-quote-attr {
-    display: flex;
+.body-sc3-ls {
+    flex: 1 1 40%;
+    flex-flow: row wrap;
     justify-content: flex-end;
     align-items: center;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 50px;
 }
 
-.cite-text {
-    color: dimgrey;
-    font-style: italic;
-    font-size: medium;
-    font-weight: 300;
-}
-
-/* Styling body-bottom section */
-.body-bottom-cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.body-sc3-rs {
+    flex: 1 1 60%;
+    justify-content: flex-start;
     align-items: center;
-    margin: 0;
-    padding: 0;
-    flex:1;
 }
 
-.body-bottom {
-    color: #1F2937;
-    display: flex;
-    flex-direction: row;
-    flex-basis: 950px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.body-bottom-box {
-    background: royalblue;
-    border: 5px solid royalblue;
+.body-sc3-text-lg {
     color: white;
-    border-radius: 8px;
+    font-size: 23px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-basis: 300px;
+}
+
+.body-sc3-bottom {
     display: flex;
-    flex-basis: 900px;
-    justify-content: space-around;
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: center;
-    padding: 30px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-button.signup-rev {
-    background: royalblue;
-    border: 3px solid white;
-    color: white;
-}
-
-.body-bottom-title {
-    font-size: 18px;
-    font-weight: 900;
+    padding: 25px 25px;
 }
 
 /* Styling of the footer */
@@ -360,6 +263,34 @@ button.signup-rev {
     margin: 0;
     padding: 15px;
 }
+
+/* -- Styling buttons -- */
+
+button.click-play,
+button.click-play-again,
+button.click-quit {
+    display: inline-block;
+    background: royalblue;
+    border: 3px solid white;
+    color: white;
+    padding: 10px 40px;
+    font-size: medium;
+}
+
+button.click-quit {
+    background: indianred;
+}
+
+button.click-play-again {
+    background-color: steelblue;
+}
+
+.spacer{
+    display: inline-block;
+    min-width: 10px;
+    padding: 20px 20px;
+}
+
 
 /* --       Styling for other properties        -- */
 ul {

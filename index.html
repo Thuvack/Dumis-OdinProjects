@@ -8,6 +8,7 @@
     <title>home</title>
 </head>
 <body>
+    <!-- Header section   -->
     <div class="header">
         <div class="header-cont">
             <div class="header-logo">
@@ -25,53 +26,59 @@
         </div>
     </div>
 
+    <!-- Body section   -->
     <div class="body-container">
 
-    <div class="body-head-cont">
-        <div class="body-head">
-            <div class="header-main-ls">
-                <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
-            </div>
-            <div class="header-main-rs">
-                <div class="header-text-lg">
-                    Hello! I'm RPS.emu a game engine. I know
-                    how to play Rock - Paper - Scissors game.
-                    Come play with me!
+        <!-- Screen 1: Welcome screen   -->
+        <div class="body-sc1-cont">
+            <div class="sub-sc1-cont">
+                <div class="body-sc1">
+                    <div class="body-sc1-ls">
+                        <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
+                    </div>
+                    <div class="body-sc1-rs">
+                        <div class="sc1-text-lg">
+                        Hello! I'm RPS.emu a game engine. I know
+                        how to play Rock - Paper - Scissors game.
+                        Come play with me!
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-        <div class="header-button-ct">
-            <button class="signup-rev">Click here to play</button>
+            <div class="sc1-button-ct">
+                <button class="click-play">Click here to play</button>
+            </div>
         </div>
 
+        <!-- Screen 2: game screen   -->
+        <div class="game-cont">
+            <div class="game-sub-cont">
 
-        <div class="game-container">
-
+            </div>
         </div>
 
-        <div class="body-head-cont">
-            <div class="body-head">
-                <div class="header-main-ls">
+        <!-- Screen 3: End game screen   -->
+        <div class="body-sc3-cont">
+            <div class="sub-sc3-cont">
+            <div class="body-sc3-top">
+                <div class="body-sc3-ls">
                     <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
                 </div>
-                <div class="header-main-rs">
-                    <div class="header-text-lg">
+                <div class="body-sc3-rs">
+                    <div class="body-sc3-text-lg">
                         Thank you for playing with me.
                         I had so much fun
                     </div>
                 </div>
             </div>
+            </div>
+            <div class="body-sc3-bottom">
+                <button class="click-play-again">Click here to play again</button>
+                <div class="spacer"></div>
+                <button class="click-quit">Click here to quit game</button>
+            </div>
         </div>
-
-        <div class="header-button-ct">
-            <button class="signup-rev">Click here to play again</button>
-        </div>
-        <div class="header-button-ct">
-            <button class="signup-rev">Click here to quit game</button>
-        </div>
-
+    </div>
     <!--
     <div class="BodyContainer">
         <div class="Test1">
@@ -84,12 +91,13 @@
     </div>
     -->
 
-</div>
+    <!-- Footer section   -->
+    <div class="footer">
+        Copyright &copy; The Odin Project 2022
+    </div>
 
-<div class="footer">
-    Copyright &copy; The Odin Project 2022
-</div>
-
+    <!-- Scrip section:   -->
     <script src="./scripts/myScript.js"></script>
+
 </body>
 </html>
