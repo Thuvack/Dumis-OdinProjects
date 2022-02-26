@@ -1,7 +1,7 @@
 /* Global declarations */
 
 * {
-    font-family: sans-serif !important;
+    font-family: sans-serif;
 }
 
 html, body {
@@ -173,6 +173,103 @@ body{
     padding-bottom: 30px;
 }
 
+/* Styling screen-1pre section */
+
+.body-sc1pre-cont {
+    display: flex;
+    flex-direction: row;
+    background-color: darkolivegreen;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 60px 20px;
+    pa
+    flex: 1;
+}
+
+.sub-sc1pre-cont {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin: 20px 50px;
+    padding: 20px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.sub-sc1pre-grid {
+    display: grid;
+    color: white;
+    margin: 0;
+    padding: 0px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 20px 50px 20px;
+    justify-content: center;
+    grid-template-areas:
+    "emu topSec"
+    "emu midSec"
+    "emu bottomSec";
+}
+
+.body-sc1pre {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    justify-content: center;
+    gap: 10px;
+    flex-basis: 600px;
+}
+
+.body-sc1pre-ls {
+    diplay: flex;
+    flex-flow: column nowrap;
+    place-self: self-end self-end;
+    grid-area: emu;
+    margin-top: 30px;
+}
+
+.body-sc1pre-rs {
+    flex: 1 1 40%;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sc1pre-text-lg {
+    font-size: 23px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-basis: 300px;
+    place-self: center stretch;
+    grid-area: topSec;
+}
+
+.capturePlayer, gameStart {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-basis: 300px;
+    place-self: center stretch;
+    grid-area: midSec;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameStart {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-basis: 300px;
+    place-self: center stretch;
+    justify-content: center;
+    align-items: center;
+    grid-area: bottomSec;
+    place-self: center center;
+}
+
 /* Game body section */
 
 .gridWrapper-cont {
@@ -215,34 +312,6 @@ body{
     grid-area: gameHeader;
     border-radius: 8px;
     margin: 5px 5px;
-}
-
-.game-sec {
-    background-color: aliceblue;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-}
-
-.game-sec-cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 15px;
-    background-color: lightgreen;
-    flex-basis: 700px;
-}
-
-.game-bottom {
-    display: flex;
-    flex-direction: row;
-    flex-basis: 650px;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 10px;
 }
 
 .player-avatar {
@@ -364,6 +433,7 @@ body{
     display: flex;
     flex-direction: row;
     padding: 5px 15px;
+    justify-content: center;
 }
 
 .game-bottom {
@@ -457,7 +527,8 @@ button.clickPlay,
 button.clickPlayAgain,
 button.clickPlayRound,
 button.clickPlayNextRound,
-button.clickQuit {
+button.clickQuit,
+button.clickGameStart {
     display: inline-block;
     background: royalblue;
     border: 3px solid white;
@@ -474,12 +545,8 @@ button.clickPlayAgain {
     background-color: steelblue;
 }
 
-button.clickPlayRound {
-
-}
-
-button.clickPlayNextRound {
-
+.button.clickGameStart {
+    place-self: center center;
 }
 
 button.clickRock,
@@ -528,4 +595,48 @@ a {
     font-size: 12px;
     text-decoration: none;
     color: gray;
+}
+
+/* Styling for test screen */
+
+.test-sc-cont {
+    background-color: khaki;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.testSub-sc-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.test-sc-top {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 25px;
+    flex-basis: 600px;
+}
+
+.tes1, .test1.h1, .test-text, .test2,
+.test-button, .button.button-play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.test1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.test2 {
+    flex-direction: column;
 }
