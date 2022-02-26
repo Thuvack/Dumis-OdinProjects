@@ -175,6 +175,48 @@ body{
 
 /* Game body section */
 
+.gridWrapper-cont {
+    display: flex;
+    flex-direction: row;
+    background-color: aliceblue;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 25px;
+    flex: 1;
+}
+
+.gridWrapper {
+    background-color: lightgreen;
+    flex-basis: 700px;
+    display: grid;
+    grid-template-columns: 65px 1fr 50px 50px 50px 1fr 65px;
+    grid-template-rows: 70px 50px 150px 20px 70px;
+    grid-template-areas: 
+    "gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader"
+    "PAvatar PName PScore VS CScore CName CAvatar"
+    "playerContent playerContent playerContent playerContent compContent compContent compContent"
+    "playerMsg playerMsg playerMsg playerMsg compMsg compMsg compMsg" 
+    "gameFooter gameFooter gameFooter gameFooter gameFooter gameFooter gameFooter";
+    border: 4px solid black;
+    border-radius: 8px;
+}
+
+.gameTitle {
+    color: brown;
+    background-color: darkgray;
+    font-family:'Lucida Sans';
+    font-size: 23px;
+    font-weight: 1000;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    place-self: center stretch;
+    grid-area: gameHeader;
+    border-radius: 8px;
+    margin: 5px 5px;
+}
+
 .game-sec {
     background-color: aliceblue;
     display: flex;
@@ -194,9 +236,6 @@ body{
     flex-basis: 700px;
 }
 
-.game-top,
-.game-mid,
-.game-mid-strip,
 .game-bottom {
     display: flex;
     flex-direction: row;
@@ -206,32 +245,33 @@ body{
     padding: 5px 10px;
 }
 
-.game-top {
-    padding: 25px 10px 5px 10px;
-}
-
-.game-mid {
-    padding: 35px 10px 5px 10px;
-}
-
-.game-bottom {
-    padding: 5px 10px 25px 10px;
-}
-
 .player-avatar {
     border: 2px solid midnightblue;
     display: flex;
     flex: 1 0 50px;
     min-height: 50px;
+    margin-left: 10px;
+    margin-right: 2px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+    grid-area: PAvatar;
 }
 
 .player-name {
     border: 1px solid midnightblue;
     display: flex;
     flex: 2 1 150px;
+    grid-area: PName;
+    place-self: center stretch;
+}
+
+.player-score {
+    display: flex;
+    font-size: 40px;
+    font-weight: 600;
+    grid-area: PScore;
+    place-self: center center;
 }
 
 .versus {
@@ -243,6 +283,15 @@ body{
     font-size: 20px;
     padding: 5px;
     border-radius: 8px;
+    grid-area: VS;
+}
+
+.comp-score {
+    display: flex;
+    font-size: 40px;
+    font-weight: 600;
+    grid-area: CScore;
+    place-self: center center;
 }
 
 .comp-name {
@@ -250,6 +299,8 @@ body{
     display: flex;
     flex: 2 1 150px;
     justify-content: flex-end;
+    grid-area: CName;
+    place-self: center stretch;
 }
 
 .comp-avatar {
@@ -257,15 +308,12 @@ body{
     display: flex;
     flex: 1 0 50px;
     min-height: 50px;
+    margin-right: 10px;
+    margin-left: 2px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-}
-
-.game-bottom-cont{
-    display: flex;
-    flex-direction: row;
-    padding: 5px 15px;
+    grid-area: CAvatar;
 }
 
 .player-choice,
@@ -278,6 +326,16 @@ body{
     gap: 10px;
 }
 
+.player-choice {
+    grid-area: playerContent;
+    place-self: center stretch;
+}
+
+.comp-choice {
+    grid-area: compContent;
+    place-self: center stretch;
+}
+
 .player-choice-message {
     color: midnightblue;
     display: flex;
@@ -285,6 +343,9 @@ body{
     flex: 1 1 60%;
     justify-content: center;
     align-items: center;
+    grid-area: playerMsg;
+    place-self: center stretch;
+    margin-bottom: 15px;
 }
 
 .comp-choice-message {
@@ -294,6 +355,21 @@ body{
     flex: 1 1 40%;
     justify-content: center;
     align-items: center;
+    grid-area: compMsg;
+    place-self: center stretch;
+    margin-bottom: 15px;
+}
+
+.game-bottom-cont{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 15px;
+}
+
+.game-bottom {
+    padding: 5px 10px;
+    grid-area: gameFooter;
+    place-self: center stretch;
 }
 
 /* Styling Screen-4 section: End game */
