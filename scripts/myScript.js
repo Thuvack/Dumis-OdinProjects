@@ -144,3 +144,20 @@ function game(){
 
     return finalScore;
 }
+
+// Map out hide screen event listiners
+
+function hideScreen1() {
+
+    const scn1 = document.querySelector(".body-sc1-cont");
+
+    console.log(scn1);
+
+    if(scn1.style.display === 'none'){
+        //do nothing
+    } else {
+        scn1.style.display = 'none';
+    }
+
+}
+

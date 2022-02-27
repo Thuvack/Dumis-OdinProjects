@@ -183,7 +183,6 @@ body{
     align-items: center;
     margin: 0;
     padding: 60px 20px;
-    pa
     flex: 1;
 }
 
@@ -223,7 +222,7 @@ body{
 }
 
 .body-sc1pre-ls {
-    diplay: flex;
+    display: flex;
     flex-flow: column nowrap;
     place-self: self-end self-end;
     grid-area: emu;
@@ -515,12 +514,8 @@ body{
 button {
     padding: 10px 30px;
     border-radius: 8px;
-}
-
-button.signup {
-    background: royalblue;
-    border: 1px solid royalblue;
-    color: white;
+    cursor: pointer;
+    border: 2px solid white;
 }
 
 button.clickPlay,
@@ -528,10 +523,10 @@ button.clickPlayAgain,
 button.clickPlayRound,
 button.clickPlayNextRound,
 button.clickQuit,
-button.clickGameStart {
+button.clickGameStart,
+button.button-play {
     display: inline-block;
     background: royalblue;
-    border: 3px solid white;
     color: white;
     padding: 10px 40px;
     font-size: medium;
@@ -554,7 +549,6 @@ button.clickPaper,
 button.clickScissors {
     display: inline-block;
     background: royalblue;
-    border: 3px solid white;
     color: white;
     padding: 10px 30px;
     font-size: medium;
