@@ -50,7 +50,7 @@ body{
     color: yellow;
 }
 
-.red-text {
+.red-text, .player-choice-text {
     font-family: Helvetica !important;
     font-size: 20px;
     color: red;
@@ -69,6 +69,14 @@ body{
     font-size: 20px;
     color: green;
     font-weight: 800;
+}
+
+.pl-msg-prompt, .pl-msg-choice,
+.cp-msg-prompt, .cp-msg-choice,
+.roundResult,.player-choice-text {
+    justify-self: center;
+    align-self: center;
+    font-size: medium;
 }
 
 /* Style hover effects on links */
@@ -424,25 +432,31 @@ body{
     flex-direction: row;
     padding: 5px 15px;
     justify-content: center;
+    align-items: center;
 }
 
 .game-bottom1 {
     padding: 5px 10px;
     grid-area: playerMsg;
     place-self: center stretch;
+    justify-content: center;
+    align-items: center;
 }
 
-.game-bottom1-cont{
+.game-bottom2-cont{
     display: flex;
     flex-direction: row;
     padding: 5px 15px;
     justify-content: center;
+    align-items: center;
 }
 
 .game-bottom2 {
     padding: 5px 10px;
     grid-area: playerMsg;
     place-self: center stretch;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Styling Screen-4 section: End game */

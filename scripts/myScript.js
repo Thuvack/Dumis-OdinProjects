@@ -1,5 +1,9 @@
 // Functions for implementing Rock, Paper, Scissors game.
 
+// Declare global variable
+let playerSelection
+let playerStatus
+
 // Clean string function
 function capitalise(str){
     let part1
@@ -94,17 +98,39 @@ function playRound(playerSelection, computerSelection) {
 // Game function
 function game(){
     // Prep for the playRound Function
-    let playerSelection
-    let computerSelection
+    let computerSelection = 0
     let playerScore = 0
     let computerScore = 0
     let gameResult
     let finalScore
 
     for (let i = 0; i < 5; i++) {
+
+        let playerSel = 0;
+
         //Get user input
-        let myString = prompt("Enter a word");
-        playerSelection = capitalise(myString)
+       
+        /*
+        while (playerStatus === "Play") {
+            //Delay unti player has played
+            hideScreen(document.getElementsByClassName('comp-choice')[0]);
+            hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+            hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+            hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
+            hideScreen(document.getElementsByClassName('roundResult')[0]);
+
+            unHideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+
+            setInterval(playerStatus = "Played", 10000);
+        }
+        */
+
+        console.log(playerSel);
+        console.log(playerStatus);
+
+        playerSel = playerSelection;
+
+        playerStatus = "Played";
 
         //get computer to play
         computerSelection = computerPlay()
@@ -186,3 +212,87 @@ function startGame() {
     hideScreen(document.getElementsByClassName('game-bottom1')[0]);
     hideScreen(document.getElementsByClassName('game-bottom2')[0]);
 }
+
+function getPlayerChoice(plChoice) {
+
+    let pChoice = 0
+
+    console.log(plChoice)
+
+    if (plChoice === document.getElementsByClassName('clickRock')[0]) {
+        
+        //Hide the other buttons
+        hideScreen(document.getElementsByClassName('clickPaper')[0]);
+        hideScreen(document.getElementsByClassName('clickScissors')[0]);
+        hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+
+        //Set player choice and confirm player choice
+
+        pChoice = "Rock";
+        console.log(pChoice);
+
+        document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
+
+    } else if (plChoice === document.getElementsByClassName('clickPaper')[0]) {
+        
+        //Hide the other buttons
+        hideScreen(document.getElementsByClassName('clickRock')[0]);
+        hideScreen(document.getElementsByClassName('clickScissors')[0]);
+        hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+
+        //Set player choice and confirm player choice
+
+        pChoice = "Paper";
+        console.log(pChoice);
+
+        document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
+
+    } else if (plChoice === document.getElementsByClassName('clickScissors')[0]) {
+        
+        //Hide the other buttons
+        hideScreen(document.getElementsByClassName('clickRock')[0]);
+        hideScreen(document.getElementsByClassName('clickPaper')[0]);
+        hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+
+        //Set player choice and confirm player choice
+
+        pChoice = "Scissors";
+        console.log(pChoice);
+
+        document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
+        
+        
+    } else {
+        // Something went wrong 
+    }
+
+
+        setTimeout(function() {
+            //your code to be executed after 5 second
+            unHideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+            hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+        
+            setTimeout(function() {
+                //your code to be executed after 5 second
+                unHideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+                hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+            
+                setTimeout(function() {
+                    //your code to be executed after 5 second
+                    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+                    unHideScreen(document.getElementsByClassName('game-bottom1')[0]);
+                }, 1000);
+            }, 1000);
+    
+        }, 500);
+
+        
+    playerSelection = pChoice;
+
+    playerStatus = "Play";
+
+    console.log(playerStatus);
+
+    return;
+}
+

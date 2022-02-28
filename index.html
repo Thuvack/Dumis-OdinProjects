@@ -111,13 +111,13 @@
                     <img src="./images/32px-Atomic_-_The_Noun_Project.svg.png" alt="User icon">
                 </div>
                 <div class="player-choice">
-                    <button class="clickRock">
+                    <button class="clickRock" onclick="getPlayerChoice(document.getElementsByClassName('clickRock')[0])">
                         <img src="./images/I_Rock01.png" alt="rock icon">
                     </button>
-                    <button class="clickPaper">
+                    <button class="clickPaper" onclick="getPlayerChoice(document.getElementsByClassName('clickPaper')[0])">
                         <img src="./images/Aufsatz.png" alt="paper icon">
                     </button>
-                    <button class="clickScissors">
+                    <button class="clickScissors" onclick="getPlayerChoice(document.getElementsByClassName('clickScissors')[0])">
                         <img src="./images/Rating-Christgau-choice-cut.png" alt="scissors icon">
                     </button>
                 </div>
@@ -132,11 +132,11 @@
                     <div class="pl-msg-prompt">
                         Click one of the above button to play a turn.
                     </div>
-                    <div class="cp-msg-prompt">
-                        Click "play round" for computer to start play.
-                    </div>
                     <div class="pl-msg-choice">
                         You chose &nbsp; <span class="player-choice-text">Rock</span>.
+                    </div>
+                    <div class="cp-msg-prompt">
+                        Click "play round" for computer to start play.
                     </div>
                     <div class="cp-msg-choice">
                         Computer chose &nbsp; <span class="computer-choice-text">Rock</span>.
