@@ -69,7 +69,7 @@
                         <input type="text" name="playerName " size="20" id="playerName">
                 </div>
                 <div class="gameStart">
-                    <button class="clickGameStart" onclick="startGame()">
+                    <button class="clickGameStart" onclick="startGame(), resetRound()">
                         Start game
                     </button>
                 </div>
@@ -122,9 +122,9 @@
                     </button>
                 </div>
                 <div class="comp-choice">
-                    <div class="comp-choice-box">
+                    <button class="comp-choice-play" onclick="getCompChoice()">
                         <img src="./images/64px-Question_mark2.svg.png" alt="question mark icon">
-                    </div>
+                    </button>
                 </div>
 
                 <!-- Game message prompt section -->
@@ -136,28 +136,34 @@
                         You chose &nbsp; <span class="player-choice-text">Rock</span>.
                     </div>
                     <div class="cp-msg-prompt">
-                        Click "play round" for computer to start play.
+                        Click the Big "?" button for computer to start play.
                     </div>
                     <div class="cp-msg-choice">
                         Computer chose &nbsp; <span class="computer-choice-text">Rock</span>.
                     </div>
                     <div class="roundResult">
-                        You win, Rock beats scissors!
+                        Show result
                     </div>
                 </div>
 
                 <!-- Game control section -->
-                <div class="game-bottom1">
-                    <div class="game-bottom1-cont">
-                        <button class="clickPlayRound">Play round</button>
-                    </div>
+                
+                    <div class="game-bottom1">
+                            <div class="game-bottom1-cont">
+                                <button class="clickPlayRound" onclick=" playGame()">
+                                    Play round
+                                </button>
+                            </div>
+                        </div>
+                        <div class="game-bottom2">
+                            <div class="game-bottom2-cont">
+                                <button class="confirmEndGame" onclick=" endGame()">
+                                    Accept result
+                                </button>
+                            </div>
+                        </div>
+                    
                 </div>
-                <div class="game-bottom2">
-                    <div class="game-bottom2-cont">
-                        <button class="clickPlayNextRound">Play next round</button>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Screen 3: End game screen   -->
@@ -176,34 +182,15 @@
                 </div>
             </div>
             <div class="body-sc3-bottom">
-                <button class="clickPlayAgain">Click here to play again</button>
+                <button class="clickPlayAgain" onclick="startGame(), resetRound()">
+                    Click here to play again
+                </button>
                 <div class="spacer"></div>
-                <button class="clickQuit">Click here to quit game</button>
+                <button class="clickQuit" onclick="goToWelcomeScr()">
+                    Click here to quit game
+                </button>
             </div>
         </div>
-
-    <!-- Functionality Test screen -->
-        <div class="test-sc-cont">
-            <div class="testSub-sc-cont">
-                <div class="test-sc-top">
-                    <div class="test1">
-                        Rock, Paper, Scissors game!
-                    </div>
-                    <div class="test1">
-                       Let's Play!
-                    </div>
-                    <div class="test2">
-                        <div class="test-text">
-                            <p>Test playRound function</p>
-                        </div>
-                        <div class="test-button">
-                            <button class="button-play" onclick="game()">play game</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer section   -->
     <div class="footer">

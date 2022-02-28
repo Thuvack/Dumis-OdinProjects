@@ -1,8 +1,13 @@
 // Functions for implementing Rock, Paper, Scissors game.
 
 // Declare global variable
-let playerSelection
-let playerStatus
+let playerSelection;
+let computerSelection;
+let playerStatus;
+let playerScore = 0;
+let computerScore = 0;
+
+let counter;
 
 // Clean string function
 function capitalise(str){
@@ -54,122 +59,72 @@ function computerPlay() {
     }
 
     console.log("Computer chose : "+ compDecision)
+
+    computerSelection = compDecision;
+
     return compDecision;
 }
 
 
 // Function for deciding between playerSelection, computerSelection to determine winner of round.
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSel, computerSel) {
 
     let roundWinner
 
     // Select round decision based on game rules
-    if ( playerSelection === "Paper" && computerSelection === "Rock" ) {
+    if ( playerSel === "Paper" && computerSel === "Rock" ) {
         roundWinner = "You Win! Paper beats Rock"
     }
-    else if ( playerSelection === "Rock" && computerSelection === "Paper" ) {
+    else if ( playerSel === "Rock" && computerSel === "Paper" ) {
         roundWinner = "You Lose! Paper beats Rock"
     }
-    else if ( playerSelection === "Paper" && computerSelection === "Scissors" ) {
+    else if ( playerSel === "Paper" && computerSel === "Scissors" ) {
         roundWinner = "You Lose! Scissors beats Paper"
     }
-    else if ( playerSelection === "Scissors" && computerSelection === "Paper" ) {
+    else if ( playerSel === "Scissors" && computerSel === "Paper" ) {
         roundWinner = "You Win! Scissors beats Paper"
     }
-    else if ( playerSelection === "Scissors" && computerSelection === "Rock" ) {
+    else if ( playerSel === "Scissors" && computerSel === "Rock" ) {
         roundWinner = "You Lose! Rock beats Scissors"
     }
-    else if ( playerSelection === "Rock" && computerSelection === "Scissors" ) {
+    else if ( playerSel === "Rock" && computerSel === "Scissors" ) {
         roundWinner = "You Win! Rock beats Scissors"
     }
-    else if ( playerSelection === "Rock" && computerSelection === "Rock" ) {
+    else if ( playerSel === "Rock" && computerSel === "Rock" ) {
         roundWinner = "It's a Draw! Rock equals Rock"
     }
-    else if ( playerSelection === "Paper" && computerSelection === "Paper" ) {
+    else if ( playerSel === "Paper" && computerSel === "Paper" ) {
         roundWinner = "It's a Draw! Paper equals Paper"
     }
-    else if ( playerSelection === "Scissors" && computerSelection === "Scissors" ) {
+    else if ( playerSel === "Scissors" && computerSel === "Scissors" ) {
         roundWinner = "It's a Draw! Scissors equals Scissors"
     }
     return roundWinner;
 }
 
+function updateScore(gameResult) {
 
-// Game function
-function game(){
-    // Prep for the playRound Function
-    let computerSelection = 0
-    let playerScore = 0
-    let computerScore = 0
-    let gameResult
-    let finalScore
-
-    for (let i = 0; i < 5; i++) {
-
-        let playerSel = 0;
-
-        //Get user input
-       
-        /*
-        while (playerStatus === "Play") {
-            //Delay unti player has played
-            hideScreen(document.getElementsByClassName('comp-choice')[0]);
-            hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-            hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-            hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
-            hideScreen(document.getElementsByClassName('roundResult')[0]);
-
-            unHideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-
-            setInterval(playerStatus = "Played", 10000);
-        }
-        */
-
-        console.log(playerSel);
-        console.log(playerStatus);
-
-        playerSel = playerSelection;
-
-        playerStatus = "Played";
-
-        //get computer to play
-        computerSelection = computerPlay()
-
-        //Play round of ROck, Paper, Scissors
-        gameResult = playRound(playerSelection, computerSelection)
-
-        //Increment scores
-        if (gameResult.search("Win") >= 1) {
-            //Win was found in result string Increment player's score
-            playerScore++
-            console.log(gameResult)
-            console.log("Player score is: "+playerScore + " and Computer score is: "+computerScore)
-        }
-        else if (gameResult.search("Lose") >= 1) {
-            //Lose was found in result string Increment computer's score
-            computerScore++
-            console.log(gameResult)
-            console.log("Player score is: "+playerScore + " and Computer score is: "+computerScore)
-        }
-        else if (gameResult.search("Draw") >= 1) {
-            computerScore++
-            playerScore++
-
-            console.log(gameResult)
-            console.log("Player score is: "+playerScore + " and Computer score is: "+computerScore)
-        }
-        else {
-            //Something wrong happened
-            alert("Something bad happened")
-            console.log("Something bad happened")
-        }
+    //Increment scores
+    if (gameResult.search("Win") >= 1) {
+        //Win was found in result string Increment player's score
+        playerScore++
+    }
+    else if (gameResult.search("Lose") >= 1) {
+        //Lose was found in result string Increment computer's score
+        computerScore++
+    }
+    else if (gameResult.search("Draw") >= 1) {
+        computerScore++
+        playerScore++
+    }
+    else {
+        //Something wrong happened
     }
 
-    finalScore = "FINAL SCORE: Player: "+playerScore + " and Computer: "+computerScore
-    console.log("FINAL SCORE: Player: "+playerScore + " and Computer: "+computerScore)
+    currentScore = "SCORE: Player: "+playerScore + " and Computer: "+computerScore
 
-    return finalScore;
 }
+
 
 // Map out hide/unhide screen event listiners
 
@@ -199,25 +154,9 @@ function setPlayerName(pName) {
 
 // Game engine control functions on button click
 
-function startGame() {
-    // Set up initital game screen & start game
-    setPlayerName(document.getElementById('playerName').value);
-    unHideScreen(document.getElementsByClassName('gridWrapper-cont')[0]);
-    hideScreen(document.getElementsByClassName('body-sc1pre-cont')[0]);
-    hideScreen(document.getElementsByClassName('comp-choice')[0]);
-    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-    hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
-    hideScreen(document.getElementsByClassName('roundResult')[0]);
-    hideScreen(document.getElementsByClassName('game-bottom1')[0]);
-    hideScreen(document.getElementsByClassName('game-bottom2')[0]);
-}
-
 function getPlayerChoice(plChoice) {
 
     let pChoice = 0
-
-    console.log(plChoice)
 
     if (plChoice === document.getElementsByClassName('clickRock')[0]) {
         
@@ -229,7 +168,6 @@ function getPlayerChoice(plChoice) {
         //Set player choice and confirm player choice
 
         pChoice = "Rock";
-        console.log(pChoice);
 
         document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
 
@@ -243,7 +181,6 @@ function getPlayerChoice(plChoice) {
         //Set player choice and confirm player choice
 
         pChoice = "Paper";
-        console.log(pChoice);
 
         document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
 
@@ -257,7 +194,6 @@ function getPlayerChoice(plChoice) {
         //Set player choice and confirm player choice
 
         pChoice = "Scissors";
-        console.log(pChoice);
 
         document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
         
@@ -266,6 +202,9 @@ function getPlayerChoice(plChoice) {
         // Something went wrong 
     }
 
+    hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+    
+    // Time delay and advertise player selection
 
         setTimeout(function() {
             //your code to be executed after 5 second
@@ -274,13 +213,15 @@ function getPlayerChoice(plChoice) {
         
             setTimeout(function() {
                 //your code to be executed after 5 second
-                unHideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+                hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
                 hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
             
                 setTimeout(function() {
                     //your code to be executed after 5 second
-                    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-                    unHideScreen(document.getElementsByClassName('game-bottom1')[0]);
+                    unHideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+                    unHideScreen(document.getElementsByClassName('comp-choice')[0]);
+                    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+
                 }, 1000);
             }, 1000);
     
@@ -289,10 +230,179 @@ function getPlayerChoice(plChoice) {
         
     playerSelection = pChoice;
 
-    playerStatus = "Play";
+    console.log(playerStatus);
+
+    return;
+}
+
+
+function getCompChoice() {
+    let compChoice
+
+    compChoice = computerPlay();
+
+    // Time delay and advertise player selection
+
+        setTimeout(function() {
+            //your code to be executed after 5 second
+
+                unHideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+                hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+                
+            
+                setTimeout(function() {
+                    //your code to be executed after 5 second
+                    unHideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
+                    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+                    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+                
+                }, 2000);
+    
+        }, 1000);
+
+        
+    playerSelection = pChoice;
 
     console.log(playerStatus);
 
     return;
 }
 
+
+function resetRound () {
+    // Reset message prompt for user to make new selection
+    unHideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+    hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
+    hideScreen(document.getElementsByClassName('roundResult')[0]);
+    hideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
+
+    //Unhide user choices and default computer choice
+    unHideScreen(document.getElementsByClassName('comp-choice')[0]);
+    unHideScreen(document.getElementsByClassName('clickRock')[0]);
+    unHideScreen(document.getElementsByClassName('clickPaper')[0]);
+    unHideScreen(document.getElementsByClassName('clickScissors')[0]);
+}
+
+
+// WORK ON THIS GAME LOGIC
+// Game function
+
+function startGame() {
+    // Set up initital game screen & start game
+    setPlayerName(document.getElementById('playerName').value);
+    unHideScreen(document.getElementsByClassName('gridWrapper-cont')[0]);
+    hideScreen(document.getElementsByClassName('body-sc1pre-cont')[0]);
+    hideScreen(document.getElementsByClassName('comp-choice')[0]);
+    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+    hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
+    hideScreen(document.getElementsByClassName('roundResult')[0]);
+    hideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
+    hideScreen(document.getElementsByClassName('game-bottom2-cont')[0]);
+    hideScreen(document.getElementsByClassName('game-bottom2')[0]);
+
+
+    counter = 0;
+}
+
+function playGame(){
+    // Prep for the playRound Function
+    let roundRes;
+    let roundScr;
+    let finalResult;
+
+    roundRes = playRound(playerSelection, computerSelection);
+    console.log(roundRes)
+
+    roundScr = updateScore(roundRes);
+    console.log(roundScr)
+
+    if (counter < 5) {
+
+        // Show final score
+
+        document.getElementsByClassName('roundResult')[0].innerHTML = roundRes;
+
+        // Delay for 4sec
+        setTimeout(function() {
+            unHideScreen(document.getElementsByClassName('roundResult')[0]);
+            hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+            
+            setTimeout(function() {
+                hideScreen(document.getElementsByClassName('roundResult')[0]);
+
+                setTimeout(function() {
+                    unHideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+                    hideScreen(document.getElementsByClassName('roundResult')[0]);
+    
+                }, 500);
+            }, 2000);
+    
+        }, 500);
+
+        counter++;
+        console.log(counter);
+        resetRound();
+
+    } else {
+        // Decide the final result
+
+        if (playerScore > computerScore) {
+            finalResult = "You win!"
+        } else if (playerScore < computerScore) {
+            finalResult = "You Lose!"
+        }
+
+        // Show final score
+
+        document.getElementsByClassName('roundResult')[0].innerHTML = finalResult;
+
+        // Delay for 3sec
+        setTimeout(function() {
+            //your code to be executed after 5 second
+            unHideScreen(document.getElementsByClassName('roundResult')[0]);
+            hideScreen(document.getElementsByClassName('game-bottom1')[0]);
+            hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+
+            setTimeout(function() {
+                unHideScreen(document.getElementsByClassName('roundResult')[0]);
+                hideScreen(document.getElementsByClassName('game-bottom1')[0]);
+                hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+
+                setTimeout(function() {
+                    unHideScreen(document.getElementsByClassName('roundResult')[0]);
+                    hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
+                    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+
+                }, 2000);
+            }, 2000);
+    
+        }, 1000);
+        
+        console.log(finalResult);
+        
+        console.log(counter);
+        unHideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
+        unHideScreen(document.getElementsByClassName('game-bottom1')[0]);
+        unHideScreen(document.getElementsByClassName('game-bottom2-cont')[0]);
+        unHideScreen(document.getElementsByClassName('game-bottom2')[0]);
+        unHideScreen(document.getElementsByClassName('roundResult')[0]);
+    }
+
+    return counter;
+
+}
+
+function endGame () {
+    
+    // Move to last screen
+    hideScreen(document.getElementsByClassName('gridWrapper-cont')[0]);
+    unHideScreen(document.getElementsByClassName('body-sc3-cont')[0]);
+}
+
+function goToWelcomeScr () {
+    hideScreen(document.getElementsByClassName('body-sc3-cont')[0]);
+    unHideScreen(document.getElementsByClassName('body-sc1-cont')[0]);
+}
