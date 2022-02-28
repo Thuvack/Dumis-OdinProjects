@@ -145,19 +145,44 @@ function game(){
     return finalScore;
 }
 
-// Map out hide screen event listiners
+// Map out hide/unhide screen event listiners
 
-function hideScreen1() {
+function hideScreen(scn) {
 
-    const scn1 = document.querySelector(".body-sc1-cont");
-
-    console.log(scn1);
-
-    if(scn1.style.display === 'none'){
+    if(scn.style.display === 'none'){
         //do nothing
     } else {
-        scn1.style.display = 'none';
+        scn.style.display = 'none';
     }
-
 }
 
+function unHideScreen(scn1) {
+
+    if(scn1.style.display === 'flex'){
+       //do nothing
+    } else {
+        scn1.style.display = 'flex';
+    }
+}
+
+// Test setting palyer name in score screen
+
+function setPlayerName(pName) {
+    document.getElementsByClassName('player-name')[0].innerHTML = "&nbsp;" + pName;
+}
+
+// Game engine control functions on button click
+
+function startGame() {
+    // Set up initital game screen & start game
+    setPlayerName(document.getElementById('playerName').value);
+    unHideScreen(document.getElementsByClassName('gridWrapper-cont')[0]);
+    hideScreen(document.getElementsByClassName('body-sc1pre-cont')[0]);
+    hideScreen(document.getElementsByClassName('comp-choice')[0]);
+    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
+    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
+    hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
+    hideScreen(document.getElementsByClassName('roundResult')[0]);
+    hideScreen(document.getElementsByClassName('game-bottom1')[0]);
+    hideScreen(document.getElementsByClassName('game-bottom2')[0]);
+}

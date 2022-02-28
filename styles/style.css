@@ -176,7 +176,7 @@ body{
 /* Styling screen-1pre section */
 
 .body-sc1pre-cont {
-    display: flex;
+    display: none;
     flex-direction: row;
     background-color: darkolivegreen;
     justify-content: space-around;
@@ -272,7 +272,7 @@ body{
 /* Game body section */
 
 .gridWrapper-cont {
-    display: flex;
+    display: none;
     flex-direction: row;
     background-color: aliceblue;
     justify-content: center;
@@ -287,13 +287,12 @@ body{
     flex-basis: 700px;
     display: grid;
     grid-template-columns: 65px 1fr 50px 50px 50px 1fr 65px;
-    grid-template-rows: 70px 50px 150px 20px 70px;
+    grid-template-rows: 70px 50px 150px 70px;
     grid-template-areas: 
     "gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader"
     "PAvatar PName PScore VS CScore CName CAvatar"
     "playerContent playerContent playerContent playerContent compContent compContent compContent"
-    "playerMsg playerMsg playerMsg playerMsg compMsg compMsg compMsg" 
-    "gameFooter gameFooter gameFooter gameFooter gameFooter gameFooter gameFooter";
+    "playerMsg playerMsg playerMsg playerMsg playerMsg playerMsg playerMsg";
     border: 4px solid black;
     border-radius: 8px;
 }
@@ -404,7 +403,7 @@ body{
     place-self: center stretch;
 }
 
-.player-choice-message {
+.player-prompt-message {
     color: midnightblue;
     display: flex;
     flex-direction: row;
@@ -416,28 +415,33 @@ body{
     margin-bottom: 15px;
 }
 
-.comp-choice-message {
-    color: midnightblue;
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 40%;
-    justify-content: center;
-    align-items: center;
-    grid-area: compMsg;
-    place-self: center stretch;
-    margin-bottom: 15px;
+.pl-msg-prompt {
+    color: darkred;
 }
 
-.game-bottom-cont{
+.game-bottom1-cont{
     display: flex;
     flex-direction: row;
     padding: 5px 15px;
     justify-content: center;
 }
 
-.game-bottom {
+.game-bottom1 {
     padding: 5px 10px;
-    grid-area: gameFooter;
+    grid-area: playerMsg;
+    place-self: center stretch;
+}
+
+.game-bottom1-cont{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 15px;
+    justify-content: center;
+}
+
+.game-bottom2 {
+    padding: 5px 10px;
+    grid-area: playerMsg;
     place-self: center stretch;
 }
 
@@ -634,3 +638,4 @@ a {
 .test2 {
     flex-direction: column;
 }
+

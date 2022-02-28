@@ -46,7 +46,11 @@
                 </div>
             </div>
             <div class="sc1-button-ct">
-                <button class="clickPlay" onclick="hideScreen1()">Click here to play</button>
+                <button class="clickPlay" onclick="
+                    hideScreen(document.getElementsByClassName('body-sc1-cont')[0]),
+                    unHideScreen(document.getElementsByClassName('body-sc1pre-cont')[0])">
+                            Click here to play
+                </button>
             </div>
         </div>
 
@@ -61,13 +65,13 @@
                     Who will I be playing against?
                 </div>
                 <div class="capturePlayer">
-                    <form>
                         player Name:
-                        <input type="text" name="Name" size="20">
-                    </form>
+                        <input type="text" name="playerName " size="20" id="playerName">
                 </div>
                 <div class="gameStart">
-                    <button class="clickGameStart">Start game</button>
+                    <button class="clickGameStart" onclick="startGame()">
+                        Start game
+                    </button>
                 </div>
             </div>
             </div>
@@ -99,7 +103,7 @@
                     0
                 </div>
                 <div class="comp-name">
-                    C Name &nbsp;
+                    Computer &nbsp;
                 </div>
 
                 <!-- Game content section -->
@@ -124,24 +128,32 @@
                 </div>
 
                 <!-- Game message prompt section -->
-                <div class="player-choice-message">
+                <div class="player-prompt-message">
                     <div class="pl-msg-prompt">
-                        Click one of the above button
+                        Click one of the above button to play a turn.
+                    </div>
+                    <div class="cp-msg-prompt">
+                        Click "play round" for computer to start play.
                     </div>
                     <div class="pl-msg-choice">
-                        You chose &nbsp; <span class="player-choice-text">Rock</span>
+                        You chose &nbsp; <span class="player-choice-text">Rock</span>.
                     </div>
-                </div>
-                <div class="comp-choice-message">
                     <div class="cp-msg-choice">
-                        Computer chose &nbsp; <span class="computer-choice-text">Rock</span>
+                        Computer chose &nbsp; <span class="computer-choice-text">Rock</span>.
+                    </div>
+                    <div class="roundResult">
+                        You win, Rock beats scissors!
                     </div>
                 </div>
 
                 <!-- Game control section -->
-                <div class="game-bottom">
-                    <div class="game-bottom-cont">
+                <div class="game-bottom1">
+                    <div class="game-bottom1-cont">
                         <button class="clickPlayRound">Play round</button>
+                    </div>
+                </div>
+                <div class="game-bottom2">
+                    <div class="game-bottom2-cont">
                         <button class="clickPlayNextRound">Play next round</button>
                     </div>
                 </div>
