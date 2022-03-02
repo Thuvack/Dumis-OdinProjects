@@ -1,30 +1,45 @@
 // Functions for implementing Rock, Paper, Scissors game.
 
+
 // Declare global variable
 let playerSelection;
 let computerSelection;
 let playerStatus;
-let playerScore = 0;
-let computerScore = 0;
+let playerScore;
+let computerScore;
 
-let counter;
+let roundCounter;
 
-// Clean string function
-function capitalise(str){
-    let part1
-    let part2
-    let cleanString
+// Declare playerName pointer
+let playerName = document.getElementsByClassName('player-name')[0];
+let playerNameInput = document.getElementById('playerName');
+let gamePlayerScore = document.getElementsByClassName('player-score')[0];
+let gameCompScore = document.getElementsByClassName('comp-score')[0];
 
-    str = str.trim()
+// Declare game control buttons
+let initGameBtn = document.getElementsByClassName('clickPlay')[0];
+let startGametBtn = document.getElementsByClassName('clickGameStart')[0];
 
-    part1 = str.substring(0,1)
-    part1 = part1.toUpperCase()
-    part2 = str.substring(1,str.length)
-    part2 = part2.toLowerCase()
-    cleanString = part1 + part2
+let playRoundBtn = document.getElementsByClassName('clickPlayRound')[0];
+let playNexRoundtBtn = document.getElementsByClassName('clickPlayNextRound')[0];
+let closeRoundBtn = document.getElementsByClassName('confirmEndGame')[0];
 
-    return cleanString;
-}
+let playAgainBtn = document.getElementsByClassName('clickPlayAgain')[0];
+let quitGameBtn = document.getElementsByClassName('clickQuit')[0];
+
+// Declare game choice buttons
+let rockBtn = document.getElementsByClassName('clickRock')[0];
+let paperBtn = document.getElementsByClassName('clickPaper')[0];
+let scissorsBtn = document.getElementsByClassName('clickScissors')[0];
+let emuBtn = document.getElementsByClassName('comp-choice-play')[0];
+
+// Declare screens
+let gameScreenStart = document.getElementsByClassName('body-sc1-cont')[0];
+let gameScreenWelcome = document.getElementsByClassName('body-sc1pre-cont')[0];
+let gameScreenPlay = document.getElementsByClassName('gridWrapper-cont')[0];
+let gameScreenEnd = document.getElementsByClassName('body-sc3-cont')[0];
+
+let gameBillBoard = document.getElementsByClassName('billBoard')[0];
 
 
 // Function for computer to randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
@@ -123,116 +138,7 @@ function updateScore(gameResult) {
 
     currentScore = "SCORE: Player: "+playerScore + " and Computer: "+computerScore
 
-}
-
-
-// Map out hide/unhide screen event listiners
-
-function hideScreen(scn) {
-
-    if(scn.style.display === 'none'){
-        //do nothing
-    } else {
-        scn.style.display = 'none';
-    }
-}
-
-function unHideScreen(scn1) {
-
-    if(scn1.style.display === 'flex'){
-       //do nothing
-    } else {
-        scn1.style.display = 'flex';
-    }
-}
-
-// Test setting palyer name in score screen
-
-function setPlayerName(pName) {
-    document.getElementsByClassName('player-name')[0].innerHTML = "&nbsp;" + pName;
-}
-
-// Game engine control functions on button click
-
-function getPlayerChoice(plChoice) {
-
-    let pChoice = 0
-
-    if (plChoice === document.getElementsByClassName('clickRock')[0]) {
-        
-        //Hide the other buttons
-        hideScreen(document.getElementsByClassName('clickPaper')[0]);
-        hideScreen(document.getElementsByClassName('clickScissors')[0]);
-        hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-
-        //Set player choice and confirm player choice
-
-        pChoice = "Rock";
-
-        document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
-
-    } else if (plChoice === document.getElementsByClassName('clickPaper')[0]) {
-        
-        //Hide the other buttons
-        hideScreen(document.getElementsByClassName('clickRock')[0]);
-        hideScreen(document.getElementsByClassName('clickScissors')[0]);
-        hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-
-        //Set player choice and confirm player choice
-
-        pChoice = "Paper";
-
-        document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
-
-    } else if (plChoice === document.getElementsByClassName('clickScissors')[0]) {
-        
-        //Hide the other buttons
-        hideScreen(document.getElementsByClassName('clickRock')[0]);
-        hideScreen(document.getElementsByClassName('clickPaper')[0]);
-        hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-
-        //Set player choice and confirm player choice
-
-        pChoice = "Scissors";
-
-        document.getElementsByClassName('player-choice-text')[0].innerHTML = pChoice;
-        
-        
-    } else {
-        // Something went wrong 
-    }
-
-    hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-    
-    // Time delay and advertise player selection
-
-        setTimeout(function() {
-            //your code to be executed after 5 second
-            unHideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-            hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-        
-            setTimeout(function() {
-                //your code to be executed after 5 second
-                hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-                hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-            
-                setTimeout(function() {
-                    //your code to be executed after 5 second
-                    unHideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-                    unHideScreen(document.getElementsByClassName('comp-choice')[0]);
-                    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-
-                }, 1000);
-            }, 1000);
-    
-        }, 500);
-
-        
-    playerSelection = pChoice;
-
-    console.log(playerStatus);
-
-    return;
+    return currentScore;
 }
 
 
@@ -241,168 +147,254 @@ function getCompChoice() {
 
     compChoice = computerPlay();
 
-    // Time delay and advertise player selection
-
-        setTimeout(function() {
-            //your code to be executed after 5 second
-
-                unHideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-                hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-                
-            
-                setTimeout(function() {
-                    //your code to be executed after 5 second
-                    unHideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
-                    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-                    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-                
-                }, 2000);
+    // Add time delay with empty call of advert function
+    //msgAdvert("");
     
-        }, 1000);
+    // TO-DO: animate computer making a choice
+    
+    return compChoice;
+}
 
-        
-    playerSelection = pChoice;
 
-    console.log(playerStatus);
+// Game Engine 
+// Listen for initGameBtn to load initialising game presets
 
+initGameBtn.addEventListener("click", function (){
+    // Transition to welcome screen
+    gameScreenStart.style.display = "none";
+    gameScreenWelcome.style.display = "flex";
+
+    console.log("initGameBtn clicked");
     return;
-}
+});
 
+// Listen for startGametBtn to start initialising game presets 
+startGametBtn.addEventListener("click", function(){
+    // Set playerName 
+    playerName.innerHTML = "&nbsp;" + playerNameInput.value;
 
-function resetRound () {
-    // Reset message prompt for user to make new selection
-    unHideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-    hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
-    hideScreen(document.getElementsByClassName('roundResult')[0]);
-    hideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
+    // Hide game control buttons
+    playRoundBtn.style.display = "none";
+    playNexRoundtBtn.style.display = "none";
+    closeRoundBtn.style.display = "none";
 
-    //Unhide user choices and default computer choice
-    unHideScreen(document.getElementsByClassName('comp-choice')[0]);
-    unHideScreen(document.getElementsByClassName('clickRock')[0]);
-    unHideScreen(document.getElementsByClassName('clickPaper')[0]);
-    unHideScreen(document.getElementsByClassName('clickScissors')[0]);
-}
+    // Reset player scores and roundCounter
+    playerScore = 0;
+    computerScore = 0;
+    roundCounter = 1;
 
+    // Prompt player to play round
+    // by writting the billboard without timer
+    gameBillBoard.innerHTML = "Click one of the above button to play a turn"
 
-// WORK ON THIS GAME LOGIC
-// Game function
+    // Switch off welcome screen
+    gameScreenWelcome.style.display = "none";
 
-function startGame() {
-    // Set up initital game screen & start game
-    setPlayerName(document.getElementById('playerName').value);
-    unHideScreen(document.getElementsByClassName('gridWrapper-cont')[0]);
-    hideScreen(document.getElementsByClassName('body-sc1pre-cont')[0]);
-    hideScreen(document.getElementsByClassName('comp-choice')[0]);
-    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-    hideScreen(document.getElementsByClassName('pl-msg-choice')[0]);
-    hideScreen(document.getElementsByClassName('cp-msg-choice')[0]);
-    hideScreen(document.getElementsByClassName('roundResult')[0]);
-    hideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
-    hideScreen(document.getElementsByClassName('game-bottom2-cont')[0]);
-    hideScreen(document.getElementsByClassName('game-bottom2')[0]);
+    // Start game screen
+    gameScreenPlay.style.display = "flex";
 
+    console.log("startGameBtn clicked");
+    return;
+});
 
-    counter = 0;
-}
+// Listen for player choice
+/// Listen for clickRock button
+rockBtn.addEventListener("click", function(){
 
-function playGame(){
+    //Hide the other buttons
+    paperBtn.style.display = "none";
+    scissorsBtn.style.display = "none";
+
+    //Set player choice and confirm player choice
+    playerSelection = "Rock";
+
+    // Advertise player choice
+    gameBillBoard.innerHTML ="You chose Rock";
+    //setTimeout(function(){gameBillBoard.innerHTML = " ";}, 3000);
+   
+    // Unhide play game button
+    playRoundBtn.style.display = "flex";
+
+    // Prompt player to click start button to play round
+    gameBillBoard.innerHTML ="Click button to play round";
+    //setTimeout(() => gameBillBoard.innerHTML = " ", 3000);
+
+return;
+});
+
+// Listen for paperBtn click
+paperBtn.addEventListener("click", function(){
+
+    //Hide the other buttons
+    rockBtn.style.display = "none";
+    scissorsBtn.style.display = "none";
+
+    //Set player choice and confirm player choice
+    playerSelection = "Paper";
+
+    // Advertise player choice
+    gameBillBoard.innerHTML ="You chose Paper";
+    //setTimeout(function(){gameBillBoard.innerHTML = " ";}, 3000);
+   
+    // Unhide play game button
+    playRoundBtn.style.display = "flex";
+
+    // Prompt player to click start button to play round
+    gameBillBoard.innerHTML ="Click button to play round";
+    //setTimeout(() => gameBillBoard.innerHTML = " ", 3000);
+
+return;
+});
+
+// Listen for scissorsBtn click
+scissorsBtn.addEventListener("click", function(){
+
+    //Hide the other buttons
+    rockBtn.style.display = "none";
+    paperBtn.style.display = "none";
+
+    //Set player choice and confirm player choice
+    playerSelection = "Scissors";
+
+    // Advertise player choice
+    gameBillBoard.innerHTML ="You chose Scissors";
+    //setTimeout(function(){gameBillBoard.innerHTML = " ";}, 3000);
+   
+    // Unhide play game button
+    playRoundBtn.style.display = "flex";
+
+    // Prompt player to click start button to play round
+    gameBillBoard.innerHTML ="Click button to play round";
+    //setTimeout(() => gameBillBoard.innerHTML = " ", 3000);
+
+return;
+});
+
+// Play round
+playRoundBtn.addEventListener("click", function(){
     // Prep for the playRound Function
     let roundRes;
     let roundScr;
     let finalResult;
 
+    // Get computer's random selection
+       computerSelection = getCompChoice();
+
+    // Call play round function
     roundRes = playRound(playerSelection, computerSelection);
-    console.log(roundRes)
+    console.log(roundRes);
 
+    // get Updated players scores
     roundScr = updateScore(roundRes);
-    console.log(roundScr)
+    console.log(roundScr);
 
-    if (counter < 5) {
+    // Update score screen in game
+    gamePlayerScore.innerHTML = playerScore;
+    gameCompScore.innerHTML = computerScore;
 
-        // Show final score
+    // Advertise round result
+    //msgAdvert(roundRes);
 
-        document.getElementsByClassName('roundResult')[0].innerHTML = roundRes;
+    // Start round counter and check that no more than 5 rounds have been played
+    if (roundCounter < 5) {
 
-        // Delay for 4sec
-        setTimeout(function() {
-            unHideScreen(document.getElementsByClassName('roundResult')[0]);
-            hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-            
-            setTimeout(function() {
-                hideScreen(document.getElementsByClassName('roundResult')[0]);
+        // Reset playing screen by showing player choice
+        rockBtn.style.display = "flex";
+        paperBtn.style.display = "flex";
+        scissorsBtn.style.display = "flex";
+        emuBtn.style.display = "flex";
 
-                setTimeout(function() {
-                    unHideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-                    hideScreen(document.getElementsByClassName('roundResult')[0]);
-    
-                }, 500);
-            }, 2000);
-    
-        }, 500);
+        // Hide game control buttons
+        playRoundBtn.style.display = "flex";
 
-        counter++;
-        console.log(counter);
-        resetRound();
+        // Prompt player to play round
+        // by writting the billboard without timer
+        gameBillBoard.innerHTML = "Click one of the above button to play a turn"
+
+        console.log("Reset Round initiated");
+
+        // Increment round counter
+        roundCounter++;
 
     } else {
-        // Decide the final result
-
+        // Once 5 rounds have been played, Decide the final result
         if (playerScore > computerScore) {
             finalResult = "You win!"
         } else if (playerScore < computerScore) {
             finalResult = "You Lose!"
         }
 
-        // Show final score
+        // Advertise final score
+        gameBillBoard.innerHTML = finalResult;
 
-        document.getElementsByClassName('roundResult')[0].innerHTML = finalResult;
-
-        // Delay for 3sec
-        setTimeout(function() {
-            //your code to be executed after 5 second
-            unHideScreen(document.getElementsByClassName('roundResult')[0]);
-            hideScreen(document.getElementsByClassName('game-bottom1')[0]);
-            hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-
-            setTimeout(function() {
-                unHideScreen(document.getElementsByClassName('roundResult')[0]);
-                hideScreen(document.getElementsByClassName('game-bottom1')[0]);
-                hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-
-                setTimeout(function() {
-                    unHideScreen(document.getElementsByClassName('roundResult')[0]);
-                    hideScreen(document.getElementsByClassName('pl-msg-prompt')[0]);
-                    hideScreen(document.getElementsByClassName('cp-msg-prompt')[0]);
-
-                }, 2000);
-            }, 2000);
-    
-        }, 1000);
+        //Hide game choices
+        rockBtn.style.display = "none";
+        paperBtn.style.display = "none";
+        scissorsBtn.style.display = "none";
+        emuBtn.style.display = "none";
         
-        console.log(finalResult);
-        
-        console.log(counter);
-        unHideScreen(document.getElementsByClassName('game-bottom1-cont')[0]);
-        unHideScreen(document.getElementsByClassName('game-bottom1')[0]);
-        unHideScreen(document.getElementsByClassName('game-bottom2-cont')[0]);
-        unHideScreen(document.getElementsByClassName('game-bottom2')[0]);
-        unHideScreen(document.getElementsByClassName('roundResult')[0]);
+        // Show end round button to accept final result
+        setTimeout(() => gameBillBoard.innerHTML = " ", 5000);
+        playRoundBtn.style.display = "none";
+        closeRoundBtn.style.display = "flex";
+
+        console.log("Final Round reached go to end screen");
+       
     }
 
-    return counter;
+    return;
+});
 
-}
 
-function endGame () {
-    
-    // Move to last screen
-    hideScreen(document.getElementsByClassName('gridWrapper-cont')[0]);
-    unHideScreen(document.getElementsByClassName('body-sc3-cont')[0]);
-}
+// Listen for closeRoundBtn and transition to end screen
+closeRoundBtn.addEventListener("click", function(){
 
-function goToWelcomeScr () {
-    hideScreen(document.getElementsByClassName('body-sc3-cont')[0]);
-    unHideScreen(document.getElementsByClassName('body-sc1-cont')[0]);
-}
+    gameScreenPlay.style.diplay = "none"; // TO-DO why this is not taking effect
+    gameScreenEnd.style.display = "flex";
+
+    console.log("Close Round button clicked, go to end screen");
+    return;
+});
+
+playAgainBtn.addEventListener("click", function(){
+    // Set playerName 
+    playerName.innerHTML = "&nbsp;" + playerNameInput.value;
+
+    // Hide game control buttons
+    playRoundBtn.style.display = "none";
+    playNexRoundtBtn.style.display = "none";
+    closeRoundBtn.style.display = "none";
+
+    // Reset player scores and roundCounter
+    playerScore = 0;
+    computerScore = 0;
+    roundCounter = 1;
+
+    // Show game option buttons
+    rockBtn.style.display = "flex";
+    paperBtn.style.display = "flex";
+    scissorsBtn.style.display = "flex";
+    emuBtn.style.display = "flex";    
+
+    // Prompt player to play round
+    // by writting the billboard without timer
+    gameBillBoard.innerHTML = "Click one of the above button to play a turn"
+
+    // Switch off welcome screen
+    gameScreenWelcome.style.display = "none";
+
+    // Start game screen
+    gameScreenPlay.style.display = "flex";
+
+    console.log("playAgainBtn clicked");
+    return;
+});
+
+
+quitGameBtn.addEventListener("click", function(){
+
+    gameScreenPlay.style.diplay = "none"; // TO-DO why this is not taking effect
+    gameScreenEnd.style.display = "none";
+    gameScreenStart.style.display = "flex";
+
+});

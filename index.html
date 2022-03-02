@@ -46,9 +46,7 @@
                 </div>
             </div>
             <div class="sc1-button-ct">
-                <button class="clickPlay" onclick="
-                    hideScreen(document.getElementsByClassName('body-sc1-cont')[0]),
-                    unHideScreen(document.getElementsByClassName('body-sc1pre-cont')[0])">
+                <button class="clickPlay">
                             Click here to play
                 </button>
             </div>
@@ -66,10 +64,10 @@
                 </div>
                 <div class="capturePlayer">
                         player Name:
-                        <input type="text" name="playerName " size="20" id="playerName">
+                        <input type="text" name="playerName" size="20" id="playerName">
                 </div>
                 <div class="gameStart">
-                    <button class="clickGameStart" onclick="startGame(), resetRound()">
+                    <button class="clickGameStart">
                         Start game
                     </button>
                 </div>
@@ -111,59 +109,50 @@
                     <img src="./images/32px-Atomic_-_The_Noun_Project.svg.png" alt="User icon">
                 </div>
                 <div class="player-choice">
-                    <button class="clickRock" onclick="getPlayerChoice(document.getElementsByClassName('clickRock')[0])">
+                    <button class="clickRock">
                         <img src="./images/I_Rock01.png" alt="rock icon">
                     </button>
-                    <button class="clickPaper" onclick="getPlayerChoice(document.getElementsByClassName('clickPaper')[0])">
+                    <button class="clickPaper">
                         <img src="./images/Aufsatz.png" alt="paper icon">
                     </button>
-                    <button class="clickScissors" onclick="getPlayerChoice(document.getElementsByClassName('clickScissors')[0])">
+                    <button class="clickScissors">
                         <img src="./images/Rating-Christgau-choice-cut.png" alt="scissors icon">
                     </button>
                 </div>
                 <div class="comp-choice">
-                    <button class="comp-choice-play" onclick="getCompChoice()">
+                    <button class="comp-choice-play">
                         <img src="./images/64px-Question_mark2.svg.png" alt="question mark icon">
                     </button>
                 </div>
 
-                <!-- Game message prompt section -->
-                <div class="player-prompt-message">
-                    <div class="pl-msg-prompt">
-                        Click one of the above button to play a turn.
-                    </div>
-                    <div class="pl-msg-choice">
-                        You chose &nbsp; <span class="player-choice-text">Rock</span>.
-                    </div>
-                    <div class="cp-msg-prompt">
-                        Click the Big "?" button for computer to start play.
-                    </div>
-                    <div class="cp-msg-choice">
-                        Computer chose &nbsp; <span class="computer-choice-text">Rock</span>.
-                    </div>
-                    <div class="roundResult">
-                        Show result
+                <!-- Game Billboard -->
+                <div class="billBoard-cont">
+                    <div class="billBoard">
+                        ** Message to player **
                     </div>
                 </div>
 
                 <!-- Game control section -->
-                
+                <div class="game-bottom1-cont">
                     <div class="game-bottom1">
-                            <div class="game-bottom1-cont">
-                                <button class="clickPlayRound" onclick=" playGame()">
-                                    Play round
-                                </button>
-                            </div>
+                        <div class="playGameSec">
+                            <button class="clickPlayRound">
+                                Play round
+                            </button>
                         </div>
-                        <div class="game-bottom2">
-                            <div class="game-bottom2-cont">
-                                <button class="confirmEndGame" onclick=" endGame()">
-                                    Accept result
-                                </button>
-                            </div>
+                        <div class="playNextGameSec">
+                            <button class="clickPlayNextRound">
+                                Play another round
+                            </button>
                         </div>
-                    
+                        <div class="endGameSec">
+                            <button class="confirmEndGame">
+                                Accept result
+                            </button>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </div>
 
         <!-- Screen 3: End game screen   -->
@@ -182,11 +171,11 @@
                 </div>
             </div>
             <div class="body-sc3-bottom">
-                <button class="clickPlayAgain" onclick="startGame(), resetRound()">
+                <button class="clickPlayAgain">
                     Click here to play again
                 </button>
                 <div class="spacer"></div>
-                <button class="clickQuit" onclick="goToWelcomeScr()">
+                <button class="clickQuit">
                     Click here to quit game
                 </button>
             </div>

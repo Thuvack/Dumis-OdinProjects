@@ -188,7 +188,7 @@ body{
     flex-direction: row;
     background-color: darkolivegreen;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     margin: 0;
     padding: 60px 20px;
     flex: 1;
@@ -297,13 +297,13 @@ body{
     flex-basis: 700px;
     display: grid;
     grid-template-columns: 65px 1fr 50px 50px 50px 1fr 65px;
-    grid-template-rows: 70px 50px 150px 40px 70px;
+    grid-template-rows: 70px 50px 150px 60px 60px;
     grid-template-areas: 
     "gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader"
     "PAvatar PName PScore VS CScore CName CAvatar"
     "playerContent playerContent playerContent playerContent compContent compContent compContent"
-    "gameScore gameScore gameScore gameScore gameScore gameScore gameScore"
-    "playerMsg playerMsg playerMsg playerMsg playerMsg playerMsg playerMsg";
+    "gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard"
+    "gameCntr gameCntr gameCntr gameCntr gameCntr gameCntr gameCntr";
     border: 4px solid black;
     border-radius: 8px;
 }
@@ -414,22 +414,33 @@ body{
     place-self: center stretch;
 }
 
-.player-prompt-message {
-    color: midnightblue;
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 60%;
-    justify-content: center;
-    align-items: center;
-    grid-area: playerMsg;
-    place-self: center stretch;
-    margin-bottom: 15px;
-}
-
 .pl-msg-prompt {
-    color: darkred;
+    color: red;
     font-weight: 600;
 }
+
+.billBoard-cont {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    place-self: center stretch;
+    justify-content: center;
+    align-items: center;
+    grid-area: gameMsgBoard;
+    flex-direction: row;
+}
+
+.billBoard {
+    display: flex;
+    background-color: dimgrey;
+    color: #ffee10;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    flex-basis: 650px;
+    min-height: 25px;
+}
+
 
 .roundResult {
     display: flex;
@@ -438,50 +449,38 @@ body{
     font-size: large;
 }
 
-.containerB {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
 
 .game-bottom1-cont{
     display: flex;
-    flex-direction: row;
-    padding: 5px 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    place-self: center stretch;
     justify-content: center;
     align-items: center;
+    grid-area: gameCntr;
+    flex-direction: row;
 }
 
 .game-bottom1 {
+    display: flex;
     padding: 5px 10px;
-    grid-area: gameScore;
-    place-self: center stretch;
     justify-content: center;
     align-items: center;
-}
-
-.game-bottom2-cont{
-    display: none;
     flex-direction: row;
-    padding: 5px 15px;
-    justify-content: center;
-    align-items: center;
 }
 
-.game-bottom2 {
-    display: none;
-    padding: 5px 10px;
-    grid-area: playerMsg;
-    place-self: center stretch;
+.playGameSec, .playNextGameSec, .endGameSec {
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
 }
+
 
 /* Styling Screen-4 section: End game */
 
 .body-sc3-cont {
-    background-color: darkolivegreen;
+    background-color: #556b2f;
     display: none;
     flex-direction: column;
     justify-content: flex-start;
@@ -561,6 +560,7 @@ button.clickPlayRound,
 button.clickPlayNextRound,
 button.clickQuit,
 button.clickGameStart,
+button.confirmEndGame,
 button.button-play {
     display: inline-block;
     background: royalblue;
