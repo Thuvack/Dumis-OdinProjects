@@ -18,67 +18,63 @@
                 .emu
             </div>
             <div class="right-links">
-            <ul>
-                <li>Game rules</li>
-                <li>About us</li>
-            </ul>
+                <ul>
+                    <li>Game rules</li>
+                    <li>About us</li>
+                </ul>
             </div>
         </div>
     </div>
 
     <!-- Body section   -->
-    <div class="body-container">
+    <div class="gameMain-cont">
+        <div class="gameMainWrapper"></div>
 
         <!-- Screen 1: Welcome screen   -->
-        <div class="body-sc1-cont">
-            <div class="sub-sc1-cont">
-                <div class="body-sc1">
-                    <div class="body-sc1-ls">
-                        <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
-                    </div>
-                    <div class="body-sc1-rs">
-                        <div class="sc1-text-lg">
-                        Hello! I'm RPS.emu a game engine. I know
-                        how to play Rock - Paper - Scissors game.
-                        Come play with me!
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="sc1-button-ct">
-                <button class="clickPlay">
-                            Click here to play
-                </button>
-            </div>
-        </div>
+        <div class="scr1GridWrapper-cont">
+            <div class="scr1GridWrapper">
 
-        <!-- Screen 1: prep screen   -->
-        <div class="body-sc1pre-cont">
-            <div class="sub-sc1pre-cont">
-                <div class="sub-sc1pre-grid">
-                <div class="body-sc1pre-ls">
+                <div class="scr1Img">
                     <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
                 </div>
-                <div class="sc1pre-text-lg">
-                    Who will I be playing against?
+                <div class="sc1-text-lg">
+                    Hello! I'm RPS.emu a game engine.<br /><br />
+                    Do you know how to play Rock - Paper - Scissors?<br /><br />
+                    Come play with me!
                 </div>
-                <div class="capturePlayer">
-                        player Name:
-                        <input type="text" name="playerName" size="20" id="playerName">
-                </div>
-                <div class="gameStart">
-                    <button class="clickGameStart">
-                        Start game
-                    </button>
-                </div>
-            </div>
+                <button id="clickPlay">
+                    Click here to play
+                </button>
+
             </div>
         </div>
 
-        <!-- Screen 2: game screen   -->
+        <!-- Screen 2: Player capture screen   -->
+        <div class="scr2GridWrapper-cont">
+            <div class="scr2GridWrapper">
+        
+                    <div class="scr2GridLs">
+                        <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
+                    </div>
+                    <div class="scr2GridRs-Title">
+                        Who will I be playing against?
+                    </div>
+                    <div class="scr2GridRs-Form">
+                        player Name:
+                        <input type="text" name="playerName" size="20" id="playerName">
+                    </div>
+                    <button id="clickGameStart">
+                        Start game
+                    </button>
+                  
+            </div>
+        </div>
 
-        <div class="gridWrapper-cont">
-            <div class="gridWrapper">
+        <!-- Screen 3: game screen   -->
+
+        <div class="scr3GridWrapper-cont">
+            <div class="scr3GridWrapper">
+                
                 <!-- Game title section -->
                 <div class="gameTitle">
                     Rock - Paper - Scissors
@@ -125,61 +121,49 @@
                     </button>
                 </div>
 
-                <!-- Game Billboard -->
-                <div class="billBoard-cont">
-                    <div class="billBoard">
-                        ** Message to player **
-                    </div>
+                <!-- Game control buttons section -->
+                <div class="game-controls-cont">
+                    <button class="clickPlayRound">
+                        Play round
+                    </button>
+                    <button class="clickPlayNextRound">
+                        Play another round
+                    </button>
+                    <button class="confirmEndGame">
+                        Accept result
+                    </button>
                 </div>
 
-                <!-- Game control section -->
-                <div class="game-bottom1-cont">
-                    <div class="game-bottom1">
-                        <div class="playGameSec">
-                            <button class="clickPlayRound">
-                                Play round
-                            </button>
-                        </div>
-                        <div class="playNextGameSec">
-                            <button class="clickPlayNextRound">
-                                Play another round
-                            </button>
-                        </div>
-                        <div class="endGameSec">
-                            <button class="confirmEndGame">
-                                Accept result
-                            </button>
-                        </div>
-                    </div>
+                <!-- Game Billboard -->
+                <div class="billBoard">
+                    ** Message to player **
                 </div>
+
             </div>
         </div>
 
-        <!-- Screen 3: End game screen   -->
-        <div class="body-sc3-cont">
-            <div class="sub-sc3-cont">
-                <div class="body-sc3-top">
-                    <div class="body-sc3-ls">
-                        <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
-                    </div>
-                    <div class="body-sc3-rs">
-                        <div class="body-sc3-text-lg">
-                            Thank you for playing with me.
-                            I had so much fun
-                        </div>
-                    </div>
+        <!-- Screen 4: End game screen   -->
+        <div class="scr4GridWrapper-cont">
+            <div class="scr4GridWrapper">
+
+                <div class="scr4Img-Ls">
+                    <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
                 </div>
-            </div>
-            <div class="body-sc3-bottom">
-                <button class="clickPlayAgain">
+                <div class="scr4GridRs-Text">
+                    Thank you for playing with me.<br />
+                    I had so much fun
+                </div>
+                <button id="clickPlayAgain">
                     Click here to play again
                 </button>
-                <div class="spacer"></div>
-                <button class="clickQuit">
+                <button id="clickQuit">
                     Click here to quit game
                 </button>
+
             </div>
         </div>
+
+    </div>
 
     <!-- Footer section   -->
     <div class="footer">

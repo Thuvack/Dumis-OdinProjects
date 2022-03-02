@@ -71,14 +71,6 @@ body{
     font-weight: 800;
 }
 
-.pl-msg-prompt, .pl-msg-choice,
-.cp-msg-prompt, .cp-msg-choice,
-.roundResult,.player-choice-text {
-    justify-self: center;
-    align-self: center;
-    font-size: medium;
-}
-
 /* Style hover effects on links */
 
 .right-links ul li::before {
@@ -105,183 +97,159 @@ body{
 }
 
 
-/* Styling body container */
-.body-container {
+/* Styling Game container which houses all the 4 screens*/
+.gameMain-cont {
     display: flex;
-    flex-direction: column;
-    flex: 2;
+    flex-direction: row;
+    flex: 1;
+    background-color: darkolivegreen;
+}
+
+.gameMainWrapper {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    grid-template-areas:
+    "screen1"
+    "screen2"
+    "screen3";
 }
 
 /* Styling screen-1 section */
 
-.body-sc1-cont {
+.scr1GridWrapper-cont {
+    place-self: flex-start center;
+    grid-area: screen1;
     display: flex;
-    flex-direction: column;
-    background-color: darkolivegreen;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    flex: 1;
-}
-
-.sub-sc1-cont,
-.body-sc1,
-.body-sc1-ls,
-.body-sc1-rs {
-    display: flex;
+    flex:1;
     flex-direction: row;
-}
-
-.sub-sc1-cont {
     color: white;
-    margin: 0;
-    padding: 0px;
-    justify-content: center;
-    gap: 5px;
-}
-
-.body-sc1 {
-    color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 40px;
-    justify-content: center;
-    gap: 10px;
-    flex-basis: 600px;
-}
-
-.body-sc1-ls {
-    flex: 1 1 60%;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.body-sc1-rs {
-    flex: 1 1 40%;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.body-sc1-text-lg {
-    font-size: 23px;
-    font-weight: 500;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    flex-basis: 300px;
-}
-
-.sc1-button-ct {
     background-color: darkolivegreen;
-    display: flex;
+    margin: 0px;
+    padding: 10px 10px;
     justify-content: center;
-    align-items: center;
-    padding-top: 10px;
-    padding-bottom: 30px;
-}
-
-/* Styling screen-1pre section */
-
-.body-sc1pre-cont {
-    display: none;
-    flex-direction: row;
-    background-color: darkolivegreen;
-    justify-content: space-around;
     align-items: flex-start;
-    margin: 0;
-    padding: 60px 20px;
-    flex: 1;
-}
-
-.sub-sc1pre-cont {
-    display: flex;
-    flex-direction: row;
-    color: white;
-    margin: 20px 50px;
-    padding: 20px 20px;
-    justify-content: center;
-    align-items: center;
     gap: 5px;
 }
 
-.sub-sc1pre-grid {
+.scr1GridWrapper {
     display: grid;
-    color: white;
-    margin: 0;
-    padding: 0px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 20px 100px 20px;
+    margin: 5px 5px;
+    padding: 10px 10px;
+    grid-template-columns: 250px 400px;
+    grid-template-rows: 180px 50px;
     justify-content: center;
     grid-template-areas:
-    "emu topSec"
-    "emu midSec"
-    "emu bottomSec";
+    "scr1GridImg scr1GridTxt"
+    "scr1GridBtn scr1GridBtn";
 }
 
-.body-sc1pre {
+.scr1Img {
+    display: flex;
+    flex-direction: row;
+    place-self: center flex-end;
+    grid-area: scr1GridImg;
+}
+
+.sc1-text-lg {
+    font-size: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-basis: 400px;
+    place-self: center center;
+    grid-area: scr1GridTxt;
+}
+
+#clickPlay {
+    display: flex;
+    background: royalblue;
     color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 40px;
-    justify-content: center;
-    gap: 10px;
-    flex-basis: 600px;
+    padding: 10px 40px;
+    font-size: medium;
+    place-self: center center;
+    grid-area: scr1GridBtn;
 }
 
-.body-sc1pre-ls {
+/* Styling screen-2 section */
+
+.scr2GridWrapper-cont {
+    place-self: flex-start center;
+    grid-area: screen2;
+    display: none;
+    flex:1;
+    flex-direction: row;
+    color: white;
+    background-color: darkolivegreen;
+    margin: 0px;
+    padding: 10px 10px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.scr2GridWrapper {
+    display: grid;
+    margin: 5px 5px;
+    padding: 10px 10px;
+    grid-template-columns: 250px 400px;
+    grid-template-rows: 30px 100px 30px;
+    justify-content: center;
+    grid-template-areas:
+    "scr2GridImg scr2GridTtl"
+    "scr2GridImg scr2GridFrm"
+    "scr2GridImg scr2GridBtn";
+}
+
+.scr2GridLs {
     display: flex;
     flex-flow: column nowrap;
-    place-self: self-end self-end;
-    grid-area: emu;
-    margin-top: 30px;
+    place-self: flex-end center;
+    grid-area: scr2GridImg;
 }
 
-.body-sc1pre-rs {
-    flex: 1 1 40%;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-}
-
-.sc1pre-text-lg {
+.scr2GridRs-Title {
     font-size: 23px;
     font-weight: 500;
     padding-top: 10px;
     padding-bottom: 10px;
-    flex-basis: 300px;
     place-self: center stretch;
-    grid-area: topSec;
+    grid-area: scr2GridTtl;
 }
 
-.capturePlayer, gameStart {
+
+.scr2GridRs-Form {
     display: flex;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
     flex-basis: 300px;
-    place-self: center stretch;
-    grid-area: midSec;
+    place-self: center flex-start;
+    grid-area: scr2GridFrm;
     align-items: center;
     justify-content: center;
 }
 
-.gameStart {
-    margin-top: 25px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    flex-basis: 300px;
-    place-self: center stretch;
-    justify-content: center;
-    align-items: center;
-    grid-area: bottomSec;
+#clickGameStart {
+    display: inline-block;
+    background: royalblue;
+    color: white;
+    padding: 10px 40px;
+    font-size: medium;
     place-self: center center;
+    grid-area: scr2GridBtn;
 }
 
-/* Game body section */
 
-.gridWrapper-cont {
+/* Styling Screen 3 section */
+
+.scr3GridWrapper-cont {
+    place-self: flex-start center;
+    grid-area: screen3;
     display: none;
     flex-direction: row;
     background-color: aliceblue;
@@ -292,7 +260,7 @@ body{
     flex: 1;
 }
 
-.gridWrapper {
+.scr3GridWrapper {
     background-color: lightgreen;
     flex-basis: 700px;
     display: grid;
@@ -419,26 +387,20 @@ body{
     font-weight: 600;
 }
 
-.billBoard-cont {
-    display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    place-self: center stretch;
-    justify-content: center;
-    align-items: center;
-    grid-area: gameMsgBoard;
-    flex-direction: row;
-}
-
 .billBoard {
     display: flex;
+    flex-direction: row;
     background-color: dimgrey;
     color: #ffee10;
     justify-content: center;
     align-items: center;
     padding: 10px 10px;
+    margin: 0px 15px;
+    margin-bottom: 25px;
     flex-basis: 650px;
     min-height: 25px;
+    place-self: center stretch;
+    grid-area: gameCntr;
 }
 
 
@@ -450,23 +412,14 @@ body{
 }
 
 
-.game-bottom1-cont{
+.game-controls-cont{
     display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    flex-direction: row;
+    padding: 0px 10px;
     place-self: center stretch;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    grid-area: gameCntr;
-    flex-direction: row;
-}
-
-.game-bottom1 {
-    display: flex;
-    padding: 5px 10px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    grid-area: gameMsgBoard;
 }
 
 .playGameSec, .playNextGameSec, .endGameSec {
@@ -478,6 +431,72 @@ body{
 
 
 /* Styling Screen-4 section: End game */
+
+.scr4GridWrapper-cont {
+    place-self: flex-start center;
+    grid-area: screen4;
+    display: none;
+    flex:1;
+    flex-direction: row;
+    color: white;
+    background-color: darkolivegreen;
+    margin: 0px;
+    padding: 10px 10px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.scr4GridWrapper {
+    display: grid;
+    margin: 5px 5px;
+    padding: 10px 10px;
+    grid-template-columns: 350px 350px;
+    grid-template-rows: 180px 50px;
+    justify-content: center;
+    grid-template-areas:
+    "scr4GridImg scr4GridTxt"
+    "scr4GridBtn1 scr4GridBtn2";
+    gap: 5px;
+}
+
+.scr4Img-Ls {
+    display: flex;
+    flex-flow: column nowrap;
+    place-self: center flex-end;
+    grid-area: scr4GridImg;
+}
+
+.scr4GridRs-Text {
+    font-size: 23px;
+    font-weight: 500;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    place-self: center stretch;
+    grid-area: scr4GridTxt;
+}
+
+#clickPlayAgain {
+    display: inline-block;
+    background: royalblue;
+    color: white;
+    padding: 10px 40px;
+    font-size: medium;
+    place-self: center flex-end;
+    grid-area: scr4GridBtn1;
+}
+
+#clickQuit {
+    display: inline-block;
+    background: indianred;
+    color: white;
+    padding: 10px 40px;
+    font-size: medium;
+    place-self: center flex-start;
+    grid-area: scr4GridBtn2;
+}
+
+/* end here */
 
 .body-sc3-cont {
     background-color: #556b2f;
@@ -504,12 +523,7 @@ body{
     flex-basis: 600px;
 }
 
-.body-sc3-ls {
-    flex: 1 1 40%;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    align-items: center;
-}
+
 
 .body-sc3-rs {
     flex: 1 1 60%;
@@ -554,12 +568,9 @@ button {
     border: 2px solid white;
 }
 
-button.clickPlay,
-button.clickPlayAgain,
+
 button.clickPlayRound,
 button.clickPlayNextRound,
-button.clickQuit,
-button.clickGameStart,
 button.confirmEndGame,
 button.button-play {
     display: inline-block;
@@ -567,18 +578,6 @@ button.button-play {
     color: white;
     padding: 10px 40px;
     font-size: medium;
-}
-
-button.clickQuit {
-    background: indianred;
-}
-
-button.clickPlayAgain {
-    background-color: steelblue;
-}
-
-.button.clickGameStart {
-    place-self: center center;
 }
 
 button.clickRock,

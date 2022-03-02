@@ -17,15 +17,15 @@ let gamePlayerScore = document.getElementsByClassName('player-score')[0];
 let gameCompScore = document.getElementsByClassName('comp-score')[0];
 
 // Declare game control buttons
-let initGameBtn = document.getElementsByClassName('clickPlay')[0];
-let startGametBtn = document.getElementsByClassName('clickGameStart')[0];
+let initGameBtn = document.getElementById('clickPlay');
+let startGametBtn = document.getElementById('clickGameStart');
 
 let playRoundBtn = document.getElementsByClassName('clickPlayRound')[0];
 let playNexRoundtBtn = document.getElementsByClassName('clickPlayNextRound')[0];
 let closeRoundBtn = document.getElementsByClassName('confirmEndGame')[0];
 
-let playAgainBtn = document.getElementsByClassName('clickPlayAgain')[0];
-let quitGameBtn = document.getElementsByClassName('clickQuit')[0];
+let playAgainBtn = document.getElementById('clickPlayAgain');
+let quitGameBtn = document.getElementById('clickQuit');
 
 // Declare game choice buttons
 let rockBtn = document.getElementsByClassName('clickRock')[0];
@@ -34,10 +34,10 @@ let scissorsBtn = document.getElementsByClassName('clickScissors')[0];
 let emuBtn = document.getElementsByClassName('comp-choice-play')[0];
 
 // Declare screens
-let gameScreenStart = document.getElementsByClassName('body-sc1-cont')[0];
-let gameScreenWelcome = document.getElementsByClassName('body-sc1pre-cont')[0];
-let gameScreenPlay = document.getElementsByClassName('gridWrapper-cont')[0];
-let gameScreenEnd = document.getElementsByClassName('body-sc3-cont')[0];
+let gameScreenStart = document.getElementsByClassName('scr1GridWrapper-cont')[0];
+let gameScreenWelcome = document.getElementsByClassName('scr2GridWrapper-cont')[0];
+let gameScreenPlay = document.getElementsByClassName('scr3GridWrapper-cont')[0];
+let gameScreenEnd = document.getElementsByClassName('scr4GridWrapper-cont')[0];
 
 let gameBillBoard = document.getElementsByClassName('billBoard')[0];
 
@@ -161,6 +161,8 @@ function getCompChoice() {
 
 initGameBtn.addEventListener("click", function (){
     // Transition to welcome screen
+    // Hide screen2 & screen 3
+    gameScreenPlay.style.display = "none";
     gameScreenStart.style.display = "none";
     gameScreenWelcome.style.display = "flex";
 
@@ -182,6 +184,10 @@ startGametBtn.addEventListener("click", function(){
     playerScore = 0;
     computerScore = 0;
     roundCounter = 1;
+
+    // Update score screen in game
+    gamePlayerScore.innerHTML = playerScore;
+    gameCompScore.innerHTML = computerScore;
 
     // Prompt player to play round
     // by writting the billboard without timer
@@ -334,12 +340,15 @@ playRoundBtn.addEventListener("click", function(){
         emuBtn.style.display = "none";
         
         // Show end round button to accept final result
-        setTimeout(() => gameBillBoard.innerHTML = " ", 5000);
+        
         playRoundBtn.style.display = "none";
         closeRoundBtn.style.display = "flex";
 
         console.log("Final Round reached go to end screen");
        
+        // Clear roundCounter
+
+        roundCounter = 1;
     }
 
     return;
@@ -350,6 +359,7 @@ playRoundBtn.addEventListener("click", function(){
 closeRoundBtn.addEventListener("click", function(){
 
     gameScreenPlay.style.diplay = "none"; // TO-DO why this is not taking effect
+    closeRoundBtn.style.display = "none";
     gameScreenEnd.style.display = "flex";
 
     console.log("Close Round button clicked, go to end screen");
@@ -357,28 +367,32 @@ closeRoundBtn.addEventListener("click", function(){
 });
 
 playAgainBtn.addEventListener("click", function(){
-    // Set playerName 
-    playerName.innerHTML = "&nbsp;" + playerNameInput.value;
+    // Hide screen4
+    gameScreenEnd.style.display = "none";
 
     // Hide game control buttons
     playRoundBtn.style.display = "none";
     playNexRoundtBtn.style.display = "none";
     closeRoundBtn.style.display = "none";
 
-    // Reset player scores and roundCounter
-    playerScore = 0;
-    computerScore = 0;
-    roundCounter = 1;
+        // Reset player scores and roundCounter
+            playerScore = 0;
+            computerScore = 0;
+            roundCounter = 1;
 
-    // Show game option buttons
-    rockBtn.style.display = "flex";
-    paperBtn.style.display = "flex";
-    scissorsBtn.style.display = "flex";
-    emuBtn.style.display = "flex";    
+        // Update score screen in game
+            gamePlayerScore.innerHTML = playerScore;
+            gameCompScore.innerHTML = computerScore;
 
-    // Prompt player to play round
-    // by writting the billboard without timer
-    gameBillBoard.innerHTML = "Click one of the above button to play a turn"
+        // Show game option buttons
+            rockBtn.style.display = "flex";
+            paperBtn.style.display = "flex";
+            scissorsBtn.style.display = "flex";
+            emuBtn.style.display = "flex";    
+
+        // Prompt player to play round
+        // by writting the billboard without timer
+            gameBillBoard.innerHTML = "Click one of the above button to play a turn"
 
     // Switch off welcome screen
     gameScreenWelcome.style.display = "none";
@@ -394,6 +408,37 @@ playAgainBtn.addEventListener("click", function(){
 quitGameBtn.addEventListener("click", function(){
 
     gameScreenPlay.style.diplay = "none"; // TO-DO why this is not taking effect
+    
+    // TRYING THIS Because above does not work
+    // Construct screen 3 default before quiting
+
+        // Clear playerName 
+            playerName.innerHTML = "&nbsp; ";
+
+        // show player & Comp options control buttons
+        // Show game option buttons
+            rockBtn.style.display = "flex";
+            paperBtn.style.display = "flex";
+            scissorsBtn.style.display = "flex";
+            emuBtn.style.display = "flex"; 
+
+        // Reset player scores and roundCounter
+            playerScore = 0;
+            computerScore = 0;
+            roundCounter = 1;
+
+        // Update score screen in game
+            gamePlayerScore.innerHTML = playerScore;
+            gameCompScore.innerHTML = computerScore;
+
+        // Prompt player to play round
+        // by writting the billboard without timer
+            gameBillBoard.innerHTML = "Click one of the above button to play a turn"
+
+    // REMOVE ABOVE AFTER TESTING
+
+    // Go to start screen
+    
     gameScreenEnd.style.display = "none";
     gameScreenStart.style.display = "flex";
 
