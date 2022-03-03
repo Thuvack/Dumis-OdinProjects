@@ -40,6 +40,8 @@
     let gameScreenEnd = document.getElementsByClassName('scr4GridWrapper-cont')[0];
 
     let gameBillBoard = document.getElementsByClassName('billBoard')[0];
+    let form = document.querySelector(".scr2Form");
+    let scrRes = document.querySelector(".resultScrn");
 
 // Game intialization functions    
 
@@ -59,6 +61,10 @@
     }
 
     function initNewRound(){
+
+        // Hide clear and results screen
+            scrRes.innerHTML = " ";
+            scrRes.style.display = "none";
 
         // Hide game control buttons
             playRoundBtn.innerHTML = "Play Round";
@@ -123,6 +129,7 @@
                 playRoundBtn.style.display = "none";
                 playAgainBtn.style.display = "flex";
                 quitGameBtn.style.display = "flex";
+                
     
         // Go to start screen
     }
@@ -240,28 +247,23 @@
 // Function for computer to randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
     function computerPlay() {
         // Declare the three variables
-        let Rock
-        let Paper
-        let Scissors
-        let compDecision
+        let randomNumber
 
         // Assign Random numbers to variables
-        Rock = Math.floor(Math.random() * 500)
-        Paper = Math.floor(Math.random() * 500)
-        Scissors = Math.floor(Math.random() * 500)
+        randomNumber = Math.floor(Math.random() * 3);
 
-        // Select computer decision by finding the variable with the smallest value
-        const arr = [Rock, Paper, Scissors]
-        const min = Math.min(...arr)
+        console.log(randomNumber);
 
-        if (Rock === min) {
+        if (randomNumber === 1) {
             compDecision = "Rock"
         }
-        else if (Paper === min) {
+        else if (randomNumber === 2) {
             compDecision = "Paper"
         }
-        else if (Scissors === min) {
+        else if (randomNumber === 3) {
             compDecision = "Scissors"
+        } else if (randomNumber === 0) {
+            computerPlay();
         }
         else {
             //something went wrong
@@ -366,6 +368,24 @@
         return;
     }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+    }
+
+    function screenFinScore (arg1) {
+
+        scrRes.style.display = "flex";
+
+        let text = document.createTextNode(arg1);
+
+        scrRes.appendChild(text);
+
+        let container = document.querySelector('.scr3GridWrapper');
+
+        container.appendChild(scrRes);
+
+    }
+
 // Game Engine 
 
 function gameEngine() {
@@ -439,10 +459,12 @@ function gameEngine() {
                         } else if (playerScore < computerScore) {
                             finalResult = "You Lose!";
                             
+                        } else if (playerScore = computerScore) {
+                            finalResult = "Thats a draw!";
                         }
 
                         // Advertise final score
-                        gameAdvert(finalResult);
+                        screenFinScore(finalResult);
                         console.log("Deciding final score: "+ finalResult)
                         //setTimeout(gameWait,3000);
 
@@ -458,6 +480,8 @@ function gameEngine() {
 }
 
 // Listen for initGameBtn to load initialising game presets
+
+form.addEventListener("submit", handleSubmit);
 
 initGameBtn.addEventListener("click", function (){
     // Transition to welcome screen
@@ -481,7 +505,9 @@ playAgainBtn.addEventListener("click", initNewGame);
 
 quitGameBtn.addEventListener("click", function () {
 
-     // Reset player scores and roundCounter
+    scrRes.style.display = "none";
+
+    // Reset player scores and roundCounter
         playerScore = 0;
         computerScore = 0;
         roundCounter = 0;
@@ -490,7 +516,10 @@ quitGameBtn.addEventListener("click", function () {
         playerName.innerHTML = "&nbsp; ";
         playerNameInput = "";
 
+        playerName.innerHTML = " "
+
      // Go to end screen
+        scrRes.style.display = "none";
         gameScreenPlay.style.display = "none";
         gameScreenEnd.style.display = "flex";
 
