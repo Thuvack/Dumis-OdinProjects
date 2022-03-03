@@ -254,15 +254,15 @@
 
         console.log(randomNumber);
 
-        if (randomNumber === 1) {
+        if (randomNumber === 0) {
             compDecision = "Rock"
         }
-        else if (randomNumber === 2) {
+        else if (randomNumber === 1) {
             compDecision = "Paper"
         }
-        else if (randomNumber === 3) {
+        else if (randomNumber === 2) {
             compDecision = "Scissors"
-        } else if (randomNumber === 0) {
+        } else if (randomNumber === 3) {
             computerPlay();
         }
         else {
