@@ -164,14 +164,18 @@ body{
     grid-area: scr1GridTxt;
 }
 
-#clickPlay {
+#clickPlay, #clickPlayAgain, #clickQuit {
     display: flex;
     background: royalblue;
     color: white;
-    padding: 10px 40px;
+    padding: 5px 30px;
     font-size: medium;
     place-self: center center;
     grid-area: scr1GridBtn;
+}
+
+#clickQuit {
+    background: indianred;
 }
 
 /* Styling screen-2 section */
@@ -417,9 +421,10 @@ body{
     flex-direction: row;
     padding: 0px 10px;
     place-self: center stretch;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     grid-area: gameMsgBoard;
+    gap: 10px;
 }
 
 .playGameSec, .playNextGameSec, .endGameSec {
@@ -456,7 +461,7 @@ body{
     justify-content: center;
     grid-template-areas:
     "scr4GridImg scr4GridTxt"
-    "scr4GridBtn1 scr4GridBtn2";
+    "scr4GridBtn1 scr4GridBtn1";
     gap: 5px;
 }
 
@@ -476,24 +481,14 @@ body{
     grid-area: scr4GridTxt;
 }
 
-#clickPlayAgain {
+#confirmEndGame {
     display: inline-block;
-    background: royalblue;
+    background: rgb(225, 124, 65);
     color: white;
-    padding: 10px 40px;
+    padding: 5px 30px;
     font-size: medium;
-    place-self: center flex-end;
+    place-self: center center;
     grid-area: scr4GridBtn1;
-}
-
-#clickQuit {
-    display: inline-block;
-    background: indianred;
-    color: white;
-    padding: 10px 40px;
-    font-size: medium;
-    place-self: center flex-start;
-    grid-area: scr4GridBtn2;
 }
 
 /* end here */
@@ -571,7 +566,6 @@ button {
 
 button.clickPlayRound,
 button.clickPlayNextRound,
-button.confirmEndGame,
 button.button-play {
     display: inline-block;
     background: royalblue;
