@@ -3,6 +3,9 @@
 This is an implementation of the Rock Paper Scissors game in a browser environment, created as part of my
 [Odin Project](https://www.theodinproject.com/) assignment for the foundation phase.
 
+## Some important lessons
+- Eventlisteners are loaded first before executed, so be careful where you initialise them in your code.
+
 ## Image References
 
 - [Atomic - The Noun Project](https://upload.wikimedia.org/wikipedia/commons/4/48/Atomic_-_The_Noun_Project.svg) image by [Timothy Dilich](https://thenounproject.com/mosaic7), [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/), via [Wikimedia Commons](https://commons.wikimedia.org)
