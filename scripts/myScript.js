@@ -284,12 +284,21 @@
 
         if (randomNumber === 0) {
             compDecision = "Rock"
+
+            emuBtnImg.src = "./images/I_Rock01.png";
+
         }
         else if (randomNumber === 1) {
             compDecision = "Paper"
+
+            emuBtnImg.src = "./images/Aufsatz.png";
+
         }
         else if (randomNumber === 2) {
             compDecision = "Scissors"
+
+            emuBtnImg.src = "./images/Rating-Christgau-choice-cut.png";
+            
         } else if (randomNumber === 3) {
             computerPlay();
         }
@@ -301,28 +310,6 @@
         console.log("Computer chose : "+ compDecision)
 
         computerSelection = compDecision;
-
-        console.log("Image Selected :"+computerSelection);
-        
-        // IN DEVELOPMENT
-        // Show comp choice
-    
-        if (computerSelection = "Rock") {
-
-            emuBtnImg.src = "./images/I_Rock01.png";
-
-        } else if (computerSelection = "Paper") {
-
-            emuBtnImg.src = "./images/Aufsatz.png";
-
-        } else if (computerSelection = "Scissors") {
-
-            emuBtnImg.src = "./images/Rating-Christgau-choice-cut.png";
-
-        } else {
-            //Something went wrong
-            console.log("Something went wrong")
-        }
 
         return compDecision;
     }
