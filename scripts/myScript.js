@@ -31,7 +31,8 @@
     let rockBtn = document.getElementsByClassName('clickRock')[0];
     let paperBtn = document.getElementsByClassName('clickPaper')[0];
     let scissorsBtn = document.getElementsByClassName('clickScissors')[0];
-    let emuBtn = document.getElementsByClassName('comp-choice-play')[0];
+    let emuBtn = document.querySelector(".comp-choice-play");
+    let emuBtnImg = document.getElementById('compImg');
 
 // Declare screens
     let gameScreenStart = document.getElementsByClassName('scr1GridWrapper-cont')[0];
@@ -116,6 +117,7 @@
             paperBtn.style.display = "flex";
             scissorsBtn.style.display = "flex";
             emuBtn.style.display = "flex";
+            emuBtnImg.src = "./images/64px-Question_mark2.svg.png";
 
         // Listen for player choice
             rockBtn.addEventListener("click", rockSelected);
@@ -265,7 +267,7 @@
             scissorsBtn.removeEventListener("click", scissorsSelected);
         */
  
-        console.log("Player selected Rock")
+        console.log("Player selected scissors")
 
     return;
     }
@@ -299,6 +301,28 @@
         console.log("Computer chose : "+ compDecision)
 
         computerSelection = compDecision;
+
+        console.log("Image Selected :"+computerSelection);
+        
+        // IN DEVELOPMENT
+        // Show comp choice
+    
+        if (computerSelection = "Rock") {
+
+            emuBtnImg.src = "./images/I_Rock01.png";
+
+        } else if (computerSelection = "Paper") {
+
+            emuBtnImg.src = "./images/Aufsatz.png";
+
+        } else if (computerSelection = "Scissors") {
+
+            emuBtnImg.src = "./images/Rating-Christgau-choice-cut.png";
+
+        } else {
+            //Something went wrong
+            console.log("Something went wrong")
+        }
 
         return compDecision;
     }
@@ -443,27 +467,6 @@
         let compChoice
 
         compChoice = computerPlay();
-
-        // Show comp choice
-    
-    /*
-        if (computerSelection = "Rock") {
-
-            emuBtn.innerHTML = "<img src="./images/I_Rock01.png"></img>";
-
-        } else if (computerSelection = "Paper") {
-
-            emuBtn.innerHTML = <img src="./images/Aufsatz.png"></img>;
-
-        } else if (computerSelection = "Scissors") {
-
-            emuBtn.innerHTML = <img src="./images/Rating-Christgau-choice-cut.png"></img>;
-
-        } else {
-            //Something went wrong
-            console.log("Something went wrong")
-        }
-     */
 
         // Add time delay with empty call of advert function
         //msgAdvert("");
