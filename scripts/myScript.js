@@ -444,6 +444,27 @@
 
         compChoice = computerPlay();
 
+        // Show comp choice
+    
+    /*
+        if (computerSelection = "Rock") {
+
+            emuBtn.innerHTML = "<img src="./images/I_Rock01.png"></img>";
+
+        } else if (computerSelection = "Paper") {
+
+            emuBtn.innerHTML = <img src="./images/Aufsatz.png"></img>;
+
+        } else if (computerSelection = "Scissors") {
+
+            emuBtn.innerHTML = <img src="./images/Rating-Christgau-choice-cut.png"></img>;
+
+        } else {
+            //Something went wrong
+            console.log("Something went wrong")
+        }
+     */
+
         // Add time delay with empty call of advert function
         //msgAdvert("");
         
