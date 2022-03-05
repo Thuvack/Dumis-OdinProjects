@@ -123,16 +123,12 @@
             rockBtn.addEventListener("click", rockSelected);
             paperBtn.addEventListener("click", paperSelected);
             scissorsBtn.addEventListener("click", scissorsSelected);
-
-            console.log("Player choice event listeners enabled...");
         
         // Hide play round
             playRoundBtn.style.display = "none";
-
-        console.log("Start screen initiated, starting game ...")
         
         // Start game
-        playerStatus = "Ready";
+            playerStatus = "Ready";
 
         return;
     }
@@ -150,8 +146,6 @@
                 paperBtn.style.display = "none";
                 scissorsBtn.style.display = "none";
                 emuBtn.style.display = "none";
-
-                console.log("Hiding game buttons");
 
             // Show PlayAgain & quitGamebuttons
                 playRoundBtn.style.display = "none";
@@ -189,12 +183,6 @@
 
         playerStatus = "Played";
 
-        /*   // Remove event listeners
-            rockBtn.removeEventListener("click", rockSelected);
-            paperBtn.removeEventListener("click", paperSelected);
-            scissorsBtn.removeEventListener("click", scissorsSelected);
-        */
-
         console.log("Player selected Rock")
 
     return;
@@ -224,12 +212,6 @@
         playRoundBtn.style.display = "flex";
 
         playerStatus = "Played";
-
-         /*   // Remove event listeners
-            rockBtn.removeEventListener("click", rockSelected);
-            paperBtn.removeEventListener("click", paperSelected);
-            scissorsBtn.removeEventListener("click", scissorsSelected);
-        */
 
         console.log("Player selected Paper")
 
@@ -279,8 +261,6 @@
 
         // Assign Random numbers to variables
         randomNumber = Math.floor(Math.random() * 3);
-
-        console.log(randomNumber);
 
         if (randomNumber === 0) {
             compDecision = "Rock"
@@ -456,7 +436,6 @@
         compChoice = computerPlay();
 
         // Add time delay with empty call of advert function
-        //msgAdvert("");
         
         // TO-DO: animate computer making a choice
         
@@ -466,16 +445,14 @@
     function gameAdvert(gameMsg) {
 
         gameBillBoard.innerHTML = gameMsg;
-
-        console.log("gameAdvert posted!")
+        
         return;
     }
 
     function gameWait(){
         let wait = "";
         gameAdvert(wait);
-
-        console.log("I waited")
+        
         return;
     }
 
@@ -518,11 +495,9 @@ function gameEngine() {
 
                 // Call play round function
                     roundRes = playRound(playerSelection, computerSelection);
-                    console.log(roundRes);
 
                 // get Updated players scores
                     roundScr = updateScore(roundRes);
-                    console.log(roundScr);
 
                 // Update score screen in game
                     gamePlayerScore.innerHTML = playerScore;
@@ -556,11 +531,9 @@ function gameEngine() {
 
                     // Call play round function
                         roundRes = playRound(playerSelection, computerSelection);
-                        console.log(roundRes);
 
                     // get Updated players scores
                         roundScr = updateScore(roundRes);
-                        console.log(roundScr);
 
                     // Update score screen in game
                         gamePlayerScore.innerHTML = playerScore;
@@ -579,7 +552,7 @@ function gameEngine() {
 
                         // Advertise final score
                         screenFinScore(finalResult);
-                        console.log("Deciding final score: "+ finalResult)
+
                         //setTimeout(gameWait,3000);
 
                 // Close out game
@@ -603,8 +576,7 @@ initGameBtn.addEventListener("click", function (){
         gameScreenPlay.style.display = "none";
         gameScreenStart.style.display = "none";
         gameScreenWelcome.style.display = "flex";
-
-        console.log("initGameBtn clicked");
+        
     return;
 });
 
