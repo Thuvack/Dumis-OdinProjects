@@ -1,118 +1,120 @@
 /* Global declarations */
 
 * {
-    font-family: sans-serif;
+  font-family: sans-serif;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
-body{
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 50px auto 50px;
+body {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50px auto 50px;
 }
 
 /* Styling for the header */
 
-.header, .header-cont,
+.header,
+.header-cont,
 .right-links {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
 }
 
 .header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background-color:#1F3927;
-    color: white;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #1f3927;
+  color: white;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 .header-cont {
-    flex-basis: 950px;
-    justify-content: space-between;
-    margin-top: 15px;
-    margin-bottom: 15px;
+  flex-basis: 950px;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .yellow-text {
-    font-family: 'Courier New' !important;
-    font-size: 20px;
-    color: yellow;
+  font-family: "Courier New" !important;
+  font-size: 20px;
+  color: yellow;
 }
 
-.red-text, .player-choice-text {
-    font-family: Helvetica !important;
-    font-size: 20px;
-    color: red;
-    font-weight: 800;
+.red-text,
+.player-choice-text {
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: red;
+  font-weight: 800;
 }
 
 .blue-text {
-    font-family: Helvetica !important;
-    font-size: 20px;
-    color: blue;
-    font-weight: 800;
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: blue;
+  font-weight: 800;
 }
 
 .green-text {
-    font-family: Helvetica !important;
-    font-size: 20px;
-    color: green;
-    font-weight: 800;
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: green;
+  font-weight: 800;
 }
 
 /* Style hover effects on links */
 
 .right-links ul li::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    background: #ffee10;
-    transition: .5s;
-    transform: scale(.9);
-    z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: #ffee10;
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
 }
 
 .right-links ul li:hover::before {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #ffee10;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
 }
 
 .right-links ul li:hover {
-    color: #ffee10;
-    box-shadow: 0 0 5px #ffee10;
-    text-shadow: 0 0 5px #ffee10;
+  color: #ffee10;
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
 }
-
 
 /* Styling Game container which houses all the 4 screens*/
 .gameMain-cont {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    background-color: darkolivegreen;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: darkolivegreen;
 }
 
 .gameMainWrapper {
-    display: grid;
-    margin: 0;
-    padding: 0;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    justify-content: center;
-    grid-template-areas:
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  grid-template-areas:
     "screen1"
     "screen2"
     "screen3";
@@ -121,564 +123,661 @@ body{
 /* Styling screen-1 section */
 
 .scr1GridWrapper-cont {
-    place-self: flex-start center;
-    grid-area: screen1;
-    display: flex;
-    flex:1;
-    flex-direction: row;
-    color: white;
-    background-color: darkolivegreen;
-    margin: 0px;
-    padding: 10px 10px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 5px;
+  place-self: flex-start center;
+  grid-area: screen1;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  color: white;
+  background-color: darkolivegreen;
+  margin: 0px;
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 .scr1GridWrapper {
-    display: grid;
-    margin: 5px 5px;
-    padding: 10px 10px;
-    grid-template-columns: 250px 400px;
-    grid-template-rows: 180px 50px;
-    justify-content: center;
-    grid-template-areas:
+  display: grid;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  grid-template-columns: 250px 400px;
+  grid-template-rows: 180px 50px;
+  justify-content: center;
+  grid-template-areas:
     "scr1GridImg scr1GridTxt"
     "scr1GridBtn scr1GridBtn";
 }
 
 .scr1Img {
-    display: flex;
-    flex-direction: row;
-    place-self: center flex-end;
-    grid-area: scr1GridImg;
+  display: flex;
+  flex-direction: row;
+  place-self: center flex-end;
+  grid-area: scr1GridImg;
 }
 
 .sc1-text-lg {
-    font-size: 20px;
-    font-weight: 500;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    flex-basis: 400px;
-    place-self: center center;
-    grid-area: scr1GridTxt;
+  font-size: 20px;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-basis: 400px;
+  place-self: center center;
+  grid-area: scr1GridTxt;
 }
 
-#clickPlay, #clickPlayAgain, #clickQuit {
-    display: flex;
-    background: royalblue;
-    color: white;
-    padding: 5px 30px;
-    font-size: medium;
-    place-self: center center;
-    grid-area: scr1GridBtn;
+#clickPlay,
+#clickPlayAgain,
+#clickQuit {
+  display: flex;
+  background: royalblue;
+  color: white;
+  padding: 5px 30px;
+  font-size: medium;
+  place-self: center center;
+  grid-area: scr1GridBtn;
 }
 
 #clickQuit {
-    background: indianred;
+  background: indianred;
 }
 
 /* Styling screen-2 section */
 
 .scr2GridWrapper-cont {
-    place-self: flex-start center;
-    grid-area: screen2;
-    display: none;
-    flex:1;
-    flex-direction: row;
-    color: white;
-    background-color: darkolivegreen;
-    margin: 0px;
-    padding: 10px 10px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 5px;
+  place-self: flex-start center;
+  grid-area: screen2;
+  display: none;
+  flex: 1;
+  flex-direction: row;
+  color: white;
+  background-color: darkolivegreen;
+  margin: 0px;
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 .scr2GridWrapper {
-    display: grid;
-    margin: 5px 5px;
-    padding: 10px 10px;
-    grid-template-columns: 250px 400px;
-    grid-template-rows: 30px 100px 30px;
-    justify-content: center;
-    grid-template-areas:
+  display: grid;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  grid-template-columns: 250px 400px;
+  grid-template-rows: 30px 100px 30px;
+  justify-content: center;
+  grid-template-areas:
     "scr2GridImg scr2GridTtl"
     "scr2GridImg scr2GridFrm"
     "scr2GridImg scr2GridBtn";
 }
 
 .scr2GridLs {
-    display: flex;
-    flex-flow: column nowrap;
-    place-self: flex-end center;
-    grid-area: scr2GridImg;
+  display: flex;
+  flex-flow: column nowrap;
+  place-self: flex-end center;
+  grid-area: scr2GridImg;
 }
 
 .scr2GridRs-Title {
-    font-size: 23px;
-    font-weight: 500;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    place-self: center stretch;
-    grid-area: scr2GridTtl;
+  font-size: 23px;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  place-self: center stretch;
+  grid-area: scr2GridTtl;
 }
 
-
 .scr2GridRs-Form {
-    display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    flex-basis: 300px;
-    place-self: center flex-start;
-    grid-area: scr2GridFrm;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-basis: 300px;
+  place-self: center flex-start;
+  grid-area: scr2GridFrm;
+  align-items: center;
+  justify-content: center;
 }
 
 #clickGameStart {
-    display: inline-block;
-    background: royalblue;
-    color: white;
-    padding: 10px 40px;
-    font-size: medium;
-    place-self: center center;
-    grid-area: scr2GridBtn;
+  display: inline-block;
+  background: royalblue;
+  color: white;
+  padding: 10px 40px;
+  font-size: medium;
+  place-self: center center;
+  grid-area: scr2GridBtn;
 }
-
 
 /* Styling Screen 3 section */
 
 .scr3GridWrapper-cont {
-    place-self: flex-start center;
-    grid-area: screen3;
-    display: none;
-    flex-direction: row;
-    background-color: aliceblue;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 25px;
-    flex: 1;
+  place-self: flex-start center;
+  grid-area: screen3;
+  display: none;
+  flex-direction: row;
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 25px;
+  flex: 1;
 }
 
 .scr3GridWrapper {
-    background-color: lightgreen;
-    flex-basis: 700px;
-    display: grid;
-    grid-template-columns: 65px 1fr 50px 50px 50px 1fr 65px;
-    grid-template-rows: 70px 50px 10px 150px 60px 60px;
-    grid-template-areas: 
+  background-color: lightgreen;
+  flex-basis: 700px;
+  display: grid;
+  grid-template-columns: 65px 1fr 50px 50px 50px 1fr 65px;
+  grid-template-rows: 70px 50px 10px 150px 60px 60px;
+  gap: 3px;
+  grid-template-areas:
     "gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader gameHeader"
     "PAvatar PName PScore VS CScore CName CAvatar"
     "resultsScr resultsScr resultsScr resultsScr resultsScr resultsScr resultsScr"
     "playerContent playerContent playerContent playerContent compContent compContent compContent"
     "gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard gameMsgBoard"
     "gameCntr gameCntr gameCntr gameCntr gameCntr gameCntr gameCntr";
-    border: 4px solid black;
-    border-radius: 8px;
+  border: 4px solid black;
+  border-radius: 8px;
 }
 
 .resultScrn {
-    display: flex;
-    color: crimson;
-    font-size: xx-large;
-    font-weight: 700;
-    background-color: darkgray;
-    margin: 10px 40px;
-    margin-top: 180px;
-    text-shadow: #ffee10;
-    place-self: center stretch;
-    grid-area: resultsScr;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  color: crimson;
+  font-size: xx-large;
+  font-weight: 700;
+  background-color: darkgray;
+  margin: 10px 40px;
+  margin-top: 180px;
+  text-shadow: #ffee10;
+  place-self: center stretch;
+  grid-area: resultsScr;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .gameTitle {
-    color: brown;
-    background-color: darkgray;
-    font-family:'Lucida Sans';
-    font-size: 23px;
-    font-weight: 1000;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    place-self: center stretch;
-    grid-area: gameHeader;
-    border-radius: 8px;
-    margin: 5px 5px;
+  color: brown;
+  background-color: darkgray;
+  font-family: "Lucida Sans";
+  font-size: 23px;
+  font-weight: 1000;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  place-self: center stretch;
+  grid-area: gameHeader;
+  border-radius: 8px;
+  margin: 5px 5px;
 }
 
 .player-avatar {
-    border: 2px solid midnightblue;
-    display: flex;
-    flex: 1 0 50px;
-    min-height: 50px;
-    margin-left: 10px;
-    margin-right: 2px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    grid-area: PAvatar;
+  border: 2px solid midnightblue;
+  display: flex;
+  flex: 1 0 50px;
+  min-height: 50px;
+  margin-left: 10px;
+  margin-right: 2px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  grid-area: PAvatar;
+}
+
+.PScore-Cont {
+  border: 0px;
+  display: grid;
+  grid-area: PName;
+  place-self: flex-end stretch;
+  min-width: 200px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "PSName PSName PSName PSName PSName"
+    "PSbox1 PSbox2 PSbox3 PSbox4 PSbox5";
 }
 
 .player-name {
-    border: 1px solid midnightblue;
-    display: flex;
-    flex: 2 1 150px;
-    grid-area: PName;
-    place-self: center stretch;
+  border: 0px;
+  display: flex;
+  justify-content: flex-start;
+  grid-area: PSName;
+  place-self: center stretch;
+}
+
+.Pscore-bar1,
+.Pscore-bar2,
+.Pscore-bar3,
+.Pscore-bar4,
+.Pscore-bar5 {
+  border: 1px solid midnightblue;
+  display: flex;
+  justify-content: flex-end;
+  background-color: midnightblue;
+}
+
+.Pscore-bar1 {
+  grid-area: PSbox1;
+  place-self: center stretch;
+}
+
+.Pscore-bar2 {
+  grid-area: PSbox2;
+  place-self: center stretch;
+}
+
+.Pscore-bar3 {
+  grid-area: PSbox3;
+  place-self: center stretch;
+}
+
+.Pscore-bar4 {
+  grid-area: PSbox4;
+  place-self: center stretch;
+}
+
+.Pscore-bar5 {
+  grid-area: PSbox5;
+  place-self: center stretch;
 }
 
 .player-score {
-    display: flex;
-    font-size: 40px;
-    font-weight: 600;
-    grid-area: PScore;
-    place-self: center center;
+  display: flex;
+  font-size: 40px;
+  font-weight: 600;
+  grid-area: PScore;
+  place-self: center center;
 }
 
 .versus {
-    border-style: solid;
-    display: flex;
-    flex: 1 0 30px;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    padding: 5px;
-    border-radius: 8px;
-    grid-area: VS;
+  border-style: solid;
+  display: flex;
+  flex: 1 0 30px;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 8px;
+  grid-area: VS;
 }
 
 .comp-score {
-    display: flex;
-    font-size: 40px;
-    font-weight: 600;
-    grid-area: CScore;
-    place-self: center center;
+  display: flex;
+  font-size: 40px;
+  font-weight: 600;
+  grid-area: CScore;
+  place-self: center center;
+}
+
+.CScore-cont {
+  border: 0px;
+  display: grid;
+  grid-area: CName;
+  place-self: end;
+  min-width: 200px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "CSName CSName CSName CSName CSName"
+    "CSbox1 CSbox2 CSbox3 CSbox4 CSbox5";
 }
 
 .comp-name {
-    border: 1px solid midnightblue;
-    display: flex;
-    flex: 2 1 150px;
-    justify-content: flex-end;
-    grid-area: CName;
-    place-self: center stretch;
+  border: 0px;
+  display: flex;
+  justify-content: flex-end;
+  grid-area: CSName;
+  place-self: center stretch;
+}
+
+.Cscore-bar1,
+.Cscore-bar2,
+.Cscore-bar3,
+.Cscore-bar4,
+.Cscore-bar5 {
+  border: 1px solid indianred;
+  display: flex;
+  justify-content: flex-end;
+  background-color: indianred;
+}
+
+.Cscore-bar1 {
+  grid-area: CSbox1;
+  place-self: center stretch;
+}
+
+.Cscore-bar2 {
+  grid-area: CSbox2;
+  place-self: center stretch;
+}
+
+.Cscore-bar3 {
+  grid-area: CSbox3;
+  place-self: center stretch;
+}
+
+.Cscore-bar4 {
+  grid-area: CSbox4;
+  place-self: center stretch;
+}
+
+.Cscore-bar5 {
+  grid-area: CSbox5;
+  place-self: center stretch;
 }
 
 .comp-avatar {
-    border: 2px solid midnightblue;
-    display: flex;
-    flex: 1 0 50px;
-    min-height: 50px;
-    margin-right: 10px;
-    margin-left: 2px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    grid-area: CAvatar;
+  border: 2px solid midnightblue;
+  display: flex;
+  flex: 1 0 50px;
+  min-height: 50px;
+  margin-right: 10px;
+  margin-left: 2px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  grid-area: CAvatar;
 }
 
 .player-choice,
 .comp-choice {
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 300px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 300px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .player-choice {
-    grid-area: playerContent;
-    place-self: center stretch;
+  grid-area: playerContent;
+  place-self: center stretch;
 }
 
 .comp-choice {
-    grid-area: compContent;
-    place-self: center stretch;
+  grid-area: compContent;
+  place-self: center stretch;
 }
 
 .pl-msg-prompt {
-    color: red;
-    font-weight: 600;
+  color: red;
+  font-weight: 600;
 }
 
 .billBoard {
-    display: flex;
-    flex-direction: row;
-    background-color: dimgrey;
-    color: #ffee10;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 10px;
-    margin: 0px 15px;
-    margin-bottom: 25px;
-    flex-basis: 650px;
-    min-height: 25px;
-    place-self: center stretch;
-    grid-area: gameCntr;
+  display: flex;
+  flex-direction: row;
+  background-color: dimgrey;
+  color: #ffee10;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  margin: 0px 15px;
+  margin-bottom: 25px;
+  flex-basis: 650px;
+  min-height: 25px;
+  place-self: center stretch;
+  grid-area: gameCntr;
 }
-
 
 .roundResult {
-    display: flex;
-    color: darkred;
-    font-weight: 600;
-    font-size: large;
+  display: flex;
+  color: darkred;
+  font-weight: 600;
+  font-size: large;
 }
 
-
-.game-controls-cont{
-    display: flex;
-    flex-direction: row;
-    padding: 0px 10px;
-    place-self: center stretch;
-    justify-content: center;
-    align-items: center;
-    grid-area: gameMsgBoard;
-    gap: 10px;
+.game-controls-cont {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 10px;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gameMsgBoard;
+  gap: 10px;
 }
 
-.playGameSec, .playNextGameSec, .endGameSec {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+.playGameSec,
+.playNextGameSec,
+.endGameSec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
-
 
 /* Styling Screen-4 section: End game */
 
 .scr4GridWrapper-cont {
-    place-self: flex-start center;
-    grid-area: screen4;
-    display: none;
-    flex:1;
-    flex-direction: row;
-    color: white;
-    background-color: darkolivegreen;
-    margin: 0px;
-    padding: 10px 10px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 5px;
+  place-self: flex-start center;
+  grid-area: screen4;
+  display: none;
+  flex: 1;
+  flex-direction: row;
+  color: white;
+  background-color: darkolivegreen;
+  margin: 0px;
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 .scr4GridWrapper {
-    display: grid;
-    margin: 5px 5px;
-    padding: 10px 10px;
-    grid-template-columns: 350px 350px;
-    grid-template-rows: 180px 50px;
-    justify-content: center;
-    grid-template-areas:
+  display: grid;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  grid-template-columns: 350px 350px;
+  grid-template-rows: 180px 50px;
+  justify-content: center;
+  grid-template-areas:
     "scr4GridImg scr4GridTxt"
     "scr4GridBtn1 scr4GridBtn1";
-    gap: 5px;
+  gap: 5px;
 }
 
 .scr4Img-Ls {
-    display: flex;
-    flex-flow: column nowrap;
-    place-self: center flex-end;
-    grid-area: scr4GridImg;
+  display: flex;
+  flex-flow: column nowrap;
+  place-self: center flex-end;
+  grid-area: scr4GridImg;
 }
 
 .scr4GridRs-Text {
-    font-size: 23px;
-    font-weight: 500;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    place-self: center stretch;
-    grid-area: scr4GridTxt;
+  font-size: 23px;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  place-self: center stretch;
+  grid-area: scr4GridTxt;
 }
 
 #confirmEndGame {
-    display: inline-block;
-    background: rgb(225, 124, 65);
-    color: white;
-    padding: 5px 30px;
-    font-size: medium;
-    place-self: center center;
-    grid-area: scr4GridBtn1;
+  display: inline-block;
+  background: rgb(225, 124, 65);
+  color: white;
+  padding: 5px 30px;
+  font-size: medium;
+  place-self: center center;
+  grid-area: scr4GridBtn1;
 }
 
 /* end here */
 
 .body-sc3-cont {
-    background-color: #556b2f;
-    display: none;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    flex: 1;
+  background-color: #556b2f;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
 }
 
 .sub-sc3-cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .body-sc3-top {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 25px;
-    flex-basis: 600px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 25px;
+  flex-basis: 600px;
 }
 
-
-
 .body-sc3-rs {
-    flex: 1 1 60%;
-    justify-content: flex-start;
-    align-items: center;
+  flex: 1 1 60%;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .body-sc3-text-lg {
-    color: white;
-    font-size: 23px;
-    font-weight: 500;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    flex-basis: 300px;
+  color: white;
+  font-size: 23px;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-basis: 300px;
 }
 
 .body-sc3-bottom {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 25px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 25px;
 }
 
 /* Styling of the footer */
 .footer {
-    background-color:#1F3927;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 15px;
+  background-color: #1f3927;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 15px;
 }
 
 /* -- Styling buttons -- */
 
 button {
-    padding: 10px 30px;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 2px solid white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid white;
 }
-
 
 button.clickPlayRound,
 button.clickPlayNextRound,
 button.button-play {
-    display: inline-block;
-    background: royalblue;
-    color: white;
-    padding: 10px 40px;
-    font-size: medium;
+  display: inline-block;
+  background: royalblue;
+  color: white;
+  padding: 10px 40px;
+  font-size: medium;
 }
 
 button.clickRock,
 button.clickPaper,
 button.clickScissors {
-    display: inline-block;
-    background: royalblue;
-    color: white;
-    padding: 10px 30px;
-    font-size: medium;
-    min-height: 75px;
+  display: inline-block;
+  background: royalblue;
+  color: white;
+  padding: 10px 30px;
+  font-size: medium;
+  min-height: 75px;
 }
 
 button.comp-choice-play {
-    display: flex;
-    background: royalblue;
-    border: 3px solid white;
-    color: white;
-    padding: 10px 40px;
-    font-size: medium;
-    min-height: 75px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
+  display: flex;
+  background: indianred;
+  border: 3px solid white;
+  color: white;
+  padding: 10px 40px;
+  font-size: medium;
+  min-height: 75px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
 }
 
-.spacer{
-    display: inline-block;
-    min-width: 5px;
-    padding: 15px 15px;
+.spacer {
+  display: inline-block;
+  min-width: 5px;
+  padding: 15px 15px;
 }
 
 /* --       Styling for other properties        -- */
 ul {
-    /* Removes the dots on the list items  */
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 30px;
+  /* Removes the dots on the list items  */
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
 }
 
 a {
-    /* Removes the line under the links */
-    font-size: 12px;
-    text-decoration: none;
-    color: gray;
+  /* Removes the line under the links */
+  font-size: 12px;
+  text-decoration: none;
+  color: gray;
 }
 
 /* Styling for test screen */
 
 .test-sc-cont {
-    background-color: khaki;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+  background-color: khaki;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .testSub-sc-cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .test-sc-top {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 25px;
-    flex-basis: 600px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 25px;
+  flex-basis: 600px;
 }
 
-.tes1, .test1.h1, .test-text, .test2,
-.test-button, .button.button-play {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.tes1,
+.test1.h1,
+.test-text,
+.test2,
+.test-button,
+.button.button-play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .test1 {
-    font-size: 30px;
-    font-weight: 700;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .test2 {
-    flex-direction: column;
+  flex-direction: column;
 }
-
