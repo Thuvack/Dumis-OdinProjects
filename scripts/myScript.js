@@ -43,6 +43,19 @@
     let form = document.querySelector(".scr2Form");
     let scrRes = document.querySelector(".resultScrn");
 
+// Declare scorebars
+    let pScoreBar1 = document.querySelector(".Pscore-bar1");
+    let pScoreBar2 = document.querySelector(".Pscore-bar2");
+    let pScoreBar3 = document.querySelector(".Pscore-bar3");
+    let pScoreBar4 = document.querySelector(".Pscore-bar4");
+    let pScoreBar5 = document.querySelector(".Pscore-bar5");
+
+    let cScoreBar1 = document.querySelector(".Cscore-bar1");
+    let cScoreBar2 = document.querySelector(".Cscore-bar2");
+    let cScoreBar3 = document.querySelector(".Cscore-bar3");
+    let cScoreBar4 = document.querySelector(".Cscore-bar4");
+    let cScoreBar5 = document.querySelector(".Cscore-bar5");
+
 // Game intialization functions    
 
     function initNewGame(){
@@ -53,6 +66,19 @@
         playerScore = 0;
         computerScore = 0;
         roundCounter = 0;
+
+        // Clear score bars
+        pScoreBar1.style.display = "none";
+        pScoreBar2.style.display = "none";
+        pScoreBar3.style.display = "none";
+        pScoreBar4.style.display = "none";
+        pScoreBar5.style.display = "none";
+
+        cScoreBar1.style.display = "none";
+        cScoreBar2.style.display = "none";
+        cScoreBar3.style.display = "none";
+        cScoreBar4.style.display = "none";
+        cScoreBar5.style.display = "none";
 
         // Initiate round
          initNewRound();
@@ -335,6 +361,80 @@
 
         currentScore = "SCORE: Player: "+playerScore + " and Computer: "+computerScore
 
+        // Update player scoreing bars
+
+        if (playerScore === 1) {
+            pScoreBar1.style.display = "flex";
+            pScoreBar2.style.display = "none";
+            pScoreBar3.style.display = "none";
+            pScoreBar4.style.display = "none";
+            pScoreBar5.style.display = "none";                                  
+        } else if (playerScore === 2) {
+            pScoreBar1.style.display = "flex";
+            pScoreBar2.style.display = "flex";
+            pScoreBar3.style.display = "none";
+            pScoreBar4.style.display = "none";
+            pScoreBar5.style.display = "none";                                  
+        } else if (playerScore === 3) {
+            pScoreBar1.style.display = "flex";
+            pScoreBar2.style.display = "flex";
+            pScoreBar3.style.display = "flex";
+            pScoreBar4.style.display = "none";
+            pScoreBar5.style.display = "none";                                  
+        } else if (playerScore === 4) {
+            pScoreBar1.style.display = "flex";
+            pScoreBar2.style.display = "flex";
+            pScoreBar3.style.display = "flex";
+            pScoreBar4.style.display = "flex";
+            pScoreBar5.style.display = "none";                                  
+        } else if (playerScore === 5) {
+            pScoreBar1.style.display = "flex";
+            pScoreBar2.style.display = "flex";
+            pScoreBar3.style.display = "flex";
+            pScoreBar4.style.display = "flex";
+            pScoreBar5.style.display = "flex";                                  
+        } else {
+            //Something went wrong
+            console.log("Something went wrong")
+        }
+
+        //Update computer scoring barsd
+
+        if (computerScore === 1) {
+            cScoreBar1.style.display = "flex";
+            cScoreBar2.style.display = "none";
+            cScoreBar3.style.display = "none";
+            cScoreBar4.style.display = "none";
+            cScoreBar5.style.display = "none";
+        } else if (computerScore === 2) {
+            cScoreBar1.style.display = "flex";
+            cScoreBar2.style.display = "flex";
+            cScoreBar3.style.display = "none";
+            cScoreBar4.style.display = "none";
+            cScoreBar5.style.display = "none";
+        } else if (computerScore === 3) {
+            cScoreBar1.style.display = "flex";
+            cScoreBar2.style.display = "flex";
+            cScoreBar3.style.display = "flex";
+            cScoreBar4.style.display = "none";
+            cScoreBar5.style.display = "none";
+        } else if (computerScore === 4) {
+            cScoreBar1.style.display = "flex";
+            cScoreBar2.style.display = "flex";
+            cScoreBar3.style.display = "flex";
+            cScoreBar4.style.display = "flex";
+            cScoreBar5.style.display = "none";
+        } else if (computerScore === 5) {
+            cScoreBar1.style.display = "flex";
+            cScoreBar2.style.display = "flex";
+            cScoreBar3.style.display = "flex";
+            cScoreBar4.style.display = "flex";
+            cScoreBar5.style.display = "flex";
+        } else {
+            //Something went wrong
+            console.log("Something went wrong")
+        }
+
         return currentScore;
     }
 
@@ -392,8 +492,11 @@ function gameEngine() {
     // Prep for the playRound Function
         let roundRes;
         let roundScr;
+        let roundNum = 2;  // This needs fixing with an if statement
 
-        playRoundBtn.innerHTML = "Play Round";
+        roundNum += roundCounter;
+
+        playRoundBtn.innerHTML = "Play Round " + roundNum;
 
         console.log("Game engine started...");
 
