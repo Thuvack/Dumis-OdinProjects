@@ -514,6 +514,9 @@ body {
   min-height: 25px;
   place-self: center stretch;
   grid-area: gameCntr;
+  opacity: 0;
+  transition: opacity 5s;
+  transition: ease-in-out;
 }
 
 .roundResult {

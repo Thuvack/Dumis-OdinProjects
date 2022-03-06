@@ -444,7 +444,10 @@
 
     function gameAdvert(gameMsg) {
 
-        gameBillBoard.innerHTML = gameMsg;
+            gameBillBoard.innerHTML = gameMsg;
+
+        //Transition BillBoard
+            gameBillBoard.style.opacity = 1;  //Still needs work
         
         return;
     }
@@ -502,9 +505,6 @@ function gameEngine() {
                 // Update score screen in game
                     gamePlayerScore.innerHTML = playerScore;
                     gameCompScore.innerHTML = computerScore;
-
-                // Advertise round result
-                //msgAdvert(roundRes);
 
                 // Reset playing screen by showing player choice
                     rockBtn.style.display = "flex";
