@@ -674,3 +674,31 @@ a {
   text-decoration: none;
   color: gray;
 }
+
+/* Styling Transitions and animations*/
+
+button.clickRock:hover,
+button.clickPaper:hover,
+button.clickScissors:hover {
+  display: flex;
+  background: blue;
+  color: white;
+  padding: 30px 30px;
+  font-size: medium;
+  min-height: 100px;
+  justify-content: center;
+  align-content: center;
+}
+
+button.clickRock:focus,
+button.clickPaper:focus,
+button.clickScissors:focus {
+  display: flex;
+  background: blue;
+  color: white;
+  padding: 30px 30px;
+  font-size: medium;
+  min-height: 100px;
+  justify-content: center;
+  align-content: center;
+}
