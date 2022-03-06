@@ -42,8 +42,7 @@ body {
 .header-cont {
   flex-basis: 950px;
   justify-content: space-between;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 15px 0px;
 }
 
 .yellow-text {
@@ -159,8 +158,7 @@ body {
 .sc1-text-lg {
   font-size: 20px;
   font-weight: 500;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0px;
   flex-basis: 400px;
   place-self: center center;
   grid-area: scr1GridTxt;
@@ -222,18 +220,15 @@ body {
 .scr2GridRs-Title {
   font-size: 23px;
   font-weight: 500;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 10px 0px;
   place-self: center stretch;
   grid-area: scr2GridTtl;
 }
 
 .scr2GridRs-Form {
   display: flex;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  padding-top: 10px 0px;
+  margin-top: 20px 0px;
   flex-basis: 300px;
   place-self: center flex-start;
   grid-area: scr2GridFrm;
@@ -301,18 +296,18 @@ body {
 }
 
 .gameTitle {
-  color: brown;
+  color: black;
   background-color: darkgray;
   font-family: "Lucida Sans";
-  font-size: 23px;
+  font-size: 40px;
   font-weight: 1000;
   text-align: center;
-  padding-top: 15px;
-  padding-bottom: 10px;
+  padding: 5px 0px 5px 0px;
   place-self: center stretch;
   grid-area: gameHeader;
   border-radius: 8px;
   margin: 5px 5px;
+  text-shadow: 2px 1px 2px #ffee10;
 }
 
 .player-avatar {
@@ -320,8 +315,7 @@ body {
   display: flex;
   flex: 1 0 50px;
   min-height: 50px;
-  margin-left: 10px;
-  margin-right: 2px;
+  margin: 0px 2px 0px 10px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -423,7 +417,7 @@ body {
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "CSName CSName CSName CSName CSName"
-    "CSbox1 CSbox2 CSbox3 CSbox4 CSbox5";
+    "CSbox5 CSbox4 CSbox3 CSbox2 CSbox1";
 }
 
 .comp-name {
@@ -475,8 +469,7 @@ body {
   display: flex;
   flex: 1 0 50px;
   min-height: 50px;
-  margin-right: 10px;
-  margin-left: 2px;
+  margin: 0px 10px 0px 2px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -516,8 +509,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px 10px;
-  margin: 0px 15px;
-  margin-bottom: 25px;
+  margin: 0px 15px 25px 15px;
   flex-basis: 650px;
   min-height: 25px;
   place-self: center stretch;
@@ -589,10 +581,9 @@ body {
 }
 
 .scr4GridRs-Text {
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 500;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 0px;
   place-self: center stretch;
   grid-area: scr4GridTxt;
 }
@@ -605,56 +596,6 @@ body {
   font-size: medium;
   place-self: center center;
   grid-area: scr4GridBtn1;
-}
-
-/* end here */
-
-.body-sc3-cont {
-  background-color: #556b2f;
-  display: none;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 1;
-}
-
-.sub-sc3-cont {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.body-sc3-top {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 25px;
-  flex-basis: 600px;
-}
-
-.body-sc3-rs {
-  flex: 1 1 60%;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.body-sc3-text-lg {
-  color: white;
-  font-size: 23px;
-  font-weight: 500;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  flex-basis: 300px;
-}
-
-.body-sc3-bottom {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 25px;
 }
 
 /* Styling of the footer */
@@ -732,52 +673,4 @@ a {
   font-size: 12px;
   text-decoration: none;
   color: gray;
-}
-
-/* Styling for test screen */
-
-.test-sc-cont {
-  background-color: khaki;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-}
-
-.testSub-sc-cont {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.test-sc-top {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 25px;
-  flex-basis: 600px;
-}
-
-.tes1,
-.test1.h1,
-.test-text,
-.test2,
-.test-button,
-.button.button-play {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.test1 {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.test2 {
-  flex-direction: column;
 }
