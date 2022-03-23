@@ -1,0 +1,415 @@
+/* Global declarations */
+
+* {
+  font-family: sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 50px auto 50px;
+}
+
+/* Styling for the header */
+
+.header,
+.header-cont,
+.right-links {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #1f3927;
+  color: white;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.header-cont {
+  flex-basis: 950px;
+  justify-content: space-between;
+  margin-top: 15px 0px;
+}
+
+.yellow-text {
+  font-family: "Courier New" !important;
+  font-size: 20px;
+  color: yellow;
+}
+
+.red-text,
+.player-choice-text {
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: red;
+  font-weight: 800;
+}
+
+.blue-text {
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: blue;
+  font-weight: 800;
+}
+
+.green-text {
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: green;
+  font-weight: 800;
+}
+
+/* Style hover effects on links */
+
+.right-links ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: #ffee10;
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+.right-links ul li:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
+}
+
+.right-links ul li:hover {
+  color: #ffee10;
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
+}
+
+/* Styling Game container which houses all the 4 screens*/
+.gameMain-cont {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: darkolivegreen;
+}
+
+.gameMainWrapper {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  grid-template-areas:
+    "screen1"
+    "screen2"
+    "screen3";
+}
+
+/* Styling screen-1 section */
+
+.scr1GridWrapper-cont {
+  place-self: flex-start center;
+  grid-area: screen1;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  color: white;
+  background-color: darkolivegreen;
+  margin: 0px;
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.scr1GridWrapper {
+  display: grid;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  grid-template-columns: 250px 400px;
+  grid-template-rows: 180px 50px;
+  justify-content: center;
+  grid-template-areas:
+    "scr1GridImg scr1GridTxt"
+    "scr1GridBtn scr1GridBtn";
+}
+
+.scr1Img {
+  display: flex;
+  flex-direction: row;
+  place-self: center flex-end;
+  grid-area: scr1GridImg;
+}
+
+.sc1-text-lg {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 0px;
+  flex-basis: 400px;
+  place-self: center center;
+  grid-area: scr1GridTxt;
+}
+
+#clickPlay,
+#clickPlayAgain,
+#clickQuit {
+  display: flex;
+  background: royalblue;
+  color: white;
+  padding: 5px 30px;
+  font-size: medium;
+  place-self: center center;
+  grid-area: scr1GridBtn;
+}
+
+#clickQuit {
+  background: indianred;
+}
+
+/* Styling screen-2 section */
+
+.scr2GridWrapper-cont {
+  place-self: flex-start center;
+  grid-area: screen2;
+  display: none;
+  flex: 1;
+  flex-direction: row;
+  color: white;
+  background-color: darkolivegreen;
+  margin: 0px;
+  padding: 10px 10px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.scr2GridWrapper {
+  display: grid;
+  margin: 5px 5px;
+  padding: 10px 10px;
+  grid-template-columns: 250px 400px;
+  grid-template-rows: 30px 100px 30px;
+  justify-content: center;
+  grid-template-areas:
+    "scr2GridImg scr2GridTtl"
+    "scr2GridImg scr2GridFrm"
+    "scr2GridImg scr2GridBtn";
+}
+
+.scr2GridLs {
+  display: flex;
+  flex-flow: column nowrap;
+  place-self: flex-end center;
+  grid-area: scr2GridImg;
+}
+
+.scr2GridRs-Title {
+  font-size: 23px;
+  font-weight: 500;
+  padding-top: 10px 0px;
+  place-self: center stretch;
+  grid-area: scr2GridTtl;
+}
+
+.scr2GridRs-Form {
+  display: flex;
+  padding-top: 10px 0px;
+  margin-top: 20px 0px;
+  flex-basis: 300px;
+  place-self: center flex-start;
+  grid-area: scr2GridFrm;
+  align-items: center;
+  justify-content: center;
+}
+
+#clickGameStart {
+  display: inline-block;
+  background: royalblue;
+  color: white;
+  padding: 10px 40px;
+  font-size: medium;
+  place-self: center center;
+  grid-area: scr2GridBtn;
+}
+
+/* Styling Screen 3 section */
+
+.scr3GridWrapper-cont {
+  place-self: flex-start center;
+  grid-area: screen3;
+  display: flex;
+  flex-direction: row;
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 25px;
+  flex: 1;
+}
+
+.scr3GridWrapper {
+  background-color: lightgreen;
+  flex-basis: 700px;
+  display: grid;
+  grid-template-columns: 960px;
+  grid-template-rows: 70px 960px;
+  gap: 3px;
+  grid-template-areas:
+    "sketchHeader"
+    "sketchPad";
+  border: 4px solid black;
+  border-radius: 8px;
+}
+
+.gameTitle {
+  color: black;
+  background-color: darkgray;
+  font-family: "Lucida Sans";
+  font-size: 40px;
+  font-weight: 1000;
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+  place-self: center stretch;
+  grid-area: sketchHeader;
+  border-radius: 8px;
+  margin: 5px 5px;
+  text-shadow: 2px 1px 2px #ffee10;
+}
+
+.sketchPad {
+  color: black;
+  background-color: darkgray;
+  font-family: "Lucida Sans";
+  font-size: 40px;
+  font-weight: 1000;
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+  place-self: center stretch;
+  grid-area: sketchPad;
+  border-radius: 8px;
+  margin: 5px 5px;
+  text-shadow: 2px 1px 2px #ffee10;
+  height: 97%;
+  width: 99%;
+}
+
+/* Styling of the footer */
+.footer {
+  background-color: #1f3927;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 15px;
+}
+
+/* -- Styling buttons -- 
+
+button {
+  padding: 10px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+button.clickPlayRound,
+button.clickPlayNextRound,
+button.button-play {
+  display: inline-block;
+  background: royalblue;
+  color: white;
+  padding: 10px 40px;
+  font-size: medium;
+}
+
+button.clickRock,
+button.clickPaper,
+button.clickScissors {
+  display: inline-block;
+  background: royalblue;
+  color: white;
+  padding: 10px 30px;
+  font-size: medium;
+  min-height: 75px;
+}
+
+button.comp-choice-play {
+  display: flex;
+  background: indianred;
+  border: 3px solid white;
+  color: white;
+  padding: 10px 40px;
+  font-size: medium;
+  min-height: 75px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.spacer {
+  display: inline-block;
+  min-width: 5px;
+  padding: 15px 15px;
+}
+
+*/
+
+/* --       Styling for other properties        -- */
+ul {
+  /* Removes the dots on the list items  */
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+a {
+  /* Removes the line under the links */
+  font-size: 12px;
+  text-decoration: none;
+  color: gray;
+}
+
+/* Styling Transitions and animations*/
+
+button.clickRock:hover,
+button.clickPaper:hover,
+button.clickScissors:hover {
+  display: flex;
+  background: blue;
+  color: white;
+  padding: 30px 30px;
+  font-size: medium;
+  min-height: 100px;
+  justify-content: center;
+  align-content: center;
+}
+
+button.clickRock:focus,
+button.clickPaper:focus,
+button.clickScissors:focus {
+  display: flex;
+  background: blue;
+  color: white;
+  padding: 30px 30px;
+  font-size: medium;
+  min-height: 100px;
+  justify-content: center;
+  align-content: center;
+}
