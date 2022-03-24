@@ -98,184 +98,57 @@ body {
   text-shadow: 0 0 5px #ffee10;
 }
 
-/* Styling Game container which houses all the 4 screens*/
-.gameMain-cont {
+/* Styling SketchPad container*/
+.sketchPadMain-cont {
   display: flex;
   flex-direction: row;
   flex: 1;
   background-color: darkolivegreen;
+  justify-content: center;
+  padding: 20px 20px;
 }
 
-.gameMainWrapper {
+.sketchPadMainWrapper {
   display: grid;
   margin: 0;
   padding: 0;
   grid-template-columns: 100%;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   justify-content: center;
-  grid-template-areas:
-    "screen1"
-    "screen2"
-    "screen3";
-}
-
-/* Styling screen-1 section */
-
-.scr1GridWrapper-cont {
-  place-self: flex-start center;
-  grid-area: screen1;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  color: white;
-  background-color: darkolivegreen;
-  margin: 0px;
-  padding: 10px 10px;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.scr1GridWrapper {
-  display: grid;
-  margin: 5px 5px;
-  padding: 10px 10px;
-  grid-template-columns: 250px 400px;
-  grid-template-rows: 180px 50px;
-  justify-content: center;
-  grid-template-areas:
-    "scr1GridImg scr1GridTxt"
-    "scr1GridBtn scr1GridBtn";
-}
-
-.scr1Img {
-  display: flex;
-  flex-direction: row;
-  place-self: center flex-end;
-  grid-area: scr1GridImg;
-}
-
-.sc1-text-lg {
-  font-size: 20px;
-  font-weight: 500;
-  padding: 10px 0px;
-  flex-basis: 400px;
-  place-self: center center;
-  grid-area: scr1GridTxt;
-}
-
-#clickPlay,
-#clickPlayAgain,
-#clickQuit {
-  display: flex;
-  background: royalblue;
-  color: white;
-  padding: 5px 30px;
-  font-size: medium;
-  place-self: center center;
-  grid-area: scr1GridBtn;
-}
-
-#clickQuit {
-  background: indianred;
-}
-
-/* Styling screen-2 section */
-
-.scr2GridWrapper-cont {
-  place-self: flex-start center;
-  grid-area: screen2;
-  display: none;
-  flex: 1;
-  flex-direction: row;
-  color: white;
-  background-color: darkolivegreen;
-  margin: 0px;
-  padding: 10px 10px;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.scr2GridWrapper {
-  display: grid;
-  margin: 5px 5px;
-  padding: 10px 10px;
-  grid-template-columns: 250px 400px;
-  grid-template-rows: 30px 100px 30px;
-  justify-content: center;
-  grid-template-areas:
-    "scr2GridImg scr2GridTtl"
-    "scr2GridImg scr2GridFrm"
-    "scr2GridImg scr2GridBtn";
-}
-
-.scr2GridLs {
-  display: flex;
-  flex-flow: column nowrap;
-  place-self: flex-end center;
-  grid-area: scr2GridImg;
-}
-
-.scr2GridRs-Title {
-  font-size: 23px;
-  font-weight: 500;
-  padding-top: 10px 0px;
-  place-self: center stretch;
-  grid-area: scr2GridTtl;
-}
-
-.scr2GridRs-Form {
-  display: flex;
-  padding-top: 10px 0px;
-  margin-top: 20px 0px;
-  flex-basis: 300px;
-  place-self: center flex-start;
-  grid-area: scr2GridFrm;
-  align-items: center;
-  justify-content: center;
-}
-
-#clickGameStart {
-  display: inline-block;
-  background: royalblue;
-  color: white;
-  padding: 10px 40px;
-  font-size: medium;
-  place-self: center center;
-  grid-area: scr2GridBtn;
+  grid-template-areas: "screen1";
 }
 
 /* Styling Screen 3 section */
 
-.scr3GridWrapper-cont {
+.spGridWrapper-cont {
   place-self: flex-start center;
-  grid-area: screen3;
+  grid-area: screen1;
   display: flex;
   flex-direction: row;
   background-color: aliceblue;
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 25px;
+  padding: 3px;
   flex: 1;
 }
 
-.scr3GridWrapper {
+.spGridWrapper {
   background-color: lightgreen;
   flex-basis: 700px;
   display: grid;
   grid-template-columns: 960px;
-  grid-template-rows: 70px 960px;
+  grid-template-rows: 60px 960px 50px;
   gap: 3px;
   grid-template-areas:
     "sketchHeader"
-    "sketchPad";
+    "sketchPad"
+    "sketchPadControl";
   border: 4px solid black;
   border-radius: 8px;
 }
 
-.gameTitle {
+.sketchPadTitle {
   color: black;
   background-color: darkgray;
   font-family: "Lucida Sans";
@@ -286,13 +159,13 @@ body {
   place-self: center stretch;
   grid-area: sketchHeader;
   border-radius: 8px;
-  margin: 5px 5px;
+  margin: 15px 5px 5px 5px;
   text-shadow: 2px 1px 2px #ffee10;
 }
 
 .sketchPad {
   color: black;
-  background-color: darkgray;
+  background-color: whitesmoke;
   font-family: "Lucida Sans";
   font-size: 40px;
   font-weight: 1000;
@@ -300,11 +173,25 @@ body {
   padding: 5px 0px 5px 0px;
   place-self: center stretch;
   grid-area: sketchPad;
+  display: grid;
+  grid-template-columns: repeat(100, auto);
+  grid-template-rows: repeat(100, auto);
   border-radius: 8px;
   margin: 5px 5px;
   text-shadow: 2px 1px 2px #ffee10;
   height: 97%;
   width: 99%;
+}
+
+.sketchPadCont {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 10px;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: sketchPadControl;
+  gap: 10px;
 }
 
 /* Styling of the footer */
@@ -318,7 +205,7 @@ body {
   padding: 15px;
 }
 
-/* -- Styling buttons -- 
+/* -- Styling buttons -- */
 
 button {
   padding: 10px 30px;
@@ -327,47 +214,16 @@ button {
   border: 2px solid white;
 }
 
-button.clickPlayRound,
-button.clickPlayNextRound,
-button.button-play {
-  display: inline-block;
-  background: royalblue;
-  color: white;
-  padding: 10px 40px;
-  font-size: medium;
-}
-
-button.clickRock,
-button.clickPaper,
-button.clickScissors {
-  display: inline-block;
-  background: royalblue;
-  color: white;
-  padding: 10px 30px;
-  font-size: medium;
-  min-height: 75px;
-}
-
-button.comp-choice-play {
+#clickNewPad,
+#clickResetPad {
   display: flex;
-  background: indianred;
-  border: 3px solid white;
+  background: royalblue;
   color: white;
-  padding: 10px 40px;
+  padding: 5px 30px;
   font-size: medium;
-  min-height: 75px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
+  place-self: center center;
+  /* grid-area: scr1GridBtn; */
 }
-
-.spacer {
-  display: inline-block;
-  min-width: 5px;
-  padding: 15px 15px;
-}
-
-*/
 
 /* --       Styling for other properties        -- */
 ul {
@@ -386,7 +242,7 @@ a {
   color: gray;
 }
 
-/* Styling Transitions and animations*/
+/* Styling Transitions and animations
 
 button.clickRock:hover,
 button.clickPaper:hover,
@@ -413,3 +269,5 @@ button.clickScissors:focus {
   justify-content: center;
   align-content: center;
 }
+
+*/
