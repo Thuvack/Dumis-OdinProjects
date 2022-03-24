@@ -6,7 +6,14 @@ for(let i = 0; i < padSize; i++) {
     let div_name = "Cell_"+i;
     let div = document.createElement(div_name);
     div.classList.add("sketchPadCell");
-    // div.classList.add("sketchPadCell:hover");
+
+    // Add event listener to change background
+    div.addEventListener("mouseleave", function() {
+        div.style.background = "black";
+    })
+
+    // Add event listener to switch on and off an event listener on click
+
     myPad.append(div);
 }
 
