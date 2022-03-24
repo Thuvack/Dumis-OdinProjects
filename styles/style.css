@@ -178,9 +178,11 @@ body {
   grid-template-rows: repeat(100, auto);
   border-radius: 8px;
   margin: 5px 5px;
+  padding: 5px 5px;
   text-shadow: 2px 1px 2px #ffee10;
   height: 97%;
-  width: 99%;
+  width: 98%;
+  grid-auto-flow: dense;
 }
 
 .sketchPadCont {
@@ -192,6 +194,14 @@ body {
   align-items: center;
   grid-area: sketchPadControl;
   gap: 10px;
+}
+
+.sketchPadCell {
+  background-color: burlywood;
+}
+
+.sketchPadCell:hover {
+  background-color: black;
 }
 
 /* Styling of the footer */
