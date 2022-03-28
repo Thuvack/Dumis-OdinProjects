@@ -200,6 +200,10 @@ body {
   background-color: burlywood;
 }
 
+.sketchPadCellOn {
+  background-color: black;
+}
+
 /*
 .sketchPadCell:hover {
   background-color: black;

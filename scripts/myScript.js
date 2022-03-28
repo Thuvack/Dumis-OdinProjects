@@ -30,37 +30,38 @@ function drawToggle () {
 
     if (clickTracker == 0) {
 
-        for (let i = 0; i < padSize; i++) {
-            
-            cellArray[i].addEventListener("mouseleave", function() {
-            cellArray[i].style.background = "black";
-            })
-        
-        }
+        // Draw sketchpad
+        myPad.addEventListener("mouseover",drawPad);
+
         clickTracker = 1;
 
     } else {
 
-        // TO FIX
-        // This function should remove previously added event listeners
-
-        for (let i = 0; i < padSize; i++) {
-            
-            cellArray[i].addEventListener("mouseleave", function() {
-            cellArray[i].style.background = "burlywood";
-            })
-        
-        }
+        myPad.removeEventListener("mouseover",drawPad);
 
         clickTracker = 0;
-    }
+    }``
 
     console.log(clickTracker);
+}
+
+// Function to drawpad
+function drawPad (event) {
+    
+    // Get tagname of div that fired the event
+    let div_name = event.target.tagName;
+   
+    //Select div in DOM
+    let padCell = document.querySelector(div_name);
+
+    // Apply class to the selected div
+    padCell.classList.add("sketchPadCellOn");
+
 }
 
 // Initialise sketchpad
 sketchPadInit();
 
-
 // Add onclick event listener
 myPad.addEventListener("click", drawToggle);
+
