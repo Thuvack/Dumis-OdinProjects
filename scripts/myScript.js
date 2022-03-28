@@ -10,6 +10,8 @@ let padSize = 0;
 
 function sketchPadInit () {
 
+    clearPad();
+
     let colSize = prompt("Enter sketch size in number of columns");
 
     if (colSize > 0 && colSize <= 100) {
@@ -29,7 +31,7 @@ function sketchPadInit () {
             div.classList.add("sketchPadCell");
 
             // Add div tag name into array
-            cellArray.push(div_name.tagName);
+            cellArray.push(div_name);
 
             // Append div in DOM
             myPad.append(div);
@@ -118,20 +120,31 @@ function clearPad() {
 
     let cellArrayLen = cellArray.length;
 
-    for (let i = 0; i < cellArrayLen; i++) {
-        // Get tagname of div inside cellArray
-        let div_name = cellArray[i];
+   if (cellArrayLen != 0) {
 
-        //Select div in DOM
-        let padCell = document.querySelector(div_name.tagName);
+        for (let i = 0; i < cellArrayLen; i++) {
+            // Get tagname of div inside cellArray
+            let div_name = cellArray[i];
 
-        console.log(padCell);
+            //Select div in DOM
+            let padCell = document.querySelector(div_name);
 
-        // Append div in DOM
-       // padCell.parentNode.removeChild(padCell);
+            // Append div in DOM
+            // padCell.parentNode.removeChild(padCell);
+
+            padCell.parentElement.removeChild(padCell);
+
+        }
+
+        cellArray = [];
+        cellDrawnArray = [];
+
+    } else {
 
     }
-
+    
+    console.log(cellArrayLen);
+        
 }
 
 // Clear pad
@@ -144,5 +157,5 @@ newPadBtn.addEventListener("click",sketchPadInit)
 myPad.addEventListener("click", drawToggle);
 
 // Add Clear pad on Btn Click event listener
-clearPadBtn.addEventListener("click", clearPad);
+clearPadBtn.addEventListener("click", clearSketch);
 
