@@ -174,8 +174,8 @@ body {
   place-self: center stretch;
   grid-area: sketchPad;
   display: grid;
-  grid-template-columns: repeat(100, auto);
-  grid-template-rows: repeat(100, auto);
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(10, auto);
   border-radius: 8px;
   margin: 0px 5px;
   padding: 5px 5px;
@@ -203,11 +203,6 @@ body {
 .sketchPadCellOn {
   background-color: black;
 }
-
-/*
-.sketchPadCell:hover {
-  background-color: black;
-} */
 
 /* Styling of the footer */
 .footer {
