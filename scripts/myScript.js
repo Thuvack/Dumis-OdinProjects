@@ -142,9 +142,7 @@ function clearPad() {
     } else {
 
     }
-    
-    console.log(cellArrayLen);
-        
+  
 }
 
 // Initialise sketchpad
