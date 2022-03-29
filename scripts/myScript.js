@@ -45,7 +45,6 @@ function sketchPadInit () {
         sketchPadInit ();
     }
 
-    console.log("sketchpad Initialised");
 }
 
 
@@ -55,19 +54,18 @@ function drawToggle () {
 
     if (clickTracker == 0) {
 
-        // Draw sketchpad
+        //Add eventlistener for Drawing sketchpad
         myPad.addEventListener("mouseover",drawPad);
 
         clickTracker = 1;
 
     } else {
 
+        //Remove eventlistener for Drawing sketchpad
         myPad.removeEventListener("mouseover",drawPad);
 
         clickTracker = 0;
     }
-
-    console.log(clickTracker);
     
 }
 
@@ -104,11 +102,7 @@ function clearSketch () {
         // change cell background to default
         padCell.style.background = "burlywood";
 
-        console.log(padCell);
-
     }
-
-console.log(cellArrayLen);
 
 }
 
