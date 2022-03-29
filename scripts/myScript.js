@@ -129,9 +129,7 @@ function clearPad() {
             //Select div in DOM
             let padCell = document.querySelector(div_name);
 
-            // Append div in DOM
-            // padCell.parentNode.removeChild(padCell);
-
+            // Remove div in DOM
             padCell.parentElement.removeChild(padCell);
 
         }
