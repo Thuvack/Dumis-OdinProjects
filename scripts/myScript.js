@@ -147,9 +147,6 @@ function clearPad() {
         
 }
 
-// Clear pad
-//clearPad();
-
 // Initialise sketchpad
 newPadBtn.addEventListener("click",sketchPadInit)
 
