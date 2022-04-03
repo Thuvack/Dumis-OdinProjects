@@ -180,6 +180,60 @@ body {
   gap: 10px;
 }
 
+.gridSelCont {
+  background-color: lightseagreen;
+  flex-basis: 300px;
+  display: grid;
+  grid-template-columns: 50px 200px 50px;
+  grid-template-rows: 15px 15px;
+  grid-template-areas:
+    "gridMin gridVal gridMax"
+    "gridMin gridSlider gridMax";
+  border-radius: 8px;
+}
+
+#gridMinWin {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridMin;
+  font-size: small;
+  text-align: center;
+}
+
+#gridSlideTxt {
+  display: flex;
+  flex-direction: row;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridVal;
+  font-size: small;
+}
+
+#gridSliderWin {
+  display: flex;
+  flex-direction: row;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridSlider;
+}
+
+#gridMaxWin {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridMax;
+  font-size: small;
+}
+
 .sketchPadCell {
   background-color: burlywood;
 }
