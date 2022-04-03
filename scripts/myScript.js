@@ -7,12 +7,23 @@ let cellArray = [];
 let cellDrawnArray = [];
 let clickTracker = 0;
 let padSize = 0;
+let colSize = 50;
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("gridSlideTxt");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+    let gridSize = this.value;
+    gridSize = gridSize + " x " + gridSize;
+    output.innerHTML = gridSize;
+    colSize = this.value;
+}
 
 function sketchPadInit () {
 
     clearPad();
-
-    let colSize = prompt("Enter sketch size in number of columns");
 
     if (colSize > 0 && colSize <= 100) {
 
@@ -38,9 +49,6 @@ function sketchPadInit () {
         }
 
     } else {
-
-        //Call function to clear pad
-        colSize = prompt("number of columns must be 100 or below");
 
         sketchPadInit ();
     }
