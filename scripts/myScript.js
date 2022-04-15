@@ -3,11 +3,16 @@ let myPad = document.querySelector(".sketchPad");
 let myPadSize = document.getElementsByClassName('sketchPad')[0];
 let newPadBtn = document.getElementById('clickNewPad');
 let clearPadBtn = document.getElementById('clickResetPad');
+
+let penColor = document.getElementsByClassName('sketchPenCol')[0];
+
 let cellArray = [];
 let cellDrawnArray = [];
 let clickTracker = 0;
 let padSize = 0;
 let colSize = 50;
+let penCol = "rgb(0, 0, 0)";
+let rainbowMode = "off";
 
 var slider = document.getElementById("myRange");
 var output = document.getElementById("gridSlideTxt");
@@ -90,8 +95,18 @@ function drawPad (event) {
     let padCell = document.querySelector(div_name);
 
     // Change cell background to black
-    padCell.style.background = "black";
+    if (rainbowMode == "off") {
+    padCell.style.background = penCol;
 
+    } else if (rainbowMode == "on") {
+        let pRed = Math.floor((Math.random() * 250));
+        let pBlue = Math.floor((Math.random() * 250));
+        let pGreen = Math.floor((Math.random() * 250));
+
+        penCol = "rgb(" + pRed + "," + pBlue + "," + pGreen +")";
+
+        padCell.style.background = penCol;
+    }
 }
 
 // Function to clear sketch pad to clear only cells that were drawn
@@ -145,8 +160,58 @@ function clearPad() {
   
 }
 
+
+// Function to change pen color
+function setPenColor (event) {
+    
+    // Get tagname of div that fired the event
+    let div_name = event.target.id;
+
+    // div_name = String(div_name);
+   
+    console.log(div_name);
+
+    if (div_name == "sketchPenCol-Rainbow") {
+        
+        rainbowMode = "on";
+        /*
+        let pRed = 50;
+        let pBlue = 127;
+        let pGreen = 150;
+
+        penCol = "rgb(" + pRed + "," + pBlue + "," + pGreen +")";
+        
+        console.log(penCol); */
+
+    } else if (div_name == "sketchPenCol-black") {
+
+        rainbowMode = "off";
+        penCol = "rgb(0,0,0)";
+
+    } else if (div_name == "sketchPenCol-red") {
+        
+        rainbowMode = "off";
+        penCol = "rgb(250,0,0)";
+
+    } else if (div_name == "sketchPenCol-blue") {
+        
+        rainbowMode = "off";
+        penCol = "rgb(0,0,250)";
+
+    } else if (div_name == "sketchPenCol-green") {
+
+        rainbowMode = "off";
+        penCol = "rgb(0,250,0)";
+
+    } else {
+
+        rainbowMode = "off";
+        penCol = "rgb(0,0,0)";
+    }
+}
+
 // Initialise sketchpad
-newPadBtn.addEventListener("click",sketchPadInit)
+newPadBtn.addEventListener("click",sketchPadInit);
 
 // Add Toggle onclick event listener
 myPad.addEventListener("click", drawToggle);
@@ -154,3 +219,5 @@ myPad.addEventListener("click", drawToggle);
 // Add Clear pad on Btn Click event listener
 clearPadBtn.addEventListener("click", clearSketch);
 
+// Add listeners for pen color clicks
+penColor.addEventListener("click",setPenColor);

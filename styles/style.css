@@ -15,7 +15,7 @@ body {
 body {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 70px auto 50px;
+  grid-template-rows: 100px auto 50px;
 }
 
 /* Styling for the header */
@@ -40,19 +40,15 @@ body {
 }
 
 .header-cont {
-  flex-basis: 950px;
   display: grid;
-  grid-template-rows: 35px 35px;
+  grid-template-columns: 500px 500px;
+  grid-template-rows: 25px 30px 45px;
   grid-template-areas:
-    "headerTop"
-    "headerBottom";
-}
-
-.innerCont {
-  flex-basis: 950px;
-  justify-content: space-between;
-  margin-top: 15px 0px;
-  grid-area: headerTop;
+    "headerLogo headerRight"
+    "headerMid headerMid"
+    "sketchBGCol sketchPenCol";
+  padding: 0px 0px;
+  background-color: #1f3927;
 }
 
 .yellow-text {
@@ -108,10 +104,25 @@ body {
   text-shadow: 0 0 5px #ffee10;
 }
 
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  grid-area: headerLogo;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.right-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-area: headerRight;
+}
+
 /* Styling sketchpad instructions section */
 
 .sketchPadInstr {
-  position: sticky;
   background-color: #1f3927;
   color: white;
   display: flex;
@@ -119,7 +130,100 @@ body {
   align-items: center;
   margin: 0;
   padding: 5px;
-  grid-area: headerBottom;
+  grid-area: headerMid;
+}
+
+/* Styling color pallet selector */
+
+.sketchPadBGCol {
+  background-color: #629973;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px 5px;
+  grid-area: sketchBGCol;
+}
+
+.sketchPadBGCol-text {
+  padding: 0px 10px;
+}
+
+#sketchPadBGCol-white,
+#sketchPadBGCol-lightgrey,
+#sketchPadBGCol-lightyellow {
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px solid black;
+  margin: 0px 5px;
+}
+
+#sketchPadBGCol-white {
+  background-color: #629973;
+  border: 1px solid #629973;
+}
+
+#sketchPadBGCol-lightgrey {
+  background-color: lightgrey;
+}
+
+#sketchPadBGCol-lightyellow {
+  background-color: lightyellow;
+}
+
+.sketchPenCol {
+  background-color: #629973;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px 5px;
+  grid-area: sketchPenCol;
+}
+
+.sketchPenCol-text {
+  padding: 0px 10px;
+}
+
+#sketchPenCol-Rainbow,
+#sketchPenCol-black,
+#sketchPenCol-red,
+#sketchPenCol-blue,
+#sketchPenCol-green {
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px solid black;
+  margin: 0px 5px;
+}
+
+#sketchPenCol-Rainbow {
+  display: flex;
+  font-size: small;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+  color: black;
+}
+
+#sketchPenCol-black {
+  background-color: black;
+}
+
+#sketchPenCol-red {
+  background-color: red;
+}
+
+#sketchPenCol-blue {
+  background-color: blue;
+}
+
+#sketchPenCol-green {
+  background-color: green;
 }
 
 /* Styling SketchPad container*/
