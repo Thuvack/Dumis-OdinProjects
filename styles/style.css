@@ -15,7 +15,7 @@ body {
 body {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: 70px auto 50px;
 }
 
 /* Styling for the header */
@@ -41,8 +41,18 @@ body {
 
 .header-cont {
   flex-basis: 950px;
+  display: grid;
+  grid-template-rows: 35px 35px;
+  grid-template-areas:
+    "headerTop"
+    "headerBottom";
+}
+
+.innerCont {
+  flex-basis: 950px;
   justify-content: space-between;
   margin-top: 15px 0px;
+  grid-area: headerTop;
 }
 
 .yellow-text {
@@ -96,6 +106,20 @@ body {
   color: #ffee10;
   box-shadow: 0 0 5px #ffee10;
   text-shadow: 0 0 5px #ffee10;
+}
+
+/* Styling sketchpad instructions section */
+
+.sketchPadInstr {
+  position: sticky;
+  background-color: #1f3927;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px;
+  grid-area: headerBottom;
 }
 
 /* Styling SketchPad container*/
@@ -328,32 +352,4 @@ a {
   cursor: pointer; /* Cursor on hover */
 }
 
-/* Styling Transitions and animations
 
-button.clickRock:hover,
-button.clickPaper:hover,
-button.clickScissors:hover {
-  display: flex;
-  background: blue;
-  color: white;
-  padding: 30px 30px;
-  font-size: medium;
-  min-height: 100px;
-  justify-content: center;
-  align-content: center;
-}
-
-button.clickRock:focus,
-button.clickPaper:focus,
-button.clickScissors:focus {
-  display: flex;
-  background: blue;
-  color: white;
-  padding: 30px 30px;
-  font-size: medium;
-  min-height: 100px;
-  justify-content: center;
-  align-content: center;
-}
-
-*/
