@@ -123,7 +123,7 @@ function clearSketch () {
         let padCell = document.querySelector(div_name);
 
         // change cell background to default
-        padCell.style.background = "burlywood";
+        padCell.style.background = "cornsilk";
 
     }
 
@@ -174,14 +174,6 @@ function setPenColor (event) {
     if (div_name == "sketchPenCol-Rainbow") {
         
         rainbowMode = "on";
-        /*
-        let pRed = 50;
-        let pBlue = 127;
-        let pGreen = 150;
-
-        penCol = "rgb(" + pRed + "," + pBlue + "," + pGreen +")";
-        
-        console.log(penCol); */
 
     } else if (div_name == "sketchPenCol-black") {
 
@@ -202,6 +194,11 @@ function setPenColor (event) {
 
         rainbowMode = "off";
         penCol = "rgb(0,250,0)";
+
+    } else if (div_name == "sketchPenCol-Eraser") {
+
+        rainbowMode = "off";
+        penCol = "cornsilk";
 
     } else {
 

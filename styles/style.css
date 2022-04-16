@@ -188,6 +188,7 @@ body {
   padding: 0px 10px;
 }
 
+#sketchPenCol-Eraser,
 #sketchPenCol-Rainbow,
 #sketchPenCol-black,
 #sketchPenCol-red,
@@ -198,6 +199,16 @@ body {
   min-height: 20px;
   border: 1px solid black;
   margin: 0px 5px;
+}
+
+#sketchPenCol-Eraser {
+  display: flex;
+  font-size: small;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+  color: black;
 }
 
 #sketchPenCol-Rainbow {
@@ -365,7 +376,7 @@ body {
 }
 
 .sketchPadCell {
-  background-color: burlywood;
+  background-color: cornsilk;
 }
 
 .sketchPadCellOn {
