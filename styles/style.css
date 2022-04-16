@@ -1,0 +1,151 @@
+/* Global declarations */
+
+* {
+    font-family: sans-serif;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px auto 50px;
+  }
+  
+  /* Styling for the header */
+  
+  .header,
+  .header-cont,
+  .right-links {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  
+  .header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #1f3927;
+    color: white;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header-cont {
+    flex-basis: 950px;
+    justify-content: space-between;
+    margin-top: 15px 0px;
+  }
+  
+  .yellow-text {
+    font-family: "Courier New" !important;
+    font-size: 20px;
+    color: yellow;
+  }
+  
+  .red-text,
+  .player-choice-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: red;
+    font-weight: 800;
+  }
+  
+  .blue-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: blue;
+    font-weight: 800;
+  }
+  
+  .green-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: green;
+    font-weight: 800;
+  }
+  
+  /* Style hover effects on links */
+  
+  .right-links ul li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #ffee10;
+    transition: 0.5s;
+    transform: scale(0.9);
+    z-index: -1;
+  }
+  
+  .right-links ul li:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+  }
+  
+  .right-links ul li:hover {
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+  }
+  
+  /* Styling Game container which houses all the 4 screens*/
+  .gameMain-cont {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: darkolivegreen;
+  }
+  
+  /* This still needs to be worked on */
+  .gameMainWrapper {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    grid-template-areas:
+      "screen1"
+      "screen2"
+      "screen3";
+  }
+  
+  
+  /* Styling of the footer */
+  .footer {
+    background-color: #1f3927;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 15px;
+  }
+  
+  
+  /* --       Styling for other properties        -- */
+  ul {
+    /* Removes the dots on the list items  */
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+  }
+  
+  a {
+    /* Removes the line under the links */
+    font-size: 12px;
+    text-decoration: none;
+    color: gray;
+  }  
