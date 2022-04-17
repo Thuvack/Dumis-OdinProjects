@@ -172,7 +172,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 30px;
-    gap: 3px;
     grid-template-areas:
       "calcLogoLeft calcLogoMid calcLogoRight";
     margin: 5px 15px 0px 15px;
@@ -182,13 +181,20 @@
   #logoMid,
   #LogoRight {
     display: flex;
-    width: 103px;
     align-items: center;
     justify-content: center;
+    color: silver;
+    align-items: flex-end;
+    padding-bottom: 3px;
+    font-size: 11pt;
+    width: 60px;
   }
 
   #LogoLeft {
     grid-area: calcLogoLeft;
+    justify-content: flex-start;
+    padding-left: 10px;
+    font-weight: 1000;
   }
 
   #logoMid {
@@ -197,8 +203,19 @@
 
   #LogoRight {
     grid-area: calcLogoRight;
+    justify-content: flex-end;
+    padding-right: 8px;
+    width: 135px;
   }
 
+  .Logo-text1 {
+    font-weight: 1000;
+    padding-right: 2px;
+  }
+
+  .Logo-text2 {
+    font-style: italic;
+  }
 
   /* Calcuator Screen section */
 
@@ -317,14 +334,133 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 2px;
+  gap: 1px;
   grid-template-areas:
     "funcR1C1 funcR1C2 funcR1C3 funcR1C4 funcR1C5 funcR1C6"
     "funcR2C1 funcR2C2 funcR2C3 funcR2C4 funcR2C5 funcR2C6"
-    "funcR3C1 funcR3C2 funcR3C3 funcR3C4 funcR3C5 funcR3C6";
+    "funcR3C12 funcR3C12 funcR3C3 funcR3C4 funcR3C5 funcR3C6";
   margin: 3px 3px 0px 3px;
   width: 310px;
   height: 115px;
+}
+
+
+#sqrtKey,
+#natExpKey,
+#linKey,
+#yxKey,
+#invKey,
+#sigmaKey,
+#stoKey,
+#rclKey,
+#rDownKey,
+#sinKey,
+#cosKey,
+#tanKey,
+#enterKey,
+#swapVarKey,
+#plusMinusKey,
+#EKey,
+#backKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+#sqrtKey {
+  grid-area: funcR1C1;
+}
+
+#natExpKey {
+  grid-area: funcR1C2;
+}
+
+#linKey {
+  grid-area: funcR1C3;
+}
+
+#yxKey {
+  grid-area: funcR1C4;
+}
+
+#invKey {
+  grid-area: funcR1C5;
+}
+
+#sigmaKey {
+  grid-area: funcR1C6;
+}
+
+#stoKey {
+  grid-area: funcR2C1;
+}
+
+#rclKey {
+  grid-area: funcR2C2;
+}
+
+#rDownKey {
+  grid-area: funcR2C3;
+}
+
+#sinKey {
+  grid-area: funcR2C4;
+}
+
+#cosKey {
+  grid-area: funcR2C5;
+}
+
+#tanKey {
+  grid-area: funcR2C6;
+}
+
+#enterKey {
+  grid-area: funcR3C12;
+}
+
+#swapVarKey {
+  grid-area: funcR3C3;
+}
+
+#plusMinusKey {
+  grid-area: funcR3C4;
+}
+
+#EKey {
+  grid-area: funcR3C5;
+}
+
+#backKey {
+  grid-area: funcR3C6;
+}
+
+#ENTER {
+padding: 1px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid grey;
+  background-color: black;
+  color: white;
+  width: 94px;
+  height: 21px;
+  font-size: 8pt;
+  align-self: stretch;
+  margin-left: 3px;
+}
+
+#plusMinus {
+  font-size: 12pt;
+}
+
+#back {
+  font-size: 10pt;
+  font-weight: 700;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Calculator keypad sections for Operations*/
@@ -456,3 +592,20 @@
     text-decoration: none;
     color: gray;
   }  
+
+  button {
+    padding: 1px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid grey;
+    background-color: black;
+    color: white;
+    width: 47px;
+    height: 21px;
+    font-size: 8pt;
+  }
+
+  .btnText {
+    font-size: x-small;
+    color: orangered;
+  }
