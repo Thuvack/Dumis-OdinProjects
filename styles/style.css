@@ -98,28 +98,335 @@
     text-shadow: 0 0 5px #ffee10;
   }
   
-  /* Styling Game container which houses all the 4 screens*/
-  .gameMain-cont {
+  /* Styling window container which houses the calculator */
+  .bodyMain-cont {
     display: flex;
     flex-direction: row;
     flex: 1;
     background-color: darkolivegreen;
+    justify-content: center;
+    align-items: flex-start;
   }
   
-  /* This still needs to be worked on */
-  .gameMainWrapper {
+  .bodyMainWrapper {
     display: grid;
     margin: 0;
-    padding: 0;
+    padding: 20px 20px;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100%;
     justify-content: center;
+    align-items: center;
     grid-template-areas:
-      "screen1"
-      "screen2"
-      "screen3";
+      "screen1";
+  }
+
+  /* Calculator container*/
+
+  .calGridWrapper-cont {
+    place-self: center center;
+    grid-area: screen1;
+    display: flex;
+    flex-direction: row;
+    background-color: darkolivegreen;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 3px;
+    flex: 1;
   }
   
+  .calGridWrapper {
+    background-color: #504a4e;
+    flex-basis: 700px;
+    display: grid;
+    grid-template-columns: 350px;
+    grid-template-rows: 50px 100px 390px;
+    grid-template-areas:
+      "calcTop"
+      "calcScreen"
+      "calcKeypad";
+    border: 2px solid black;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Calcuator logo section */
+  
+  .calLogoWrapper-cont {
+    place-self: flex-end center;
+    grid-area: calcTop;
+    display: flex;
+    flex-direction: row;
+    background-color: #504a4e;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .calLogoWrapper {
+    background-color: #655b64;
+    flex-basis: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 30px;
+    gap: 3px;
+    grid-template-areas:
+      "calcLogoLeft calcLogoMid calcLogoRight";
+    margin: 5px 15px 0px 15px;
+  }
+  
+  #LogoLeft,
+  #logoMid,
+  #LogoRight {
+    display: flex;
+    width: 103px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #LogoLeft {
+    grid-area: calcLogoLeft;
+  }
+
+  #logoMid {
+    grid-area: calcLogoMid;
+  }
+
+  #LogoRight {
+    grid-area: calcLogoRight;
+  }
+
+
+  /* Calcuator Screen section */
+
+  .calScreenWrapper-cont {
+    place-self: center center;
+    grid-area: calcScreen;
+    display: flex;
+    flex-direction: row;
+    background-color: #504a4e;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .calScreenWrapper {
+    background-color: #738a76;
+    flex-basis: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 40px 42px;
+    gap: 3px;
+    grid-template-areas:
+      "scTopLeft scTopMid scTopRight"
+      "scBotLeft scBotMid scBotRight";
+    margin: 0px 15px;
+    border: 3px solid black;
+  }
+    
+  #scrTopLeft,
+  #scrTopMid,
+  #scrTopRight,
+  #scrBottomLeft,
+  #scrBottomMid,
+  #scrBottomRight {
+    display: flex;
+    width: 102px;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  
+  #scrTopLeft {
+    grid-area: scTopLeft;
+  }
+
+  #scrTopMid {
+    grid-area: scTopMid;
+  }
+
+  #scrTopRight {
+    grid-area: scTopRight;
+  }
+
+  #scrBottomLeft {
+    grid-area: scBotLeft;
+  }
+
+  #scrBottomMid {
+    grid-area: scBotMid;
+  }
+  
+  #scrBottomRight {
+    grid-area: scBotRight;
+  }
+
+  /* Calcuator Keypad section */
+  
+  .calKeypadWrapper-cont {
+    place-self: center center;
+    grid-area: calcKeypad;
+    display: flex;
+    flex-direction: row;
+    background-color: #504a4e;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .calKeypadWrapper {
+    background-color: #3d3a41;
+    display: grid;
+    grid-template-columns: 70px auto 70px;
+    grid-template-rows: 120px 250px;
+    gap: 3px;
+    grid-template-areas:
+      "calKeyFunc calKeyFunc calKeyFunc"
+      "calOp1 calNumKey calOp2";
+    margin: 0px 10px 15px 10px;
+    width: 320px;
+  }
+  
+/* Calculator keypad sections */
+
+/* Calculator keypad sections for special functions*/
+
+.calKeyFuncWrapper-cont {
+  place-self: center center;
+  grid-area: calKeyFunc;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+}
+
+.calKeyFuncWrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 2px;
+  grid-template-areas:
+    "funcR1C1 funcR1C2 funcR1C3 funcR1C4 funcR1C5 funcR1C6"
+    "funcR2C1 funcR2C2 funcR2C3 funcR2C4 funcR2C5 funcR2C6"
+    "funcR3C1 funcR3C2 funcR3C3 funcR3C4 funcR3C5 funcR3C6";
+  margin: 3px 3px 0px 3px;
+  width: 310px;
+  height: 115px;
+}
+
+/* Calculator keypad sections for Operations*/
+
+.calKeyOp1Wrapper-cont {
+  place-self: center center;
+  grid-area: calOp1;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+  flex-basis: 50px;
+}
+
+.calKeyOp1Wrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  grid-template-areas:
+    "op1R1C1"
+    "op1R2C1"
+    "op1R3C1"
+    "op1R4C1";
+  margin: 0px 0px 3px 3px;
+  width: 63px;
+  height: 244px;
+}
+
+
+/* Calculator keypad sections for numbers */
+
+.calKeyNumWrapper-cont {
+  place-self: center center;
+  grid-area: calNumKey;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+  flex-basis: 200px;
+}
+
+.calKeyNumWrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  grid-template-areas:
+    "numR1C1 numR1C2 numR1C3"
+    "numR2C1 numR2C2 numR2C3"
+    "numR3C1 numR3C2 numR3C3"
+    "numR4C1 numR4C2 numR4C3";
+  margin: 0px 0px 3px 0px;
+  width: 170px;
+  height: 244px;
+}
+
+
+/* Calculator keypad sections for operations */
+
+.calKeyOp2Wrapper-cont {
+  place-self: center center;
+  grid-area: calOp2;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+}
+
+
+
+.calKeyOp2Wrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  grid-template-areas:
+    "op2R1C1"
+    "op2R2C1"
+    "op2R3C1"
+    "op2R4C1";
+  margin: 0px 3px 3px 0px;
+  width: 63px;
+  height: 244px;
+}
+
+
   
   /* Styling of the footer */
   .footer {
