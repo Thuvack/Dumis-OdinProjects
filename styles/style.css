@@ -256,8 +256,6 @@
     align-items: center;
     justify-content: center;
   }
-
-
   
   #scrTopLeft {
     grid-area: scTopLeft;
@@ -362,22 +360,29 @@
 }
 
 
+#func1Key,
+#func2Key,
+#func3Key,
+#func4Key,
+#func5Key,
+#func6Key {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
 #sqrtKey,
 #natExpKey,
 #linKey,
 #yxKey,
 #invKey,
-#sigmaKey,
-#stoKey,
-#rclKey,
-#rDownKey,
 #sinKey,
 #cosKey,
 #tanKey,
 #enterKey,
-#swapVarKey,
 #plusMinusKey,
-#EKey,
 #backKey {
   display: flex;
   flex-direction: column;
@@ -386,40 +391,39 @@
   justify-content: flex-end;
 }
 
-
-#sqrtKey {
+#func1Key {
   grid-area: funcR1C1;
 }
 
-#natExpKey {
+#func2Key {
   grid-area: funcR1C2;
 }
 
-#linKey {
+#func3Key {
   grid-area: funcR1C3;
 }
 
-#yxKey {
+#func4Key {
   grid-area: funcR1C4;
 }
 
-#invKey {
+#func5Key {
   grid-area: funcR1C5;
 }
 
-#sigmaKey {
+#func6Key {
   grid-area: funcR1C6;
 }
 
-#stoKey {
+#sqrtKey {
   grid-area: funcR2C1;
 }
 
-#rclKey {
+#natExpKey {
   grid-area: funcR2C2;
 }
 
-#rDownKey {
+#linKey {
   grid-area: funcR2C3;
 }
 
@@ -439,15 +443,15 @@
   grid-area: funcR3C12;
 }
 
-#swapVarKey {
+#yxKey {
   grid-area: funcR3C3;
 }
 
-#plusMinusKey {
+#invKey {
   grid-area: funcR3C4;
 }
 
-#EKey {
+#plusMinusKey {
   grid-area: funcR3C5;
 }
 
@@ -483,21 +487,22 @@
   height: 21px;
 } 
 
+#func1,
+#func2,
+#func3,
+#func4,
+#func5,
+#func6, 
 #sqrt,
 #natE,
 #LN,
 #yx,
 #inv,
-#STO,
-#RCL,
 #RDWN,
 #SIN,
 #COS,
 #TAN,
-#swapVar,
-#plusMinus,
-#E,
-#sigma {
+#plusMinus {
   width: 47px;
   height: 21px;
 }
