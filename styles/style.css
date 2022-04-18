@@ -573,10 +573,19 @@
 }
 
 #shiftBG {
-  background: orangered;
-  width: 40px;
-  height: 20px;
-  margin-left: 3px;
+  background: rgb(235, 111, 66);
+  width: 42px;
+  height: 21px;
+  margin-left: 2px;
+  border-radius: 3px;
+}
+
+#funcBG {
+  background: silver;
+  width: 37px;
+  height: 12px;
+  border-radius: 3px;
+  margin: 0px 0px 2px 0px;
 }
 
 #btnTextUp {
