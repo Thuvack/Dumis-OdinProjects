@@ -140,7 +140,7 @@
     flex-basis: 700px;
     display: grid;
     grid-template-columns: 350px;
-    grid-template-rows: 50px 100px 390px;
+    grid-template-rows: 50px 100px 385px;
     grid-template-areas:
       "calcTop"
       "calcScreen"
@@ -302,12 +302,12 @@
     background-color: #3d3a41;
     display: grid;
     grid-template-columns: 70px auto 70px;
-    grid-template-rows: 120px 250px;
+    grid-template-rows: 130px 225px;
     gap: 3px;
     grid-template-areas:
       "calKeyFunc calKeyFunc calKeyFunc"
       "calOp1 calNumKey calOp2";
-    margin: 0px 10px 15px 10px;
+    margin: 0px 10px 25px 10px;
     width: 320px;
   }
 
@@ -334,7 +334,7 @@
 /* Calculator keypad sections for special functions*/
 
 .calKeyFuncWrapper-cont {
-  place-self: center center;
+  place-self: flex-start center;
   grid-area: calKeyFunc;
   display: flex;
   flex-direction: row;
@@ -505,7 +505,7 @@
 /* Calculator keypad sections for Operations*/
 
 .calKeyOp1Wrapper-cont {
-  place-self: center center;
+  place-self: flex-start center;
   grid-area: calOp1;
   display: flex;
   flex-direction: row;
@@ -531,10 +531,10 @@
     "op1R4C1";
   margin: 0px 0px 3px 3px;
   width: 63px;
-  height: 238px;
+  height: 220px;
 }
 
-#xeqKey,
+#dotKey,
 #downKey,
 #shiftKey,
 #onKey {
@@ -547,7 +547,7 @@
 }
 
 
-#xeqKey {
+#dotKey {
   grid-area: op1R1C1;
 }
 
@@ -583,11 +583,17 @@
   font-size: 14pt;
 }
 
+#dotNum {
+  width: 50px;
+  font-weight: 800;
+  font-size: large;
+}
+
 
 /* Calculator keypad sections for numbers */
 
 .calKeyNumWrapper-cont {
-  place-self: center center;
+  place-self: flex-start center;
   grid-area: calNumKey;
   display: flex;
   flex-direction: row;
@@ -613,7 +619,7 @@
     "numR4C1 numR4C2 numR4C3";
   margin: 0px 0px 3px 0px;
   width: 170px;
-  height: 238px;
+  height: 220px;
 }
 
 #sevenKey,
@@ -626,7 +632,6 @@
 #twoKey,
 #threeKey,
 #zeroKey,
-#dotKey,
 #rsKey {
   display: flex;
   flex-direction: column;
@@ -673,15 +678,7 @@
 }
 
 #zeroKey {
-  grid-area: numR4C1;
-}
-
-#dotKey {
   grid-area: numR4C2;
-}
-
-#rsKey {
-  grid-area: numR4C3;
 }
 
 #sevenNum,
@@ -693,23 +690,16 @@
 #oneNum,
 #twoNum,
 #threeNum,
-#zeroNum,
-#rsNum {
+#zeroNum {
   width: 50px;
   font-size: medium;
-}
-
-#dotNum {
-  width: 50px;
-  font-weight: 800;
-  font-size: large;
 }
 
 
 /* Calculator keypad sections for operations */
 
 .calKeyOp2Wrapper-cont {
-  place-self: center center;
+  place-self: flex-start center;
   grid-area: calOp2;
   display: flex;
   flex-direction: row;
@@ -734,7 +724,7 @@
     "op2R4C1";
   margin: 0px 3px 3px 0px;
   width: 63px;
-  height: 238px;
+  height: 220px;
 }
 
 #divideKey,
