@@ -171,7 +171,7 @@
     flex-basis: 700px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 30px;
+    grid-template-rows: 36px;
     grid-template-areas:
       "calcLogoLeft calcLogoMid calcLogoRight";
     margin: 5px 15px 0px 15px;
@@ -194,7 +194,6 @@
     grid-area: calcLogoLeft;
     justify-content: flex-start;
     padding-left: 10px;
-    font-weight: 1000;
   }
 
   #logoMid {
@@ -311,7 +310,25 @@
     margin: 0px 10px 15px 10px;
     width: 320px;
   }
-  
+
+
+  button {
+    padding: 1px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid grey;
+    background-color: black;
+    color: white;
+    width: 55px;
+    height: 31px;
+    font-size: 10pt;
+  }
+
+  .btnText {
+    font-size: x-small;
+    color: orangered;
+  }
+
 /* Calculator keypad sections */
 
 /* Calculator keypad sections for special functions*/
@@ -439,7 +456,7 @@
 }
 
 #ENTER {
-padding: 1px 4px;
+  padding: 1px 4px;
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid grey;
@@ -447,7 +464,7 @@ padding: 1px 4px;
   color: white;
   width: 94px;
   height: 21px;
-  font-size: 8pt;
+  font-size: 10pt;
   align-self: stretch;
   margin-left: 3px;
 }
@@ -456,11 +473,33 @@ padding: 1px 4px;
   font-size: 12pt;
 }
 
+
 #back {
   font-size: 10pt;
   font-weight: 700;
   justify-content: center;
   align-items: flex-start;
+  width: 47px;
+  height: 21px;
+} 
+
+#sqrt,
+#natE,
+#LN,
+#yx,
+#inv,
+#STO,
+#RCL,
+#RDWN,
+#SIN,
+#COS,
+#TAN,
+#swapVar,
+#plusMinus,
+#E,
+#sigma {
+  width: 47px;
+  height: 21px;
 }
 
 /* Calculator keypad sections for Operations*/
@@ -492,7 +531,56 @@ padding: 1px 4px;
     "op1R4C1";
   margin: 0px 0px 3px 3px;
   width: 63px;
-  height: 244px;
+  height: 238px;
+}
+
+#xeqKey,
+#downKey,
+#shiftKey,
+#onKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  place-self: flex-end center;
+}
+
+
+#xeqKey {
+  grid-area: op1R1C1;
+}
+
+#downKey {
+  grid-area: op1R2C1;
+}
+
+#shiftKey {
+  grid-area: op1R3C1;
+}
+
+#onKey {
+  grid-area: op1R4C1;
+}
+
+#onK {
+  font-size: medium;
+}
+
+#shiftBG {
+  background: orangered;
+  width: 40px;
+  height: 20px;
+  margin-left: 3px;
+}
+
+#btnTextUp {
+  color: orangered;
+  font-size: 14pt;
+}
+
+#downArr {
+  font-size: 14pt;
 }
 
 
@@ -525,7 +613,7 @@ padding: 1px 4px;
     "numR4C1 numR4C2 numR4C3";
   margin: 0px 0px 3px 0px;
   width: 170px;
-  height: 244px;
+  height: 238px;
 }
 
 
@@ -559,7 +647,7 @@ padding: 1px 4px;
     "op2R4C1";
   margin: 0px 3px 3px 0px;
   width: 63px;
-  height: 244px;
+  height: 238px;
 }
 
 
@@ -592,20 +680,3 @@ padding: 1px 4px;
     text-decoration: none;
     color: gray;
   }  
-
-  button {
-    padding: 1px 4px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid grey;
-    background-color: black;
-    color: white;
-    width: 47px;
-    height: 21px;
-    font-size: 8pt;
-  }
-
-  .btnText {
-    font-size: x-small;
-    color: orangered;
-  }
