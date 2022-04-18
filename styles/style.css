@@ -592,7 +592,7 @@
   display: flex;
   flex-direction: row;
   background-color: #3d3a41;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   margin: 0px;
   padding: 0px;
@@ -616,6 +616,95 @@
   height: 238px;
 }
 
+#sevenKey,
+#eightKey,
+#nineKey,
+#fourKey,
+#fiveKey,
+#sixKey,
+#oneKey,
+#twoKey,
+#threeKey,
+#zeroKey,
+#dotKey,
+#rsKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  place-self: flex-end center;
+}
+
+#sevenKey {
+  grid-area: numR1C1;
+}
+
+#eightKey {
+  grid-area: numR1C2;
+}
+
+#nineKey {
+  grid-area: numR1C3;
+}
+
+#fourKey {
+  grid-area: numR2C1;
+}
+
+#fiveKey {
+  grid-area: numR2C2;
+}
+
+#sixKey {
+  grid-area: numR2C3;
+}
+
+#oneKey {
+  grid-area: numR3C1;
+}
+
+#twoKey {
+  grid-area: numR3C2;
+}
+
+#threeKey {
+  grid-area: numR3C3;
+}
+
+#zeroKey {
+  grid-area: numR4C1;
+}
+
+#dotKey {
+  grid-area: numR4C2;
+}
+
+#rsKey {
+  grid-area: numR4C3;
+}
+
+#sevenNum,
+#eightNum,
+#nineNum,
+#fourNum,
+#fiveNum,
+#sixNum,
+#oneNum,
+#twoNum,
+#threeNum,
+#zeroNum,
+#rsNum {
+  width: 50px;
+  font-size: medium;
+}
+
+#dotNum {
+  width: 50px;
+  font-weight: 800;
+  font-size: large;
+}
+
 
 /* Calculator keypad sections for operations */
 
@@ -625,14 +714,12 @@
   display: flex;
   flex-direction: row;
   background-color: #3d3a41;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   margin: 0px;
   padding: 0px;
   flex: 1;
 }
-
-
 
 .calKeyOp2Wrapper {
   background-color: #3d3a41;
@@ -650,6 +737,40 @@
   height: 238px;
 }
 
+#divideKey,
+#multiplyKey,
+#subtractKey,
+#additionKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  place-self: flex-end center;
+}
+
+
+#divideKey {
+  grid-area: op2R1C1;
+}
+
+#multiplyKey {
+  grid-area: op2R2C1;
+}
+
+#subtractKey {
+  grid-area: op2R3C1;
+}
+
+#additionKey {
+  grid-area: op2R4C1;
+}
+
+#divideK,
+#subtractK,
+#addK {
+  font-size: 23px;
+}
 
   
   /* Styling of the footer */
