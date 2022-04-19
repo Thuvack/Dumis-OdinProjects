@@ -539,7 +539,7 @@
   height: 220px;
 }
 
-#dotKey,
+#modeKey,
 #downKey,
 #shiftKey,
 #onKey {
@@ -552,7 +552,7 @@
 }
 
 
-#dotKey {
+#modeKey {
   grid-area: op1R1C1;
 }
 
@@ -597,12 +597,6 @@
   font-size: 14pt;
 }
 
-#dotNum {
-  width: 50px;
-  font-weight: 800;
-  font-size: large;
-}
-
 
 /* Calculator keypad sections for numbers */
 
@@ -636,6 +630,7 @@
   height: 220px;
 }
 
+#dotKey,
 #sevenKey,
 #eightKey,
 #nineKey,
@@ -646,7 +641,7 @@
 #twoKey,
 #threeKey,
 #zeroKey,
-#rsKey {
+#equalKey {
   display: flex;
   flex-direction: column;
   width: 50px;
@@ -691,8 +686,16 @@
   grid-area: numR3C3;
 }
 
+#equalKey {
+  grid-area: numR4C1;
+}
+
 #zeroKey {
   grid-area: numR4C2;
+}
+
+#dotKey {
+  grid-area: numR4C3;
 }
 
 #sevenNum,
@@ -709,6 +712,12 @@
   font-size: medium;
 }
 
+#dotNum,
+#equalNum {
+  width: 50px;
+  font-weight: 800;
+  font-size: large;
+}
 
 /* Calculator keypad sections for operations */
 
