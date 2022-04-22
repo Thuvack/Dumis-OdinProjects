@@ -756,7 +756,7 @@
   font-size: large;
 }
 
-/* Calculator keypad sections for operations */
+/* Calculator keypad sections for operations only */
 
 .calKeyOp2Wrapper-cont {
   place-self: flex-start center;
@@ -823,7 +823,7 @@
 }
 
   
-  /* Styling of the footer */
+/* Styling of the footer */
   .footer {
     background-color: #1f3927;
     color: white;
