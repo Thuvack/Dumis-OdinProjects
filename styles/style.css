@@ -318,7 +318,7 @@
     font-size: small;
   }
 
-  /* Calcuator Keypad section */
+  /* Calcuator Keypad section wrapper and container */
   
   .calKeypadWrapper-cont {
     place-self: center center;
