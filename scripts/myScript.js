@@ -7,7 +7,15 @@ yStackDisp = document.getElementById("yStack");
 zStackDisp = document.getElementById("zStack");
 wStackDisp = document.getElementById("wStack");
 
+
+equalBtn = document.getElementById("equalKey");
+
 enterBtn = document.getElementById("ENTER");
+
+clearBtn = document.getElementById("onK");
+
+let operandTwoKeyBtn = document.getElementsByClassName('calKeyOp2Wrapper')[0];
+
 
 let calSTack = [];
 calSTack[0] = "";
@@ -15,15 +23,27 @@ calSTack[0] = "";
 let inpSTack = [];
 inpSTack[0] = "";
 
+let calMode = "RPN"
+
 // Initialize RPN Mode
 
+function initCalc () {
 
+    if (calMode == "ALG") {
 
+        enterBtn.style.display = "none";
 
-function pushStack () {
+    } else {
 
-    calSTack.push(currNum);
+        equalBtn.style.display = "none";
+
+    }
     
+
+}
+
+function dispSTack () {
+
     let ArrLen = calSTack.length;
 
     console.log(ArrLen);
@@ -31,9 +51,9 @@ function pushStack () {
     if (ArrLen == 2) {
 
         xStackDisp.innerHTML = calSTack[1];
-        yStackDisp.innerHTML = " .";
-        zStackDisp.innerHTML = " .";
-        wStackDisp.innerHTML = " .";
+        yStackDisp.innerHTML = " ";
+        zStackDisp.innerHTML = " ";
+        wStackDisp.innerHTML = " ";
 
     } else if (ArrLen == 3) {
 
@@ -56,11 +76,27 @@ function pushStack () {
         zStackDisp.innerHTML = calSTack[ArrLen-3];
         wStackDisp.innerHTML = calSTack[ArrLen-4];
 
+    } else {
+
+
     }
 
-    console.log(calSTack[1]);
+}
 
-    console.log(calSTack);
+
+function pushStack () {
+
+    if (calSTack.length <= 1) {
+
+        calSTack.push(currNum);
+
+    } else if (calSTack.length >= 2) {
+
+        //calSTack.push(currNum);
+
+    }
+    
+    dispSTack ();
 
     inpSTack = [];
     inpSTack[0] = "";
@@ -71,8 +107,6 @@ function captUserInput (event) {
 
     // Get tagname of nummber key div that fired the event
     let numKey = event.target.id;
-
-    console.log(numKey)
 
     if (numKey == "zeroNum") {
 
@@ -167,13 +201,101 @@ function captUserInput (event) {
     }
 
     console.log(inpSTack);
+    
+    if (calSTack.length <= 1) {
+
+        //calSTack.push(currNum);
+
+    } else if (calSTack.length >= 2) {
+
+        calSTack.push(currNum);
+
+    }
+    
 
     output.innerHTML = currNum;
 }
 
 
+function operate (event) {
+
+    // Get tagname of nummber key div that fired the event
+    let opKey = event.target.id;
+
+    let numRight = calSTack.pop();
+    let numLeft = calSTack.pop();
+
+    if (opKey == "divideK") {
+
+        let numDivident = numLeft/numRight;
+
+        numDivident = numDivident.toFixed(2);
+
+        calSTack.push(numDivident);
+
+        output.innerHTML = numDivident;
+
+    } else if (opKey == "multiplyK") {
+
+        let numProduct = numLeft*numRight;
+
+        calSTack.push(numProduct);
+
+        output.innerHTML = numProduct;
+
+    } else if (opKey == "subtractK") {
+
+        let numDifference = numLeft - numRight;
+
+        calSTack.push(numDifference);
+
+        output.innerHTML = numDifference;
+
+    } else if (opKey == "addK") {
+
+        let numSum = parseInt(numLeft)+parseInt(numRight);
+
+        calSTack.push(numSum);
+
+        output.innerHTML = numSum;
+
+    } else {
+
+
+    }
+
+    dispSTack ();
+
+    inpSTack = [];
+    inpSTack[0] = "";
+
+}
+
+function clearStack () {
+
+    inpSTack = [];
+    inpSTack[0] = "";
+
+    calSTack = [];
+    calSTack[0] = "";
+
+    output.innerHTML = 0;
+
+    xStackDisp.innerHTML = " ";
+    yStackDisp.innerHTML = " ";
+    zStackDisp.innerHTML = " ";
+    wStackDisp.innerHTML = " ";
+
+}
+
 // Event Listeners
 
-numKeyBtn.addEventListener("click",captUserInput;
+initCalc ();
+
+numKeyBtn.addEventListener("click",captUserInput);
 
 enterBtn.addEventListener("click",pushStack);
+
+operandTwoKeyBtn.addEventListener("click",operate);
+
+clearBtn.addEventListener("click",clearStack);
