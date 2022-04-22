@@ -235,50 +235,87 @@
     background-color: #738a76;
     flex-basis: 700px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 40px 42px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 60px 22px;
     gap: 3px;
     grid-template-areas:
-      "scTopLeft scTopMid scTopRight"
-      "scBotLeft scBotMid scBotRight";
+      "scTopNum scTopStack"
+      "scBotFunc scBotStack";
     margin: 0px 15px;
     border: 3px solid black;
   }
     
   #scrTopLeft,
-  #scrTopMid,
+  #scrBottomLeft {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+  }
+
   #scrTopRight,
-  #scrBottomLeft,
-  #scrBottomMid,
   #scrBottomRight {
     display: flex;
-    width: 102px;
+    width: 90px;
     align-items: center;
     justify-content: center;
   }
   
   #scrTopLeft {
-    grid-area: scTopLeft;
-  }
-
-  #scrTopMid {
-    grid-area: scTopMid;
+    grid-area: scTopNum;
+    padding-right: 5px;
+    font-size: xx-large;
+    font-weight: 600;
+    place-self: flex-end flex-end;
+    justify-content: flex-end;
   }
 
   #scrTopRight {
-    grid-area: scTopRight;
+    flex-direction: column;
+    grid-area: scTopStack;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 10px;
+    font-size: small;
   }
 
   #scrBottomLeft {
-    grid-area: scBotLeft;
-  }
-
-  #scrBottomMid {
-    grid-area: scBotMid;
+    grid-area: scBotFunc;
+    justify-content: space-evenly;
+    place-self: center flex-end;
   }
   
   #scrBottomRight {
-    grid-area: scBotRight;
+    grid-area: scBotStack;
+    align-items: center;
+    justify-content: center;
+    place-self: center baseline;
+  }
+
+  #funcT1,
+  #funcT2,
+  #funcT3,
+  #funcT4 {
+    background-color: darkslategray;
+    color: #738a76;
+    margin: 0px 3px;
+    align-items: center;
+    justify-content: baseline;
+    width: 60px;
+    padding-left: 5px;
+    font-size: small;
+  }
+
+  #funcT5,
+  #funcT6 {
+    background-color: darkslategray;
+    color: #738a76;
+    margin: 0px 3px;
+    align-items: center;
+    justify-content: baseline;
+    width: 80px;
+    padding-left: 5px;
+    font-size: small;
   }
 
   /* Calcuator Keypad section */
