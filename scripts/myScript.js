@@ -35,17 +35,12 @@ function pushStack () {
         zStackDisp.innerHTML = " .";
         wStackDisp.innerHTML = " .";
 
-        //calSTack.pop();
-        console.log("Im in if statement 1")
-
     } else if (ArrLen == 3) {
 
         xStackDisp.innerHTML = calSTack[2];
         yStackDisp.innerHTML = calSTack[1];
         zStackDisp.innerHTML = " ";
         wStackDisp.innerHTML = " ";
-
-        console.log("Im in if statement 2")
 
     } else if (ArrLen == 4) {
 
@@ -54,16 +49,12 @@ function pushStack () {
         zStackDisp.innerHTML = calSTack[1];
         wStackDisp.innerHTML = " ";
 
-        console.log("Im in if statement 3")
-
     } else if (ArrLen >= 5) {
 
         xStackDisp.innerHTML = calSTack[ArrLen-1];
         yStackDisp.innerHTML = calSTack[ArrLen-2];
         zStackDisp.innerHTML = calSTack[ArrLen-3];
         wStackDisp.innerHTML = calSTack[ArrLen-4];
-
-        console.log("Im in if statement 4")
 
     }
 
@@ -183,7 +174,6 @@ function captUserInput (event) {
 
 // Event Listeners
 
-numKeyBtn.addEventListener("click",captUserInput);
-
+numKeyBtn.addEventListener("click",captUserInput;
 
 enterBtn.addEventListener("click",pushStack);
