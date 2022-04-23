@@ -281,7 +281,7 @@ function operate (event) {
     // Perform operations
     if (opKey == "divideK") {
 
-        let numDivident = numLeft/numRight;
+        let numDivident = parseFloat(numLeft)/parseFloat(numRight);
 
         numDivident = numDivident.toFixed(2);
 
@@ -291,7 +291,9 @@ function operate (event) {
 
     } else if (opKey == "multiplyK") {
 
-        let numProduct = numLeft*numRight;
+        let numProduct = parseFloat(numLeft)*parseFloat(numRight);
+
+        numProduct = numProduct.toFixed(2);
 
         calSTack.push(numProduct);
 
@@ -299,7 +301,9 @@ function operate (event) {
 
     } else if (opKey == "subtractK") {
 
-        let numDifference = numLeft - numRight;
+        let numDifference = parseFloat(numLeft) - parseFloat(numRight);
+
+        numDifference = numDifference.toFixed(2);
 
         calSTack.push(numDifference);
 
@@ -307,7 +311,9 @@ function operate (event) {
 
     } else if (opKey == "addK") {
 
-        let numSum = parseInt(numLeft)+parseInt(numRight);
+        let numSum = parseFloat(numLeft)+parseFloat(numRight);
+
+        numSum = numSum.toFixed(2);
 
         calSTack.push(numSum);
 
