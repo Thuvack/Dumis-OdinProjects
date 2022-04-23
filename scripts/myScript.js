@@ -260,7 +260,7 @@ function operate (event) {
     if (numCaptFlag == "Done") {
 
         // Push number that has been captured into stack
-        calSTack.push(output.innerHTML);
+        calSTack.push(currNum);
 
         // Unset number capture flag
         numCaptFlag = "Ready";
