@@ -2,7 +2,8 @@
 
 // Screen display elements
 var output = document.getElementById("scrTopLeft");
-let currNum;
+
+calcLogo = document.getElementsByClassName('Logo-text3')[0];
 
 xStackDisp = document.getElementById("xStack");
 yStackDisp = document.getElementById("yStack");
@@ -31,13 +32,9 @@ modeBtn = document.getElementById("stdMode");
 // Scientific Operator buttons
 
 
-
-
 // Calculator flags
 let numCaptFlag = "Ready";
 let shiftFlag = "Off";
-
-
 
 let calSTack = [];
 calSTack[0] = "";
@@ -47,6 +44,9 @@ let inpSTack = [];
 inpSTack[0] = "";
 
 let calMode = "RPN"
+
+let currNum;
+
 
 // Initialize RPN Mode
 
@@ -58,6 +58,7 @@ function initCalc () {
 
         enterBtn.style.display = "none";
         equalBtn.style.display = "flex";
+        calcLogo.style.display = "none";
 
         shiftFlag = "Off";
 
@@ -67,6 +68,7 @@ function initCalc () {
 
         equalBtn.style.display = "none";
         enterBtn.style.display = "flex";
+        calcLogo.style.display = "flex";
 
     }
     

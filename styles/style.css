@@ -207,12 +207,14 @@
     width: 135px;
   }
 
-  .Logo-text1 {
+  .Logo-text1,
+  .Logo-text3 {
     font-weight: 1000;
     padding-right: 2px;
   }
 
-  .Logo-text2 {
+  .Logo-text2,
+  .Logo-text4 {
     font-style: italic;
   }
 
