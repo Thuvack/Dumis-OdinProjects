@@ -156,8 +156,6 @@ function captUserInput (event) {
     // Get tagname of nummber key div that fired the event
     let numKey = event.target.id;
 
-    console.log(numKey);
-
     if (numKey == "zeroNum") {
 
         let stackVal = inpSTack[0];
@@ -290,6 +288,7 @@ function captUserInput (event) {
         } else {
 
             currNum = stackVal + ")";
+            shiftFlag = "Off"
 
         }
         
