@@ -46,6 +46,7 @@ inpSTack[0] = "";
 let calMode = "RPN"
 
 let currNum;
+let opResult;
 
 
 // Initialize RPN Mode
@@ -255,8 +256,46 @@ function captUserInput (event) {
     
 }
 
+function operate (arg1, arg2, opKey) {
 
-function operate (event) {
+    let numLeft = arg1;
+    let numRight = arg2;
+    let _operand = opKey;
+
+    // Perform operations
+    if (_operand == "divideK") {
+
+        opResult = parseFloat(numLeft)/parseFloat(numRight);
+
+        opResult = opResult.toFixed(2);
+
+    } else if (_operand == "multiplyK") {
+
+        opResult = parseFloat(numLeft)*parseFloat(numRight);
+
+        opResult = opResult.toFixed(2);
+
+    } else if (_operand == "subtractK") {
+
+        opResult = parseFloat(numLeft) - parseFloat(numRight);
+
+        opResult = opResult.toFixed(2);
+
+    } else if (_operand == "addK") {
+
+        opResult = parseFloat(numLeft)+parseFloat(numRight);
+
+        opResult = opResult.toFixed(2);
+
+    } else {
+
+
+    }
+
+    return opResult;
+}
+
+function opHandleRPN (event) {
 
     // Check if user is done entering number 
     if (numCaptFlag == "Done") {
@@ -272,7 +311,6 @@ function operate (event) {
         // Operate numbers in the existing stack
     }
     
-
     // Get tagname of nummber key div that fired the event
     let opKey = event.target.id;
 
@@ -280,55 +318,17 @@ function operate (event) {
     let numRight = calSTack.pop();
     let numLeft = calSTack.pop();
 
-    // Perform operations
-    if (opKey == "divideK") {
+    operate (numLeft, numRight, opKey);
 
-        let numDivident = parseFloat(numLeft)/parseFloat(numRight);
+    // Push result into stack and display
+    calSTack.push(opResult);
 
-        numDivident = numDivident.toFixed(2);
-
-        calSTack.push(numDivident);
-
-        output.innerHTML = numDivident;
-
-    } else if (opKey == "multiplyK") {
-
-        let numProduct = parseFloat(numLeft)*parseFloat(numRight);
-
-        numProduct = numProduct.toFixed(2);
-
-        calSTack.push(numProduct);
-
-        output.innerHTML = numProduct;
-
-    } else if (opKey == "subtractK") {
-
-        let numDifference = parseFloat(numLeft) - parseFloat(numRight);
-
-        numDifference = numDifference.toFixed(2);
-
-        calSTack.push(numDifference);
-
-        output.innerHTML = numDifference;
-
-    } else if (opKey == "addK") {
-
-        let numSum = parseFloat(numLeft)+parseFloat(numRight);
-
-        numSum = numSum.toFixed(2);
-
-        calSTack.push(numSum);
-
-        output.innerHTML = numSum;
-
-    } else {
-
-
-    }
+    output.innerHTML = opResult;
 
     // Update stack display
     dispSTack ();
 
+    // Clear number input stack
     inpSTack = [];
     inpSTack[0] = "";
 
@@ -390,8 +390,9 @@ numKeyBtn.addEventListener("click",captUserInput);
 
 enterBtn.addEventListener("click",pushStack);
 
-operandTwoKeyBtn.addEventListener("click",operate);
-
 clearBtn.addEventListener("click",clearStack);
 
 shiftBtn.addEventListener("click", ()=>{shiftFlag = "On";});
+
+// YET TO IMPLEMENT SELECTOR FOR RPN OR ALGEBRAIC MODE
+operandTwoKeyBtn.addEventListener("click",opHandleRPN);
