@@ -38,7 +38,9 @@ opBracBtn = document.getElementById("opBracKey");
 // Calculator flags
 let numCaptFlag = "Ready";
 let shiftFlag = "Off";
+let calMode = "RPN"
 
+// Calculator stacks
 let calSTack = [];
 calSTack[0] = "";
 calSTack.pop();
@@ -46,8 +48,12 @@ calSTack.pop();
 let inpSTack = [];
 inpSTack[0] = "";
 
-let calMode = "RPN"
+let inFixStack = [];
 
+let opStack = [];
+
+
+// Calculator variables
 let currNum;
 let opResult;
 
@@ -357,6 +363,7 @@ function operate (arg1, arg2, opKey) {
     return opResult;
 }
 
+
 function opHandleRPN (event) {
 
     // Check if user is done entering number 
@@ -395,6 +402,79 @@ function opHandleRPN (event) {
     inpSTack[0] = "";
 
 }
+
+
+
+function algSolver () {
+
+    let inFixStr = currNum;
+
+    let inFixStrLen = inFixStr.length;
+
+    // Push infix input into infix stack in reverse order
+    for (let i = 0; i < inFixStrLen; i++) {
+
+        let startPos = inFixStrLen - i - 1;
+        let endPos = inFixStrLen - i;
+
+        let strExtract = inFixStr.substring(startPos, endPos);
+
+        if (isNaN(strExtract)) {
+            // If the extracted string is not a number just push into stack
+            inFixStack.push(strExtract);
+
+        } else {
+
+            if (inFixStack.length == 0) {
+                // If inFixStack is empty then just the number into stack
+                inFixStack.push(strExtract);
+
+            } else {
+                // If InFixStack is not empty, then pop and check if is number
+                let tempStr = inFixStack.pop();
+
+                if (isNaN(tempStr)) {
+                    // If not a number then push back to stack and push latest extract
+                    inFixStack.push(tempStr);
+                    inFixStack.push(strExtract);
+                } else {
+                    // If its a number then concatenate and push into stack
+                    strExtract = strExtract + tempStr;
+                    inFixStack.push(strExtract);
+
+                }
+
+            }
+
+        }
+
+    }
+
+    // Apply shunting yard algorithm and separate operands from numbers
+    // Check the full algorithm and implement for handling brackets and levels
+
+    for (let i = 0; i < inFixStack.length; i++) {
+        
+        if (isNaN(inFixStack[i])) {
+            // If operand, push into operand stack
+            opStack.push(inFixStack[i]);
+
+        } else {
+            // If number push into calStack
+            calSTack.push(inFixStack[i]);
+
+        }
+
+        console.log(opStack);
+        console.log(calSTack);
+
+    }
+
+    // Clear stacks
+
+
+}
+
 
 function clearStack () {
 
@@ -484,3 +564,5 @@ opBracBtn.addEventListener("click",(e)=>{
 
 });
 
+
+equalBtn.addEventListener("click",algSolver);
