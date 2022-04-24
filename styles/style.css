@@ -247,7 +247,7 @@
     border: 3px solid black;
   }
     
-  #scrTopLeft,
+  #scrTopLeftCont,
   #scrBottomLeft {
     display: flex;
     width: 200px;
@@ -263,13 +263,14 @@
     justify-content: center;
   }
   
-  #scrTopLeft {
+  #scrTopLeftCont {
     grid-area: scTopNum;
     padding-right: 5px;
     font-size: x-large;
     font-weight: 600;
     place-self: flex-end flex-end;
     justify-content: flex-end;
+    flex-direction: column;
   }
 
   #scrTopRight {
@@ -320,6 +321,19 @@
     font-size: small;
   }
 
+  #scrTopLeftIn {
+    font-size: small;
+    font-weight: 300;
+    place-self: flex-start center;
+    padding-left: 5px;
+    height: 25px;
+    
+  }
+
+  #scrTopLeft {
+    place-self: flex-end;
+  }
+
   /* Calcuator Keypad section wrapper and container */
   
   .calKeypadWrapper-cont {
@@ -364,6 +378,7 @@
   .btnText {
     font-size: x-small;
     color: orangered;
+    padding-bottom: 3px;
   }
 
 /* Calculator keypad sections */
@@ -580,7 +595,7 @@
 }
 
 #modeKey,
-#downKey,
+#opBracKey,
 #shiftKey,
 #onKey {
   display: flex;
@@ -596,7 +611,7 @@
   grid-area: op1R1C1;
 }
 
-#downKey {
+#opBracKey {
   grid-area: op1R2C1;
 }
 
@@ -633,7 +648,7 @@
   font-size: 14pt;
 }
 
-#downArr {
+#opBrac {
   font-size: 14pt;
 }
 

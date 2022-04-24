@@ -1,6 +1,7 @@
 // This is an implementation of an RPN scientific calculator
 
 // Screen display elements
+var infixCapt = document.getElementById("scrTopLeftIn");
 var output = document.getElementById("scrTopLeft");
 
 calcLogo = document.getElementsByClassName('Logo-text3')[0];
@@ -28,6 +29,8 @@ clearBtn = document.getElementById("onK");
 shiftBtn = document.getElementById("shiftK");
 
 modeBtn = document.getElementById("stdMode");
+
+opBracBtn = document.getElementById("opBracKey");
 
 // Scientific Operator buttons
 
@@ -153,6 +156,8 @@ function captUserInput (event) {
     // Get tagname of nummber key div that fired the event
     let numKey = event.target.id;
 
+    console.log(numKey);
+
     if (numKey == "zeroNum") {
 
         let stackVal = inpSTack[0];
@@ -241,12 +246,70 @@ function captUserInput (event) {
         currNum = stackVal + ".";
         inpSTack.push(currNum);
 
+    } else if (numKey == "divideK") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        currNum = stackVal + "÷";
+        inpSTack.push(currNum);
+
+    } else if (numKey == "multiplyK") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        currNum = stackVal + "x";
+        inpSTack.push(currNum);
+
+    } else if (numKey == "subtractK") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        currNum = stackVal + "-";
+        inpSTack.push(currNum);
+
+    } else if (numKey == "addK") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        currNum = stackVal + "+";
+        inpSTack.push(currNum);
+
+    } else if (numKey == "opBrac") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        if (shiftFlag == "Off") {
+
+            currNum = stackVal + "(";
+
+        } else {
+
+            currNum = stackVal + ")";
+
+        }
+        
+        inpSTack.push(currNum);
+
     } else {
 
     }
 
     // Display captured number
-    output.innerHTML = currNum;
+    if (calMode == "RPN") {
+
+        output.innerHTML = currNum;
+
+    } else {
+
+        infixCapt.innerHTML = currNum;
+
+    }
+    
 
     // Set number capture flag to complete
     numCaptFlag = "Done";
@@ -357,6 +420,7 @@ function clearStack () {
 
         // Clear calculator display
         output.innerHTML = " ";
+        infixCapt.innerHTML = " ";
 
         // Switch off function displays
         funcDisp1.style.display = "none";
@@ -369,6 +433,7 @@ function clearStack () {
 
         // Reset calculator display to zero
         output.innerHTML = 0;
+        infixCapt.innerHTML = " ";
 
         // Switch off function displays
         funcDisp1.style.display = "flex";
@@ -394,5 +459,29 @@ clearBtn.addEventListener("click",clearStack);
 
 shiftBtn.addEventListener("click", ()=>{shiftFlag = "On";});
 
-// YET TO IMPLEMENT SELECTOR FOR RPN OR ALGEBRAIC MODE
-operandTwoKeyBtn.addEventListener("click",opHandleRPN);
+opBracBtn.addEventListener("click",(e)=>{
+        
+    if (calMode == "ALG") {
+
+        this.captUserInput(e);
+
+    } else {
+        // Do nothing
+    }
+
+})
+
+ operandTwoKeyBtn.addEventListener("click",(e)=>{
+        
+    if (calMode == "ALG") {
+
+        this.captUserInput(e);
+
+    } else {
+
+        this.opHandleRPN(e);
+    
+    }
+
+});
+
