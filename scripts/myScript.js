@@ -1,3 +1,25 @@
+/* Shunting yard Algorithm
+
+    While there are tokens to read:
+        Read a toke
+            If its a number add it to the output queue
+            If its an operator
+
+                While there's an operator on top of operator stack with greater precedence:
+                    Pop operators from the stack onto output queue
+
+                Push current operator onto stack
+
+            If its a left (Openning bracket), push into stack
+            If its a right (Closing bracket):
+                While there is not a left bracket at the top of the stack
+                    Pop operators from stack onto the output queue
+
+                Pop the left bracket from stack and discard
+
+    While there are operators on the stack, pop them and push into output queue
+
+    */
 // This is an implementation of an RPN scientific calculator
 
 // Screen display elements
@@ -50,12 +72,20 @@ inpSTack[0] = "";
 
 let inFixStack = [];
 
-let opStack = [];
+let postFixSTack = [];
+
+let opSTack = [];
+
+let inFOpSTack = [];
 
 
 // Calculator variables
 let currNum;
 let opResult;
+
+let operandLevel = 0;
+
+let postFixString = "";
 
 
 // Initialize RPN Mode
@@ -156,6 +186,32 @@ function pushStack () {
     
 }
 
+function assignPrec (precArg) {
+
+    if (precArg == "-") {
+
+        operandLevel = 1;
+
+    } else if (precArg == "+") {
+
+        operandLevel = 2;
+
+    } else if (precArg == "÷") { 
+
+        operandLevel = 3;
+
+    } else if (precArg == "x") { 
+
+        operandLevel = 4;
+
+    } else if (precArg == "^") { 
+
+        operandLevel = 5;
+
+    }
+
+     return;
+}
 
 function captUserInput (event) {
 
@@ -404,10 +460,7 @@ function opHandleRPN (event) {
 }
 
 
-
-function algSolver () {
-
-    let inFixStr = currNum;
+function infixQueRev (inFixStr) {
 
     let inFixStrLen = inFixStr.length;
 
@@ -450,30 +503,232 @@ function algSolver () {
 
     }
 
+}
+
+
+function algSolver () {
+
+    let inFixStr = currNum;
+
+    infixQueRev (inFixStr);
+
+    let shuntLen = inFixStack.length;
+
+    // Log stacks
+    console.log(inFixStack);
+    console.log(inFOpSTack);
+    console.log(opSTack);
+    console.log(calSTack);
+
     // Apply shunting yard algorithm and separate operands from numbers
-    // Check the full algorithm and implement for handling brackets and levels
+    /* 
+    While there are tokens to read:
+        Read a toke
+            If its a number add it to the output queue
+            If its an operator
 
-    for (let i = 0; i < inFixStack.length; i++) {
+                While there's an operator on top of operator stack with greater precedence:
+                    Pop operators from the stack onto output queue
+
+                Push current operator onto stack
+
+            If its a left (Openning bracket), push into stack
+            If its a right (Closing bracket):
+                While there is not a left bracket at the top of the stack
+                    Pop operators from stack onto the output queue
+
+                Pop the left bracket from stack and discard
+
+    While there are operators on the stack, pop them and push into output queue
+
+    */
+
+    for (let i = 0; i < shuntLen; i++) {
+
+        // While there are tokens to read
+        while (inFixStack.length != 0) {
+
+            console.log("In 1st while loop, inFixStack :" +inFixStack.length);
+            // Read a token from inFixSTack
+            let inFixToken = inFixStack.pop();
+
+            if (isNaN(inFixToken)) {
+
+                if (inFixToken == "(") {
+                    // If its a left (Openning bracket), push into stack
+                    inFOpSTack.push(inFixToken);
+
+                    console.log("Part 1: Adding "+inFixToken+" to inFoPStack");
+                    console.log(inFOpSTack);
+                    console.log(opSTack);
+                    console.log(calSTack);
+
+                } else if (inFixToken == ")") {
+
+                    let opSTackTop = inFOpSTack.pop();
+
+                    // While there is not a left bracket at the top of the stack
+                    while ( opSTack.Length !=0) {
+
+                        console.log("Part 2: Adding "+opSTackTop+" to oPStack");
+                        console.log(inFOpSTack);
+                        console.log(opSTack);
+                        console.log(calSTack);
+
+                        if ( opSTackTop != "(") {
+                            // Pop operators from stack onto the output queue
+                            opSTack.push(opSTackTop);
+
+                            opSTackTop = inFOpSTack.pop();
+
+                        } else {
+                            break;
+                        }
+
+                    }
+
+                } else {
+            
+                    // check that inFOpSTack is empty
+
+                    if (inFOpSTack.length == 0) {
+
+                        inFOpSTack.push(inFixToken);
+
+                        console.log("Part 3: Adding "+inFixToken+" to inFoPStack");
+                        console.log(inFOpSTack);
+                        console.log(opSTack);
+                        console.log(calSTack);
+
+                    } else {
+
+                        //Pop postFixSTack and assign precedence
+                        let tempIFStr = inFixToken;
+                        let tempPFStr = inFOpSTack.pop();
+
+
+                        if (tempPFStr == "(") {
+
+                            inFOpSTack.push(tempPFStr);
+                            inFOpSTack.push(inFixToken);
+
+                            console.log("Part 4: Adding "+inFixToken+" to inFoPStack");
+                            console.log(inFOpSTack);
+                            console.log(opSTack);
+                            console.log(calSTack);
+
+                        } else {
+
+                            // THEIS SECTION NEEDS REVISITING
+
+                            let tempIFStrLv = 0;
+                            let tempPFStrLv = 0;
+
+                            // Assign Infix precedence
+                            assignPrec (tempIFStr);
+
+                            tempIFStrLv = operandLevel;
+
+                            // Assign postFix precedence
+                            assignPrec (tempPFStrLv);
+
+                            tempPFStrLv = operandLevel;
+
+                            // Reset operand Level
+                            operandLevel = 0
+
+                            // If the operator on top of operator stack has greater precedence:
+                            // Pop operator from the stack onto output queue
+                            if (tempPFStrLv > tempIFStrLv) {
+                    
+                                opSTack.push(tempIFStr); 
+
+                                inFOpSTack.push(tempPFStr);
+
+                                console.log("Part 5: Adding "+tempIFStr+" (higher precedence) to oPStack and "+tempPFStr+" (Lower precedence) to inFOpSTack");
+                                console.log(inFOpSTack);
+                                console.log(opSTack);
+                                console.log(calSTack);
+
+                            } else {
+                
+                                opSTack.push(tempIFStr); 
+
+                                inFOpSTack.push(tempPFStr);
+
+                                console.log("Part 6: Adding "+ tempIFStr+" (higher precedence) to oPStack and "+tempPFStr+" (Lower precedence) to inFOpSTack");
+                                console.log(inFOpSTack);
+                                console.log(opSTack);
+                                console.log(calSTack);
+
+                            }
+
+                        }
+                    
+                    }
+                    
+                }
+            
+            } else {
+                // If its a number add it to the output queue
+                calSTack.push(inFixToken);
+
+                console.log("Part 7: Adding "+inFixToken+" to calStack");
+                console.log(inFOpSTack);
+                console.log(opSTack);
+                console.log(calSTack);
+
+            }
         
-        if (isNaN(inFixStack[i])) {
-            // If operand, push into operand stack
-            opStack.push(inFixStack[i]);
-
-        } else {
-            // If number push into calStack
-            calSTack.push(inFixStack[i]);
-
         }
 
-        console.log(opStack);
-        console.log(calSTack);
+        console.log("Leaving 1st while loop :");
 
     }
+    
+    // While there are operators on the stack, pop them and push into output queue
+    while (inFOpSTack.length !=0) {
 
-    // Clear stacks
+            let opSTackTop = inFOpSTack.pop();
+
+            /*
+            if (opSTackTop != "(") {
+
+                opSTack.push(opSTackTop);
+
+            } else {
 
 
+            }  */
+
+            opSTack.push(opSTackTop);
+
+            console.log("In 2nd while loop and adding "+opSTackTop+" to opSTack");
+            console.log(inFOpSTack);
+            console.log(opSTack);
+            console.log(calSTack);
+    
+    }
+    
+    // Log stacks before reversing
+    console.log(inFixStack);
+    console.log(inFOpSTack);
+    console.log("Stacks before reversing");
+    console.log(opSTack);
+    console.log(calSTack);
+
+    // Reverse stacks
+    opSTack = opSTack.reverse();
+
+    calSTack = calSTack.reverse();
+
+    // Log stacks
+    console.log("Stacks before reversing");
+    console.log(opSTack);
+    console.log(calSTack);
+    
 }
+
 
 
 function clearStack () {
