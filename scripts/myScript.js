@@ -1,25 +1,3 @@
-/* Shunting yard Algorithm
-
-    While there are tokens to read:
-        Read a toke
-            If its a number add it to the output queue
-            If its an operator
-
-                While there's an operator on top of operator stack with greater precedence:
-                    Pop operators from the stack onto output queue
-
-                Push current operator onto stack
-
-            If its a left (Openning bracket), push into stack
-            If its a right (Closing bracket):
-                While there is not a left bracket at the top of the stack
-                    Pop operators from stack onto the output queue
-
-                Pop the left bracket from stack and discard
-
-    While there are operators on the stack, pop them and push into output queue
-
-    */
 // This is an implementation of an RPN scientific calculator
 
 // Screen display elements
@@ -62,22 +40,23 @@ let numCaptFlag = "Ready";
 let shiftFlag = "Off";
 let calMode = "RPN"
 
-// Calculator stacks
+// Calculator stack in both RPN and Algebraic modes
 let calSTack = [];
 calSTack[0] = "";
 calSTack.pop();
 
+// Input stack in RPN mode
 let inpSTack = [];
 inpSTack[0] = "";
 
+// Infix notation stack of user input in Algebraic mode
 let inFixStack = [];
 
-let postFixSTack = [];
-
-let opSTack = [];
-
+// Operator stack for shunting algorithm in Algebraic mode
 let inFOpSTack = [];
 
+// Postfix Notation stack
+let posFixStack = [];
 
 // Calculator variables
 let currNum;
@@ -505,43 +484,17 @@ function infixQueRev (inFixStr) {
 
 }
 
-
-function algSolver () {
-
-    let inFixStr = currNum;
-
-    infixQueRev (inFixStr);
+function infToPosF () {
 
     let shuntLen = inFixStack.length;
 
     // Log stacks
     console.log(inFixStack);
     console.log(inFOpSTack);
-    console.log(opSTack);
-    console.log(calSTack);
+    console.log(posFixStack);
 
-    // Apply shunting yard algorithm and separate operands from numbers
-    /* 
-    While there are tokens to read:
-        Read a toke
-            If its a number add it to the output queue
-            If its an operator
 
-                While there's an operator on top of operator stack with greater precedence:
-                    Pop operators from the stack onto output queue
-
-                Push current operator onto stack
-
-            If its a left (Openning bracket), push into stack
-            If its a right (Closing bracket):
-                While there is not a left bracket at the top of the stack
-                    Pop operators from stack onto the output queue
-
-                Pop the left bracket from stack and discard
-
-    While there are operators on the stack, pop them and push into output queue
-
-    */
+    // Apply the shunting yard algorithm
 
     for (let i = 0; i < shuntLen; i++) {
 
@@ -560,28 +513,27 @@ function algSolver () {
 
                     console.log("Part 1: Adding "+inFixToken+" to inFoPStack");
                     console.log(inFOpSTack);
-                    console.log(opSTack);
-                    console.log(calSTack);
+                    console.log(posFixStack);
 
                 } else if (inFixToken == ")") {
 
                     let opSTackTop = inFOpSTack.pop();
 
-                    // While there is not a left bracket at the top of the stack
-                    while ( opSTack.Length !=0) {
+                    // While there is not a openning bracket at the top of the stack
+                    while (inFOpSTack.Length !=0) {
 
-                        console.log("Part 2: Adding "+opSTackTop+" to oPStack");
-                        console.log(inFOpSTack);
-                        console.log(opSTack);
-                        console.log(calSTack);
-
-                        if ( opSTackTop != "(") {
+                        if (opSTackTop != "(") {
                             // Pop operators from stack onto the output queue
-                            opSTack.push(opSTackTop);
+                            posFixStack.push(opSTackTop);
+                            console.log("Part 2: Adding "+opSTackTop+" to output queue");
+                            console.log(inFOpSTack);
+                            console.log(posFixStack);
 
                             opSTackTop = inFOpSTack.pop();
 
                         } else {
+                            // top of the stack is an opening bracket. Discard and move on.
+                
                             break;
                         }
 
@@ -597,29 +549,30 @@ function algSolver () {
 
                         console.log("Part 3: Adding "+inFixToken+" to inFoPStack");
                         console.log(inFOpSTack);
-                        console.log(opSTack);
-                        console.log(calSTack);
+                        console.log(posFixStack);
 
                     } else {
 
-                        //Pop postFixSTack and assign precedence
+                        //Pop inFOpSTack and assign precedence
                         let tempIFStr = inFixToken;
                         let tempPFStr = inFOpSTack.pop();
 
 
+                        //If the top element in the op stack is a bracket, then push them back into stack 
                         if (tempPFStr == "(") {
 
                             inFOpSTack.push(tempPFStr);
                             inFOpSTack.push(inFixToken);
 
-                            console.log("Part 4: Adding "+inFixToken+" to inFoPStack");
+                            console.log("Part 4: Adding both "+tempPFStr+" and "+inFixToken+" back into inFoPStack");
                             console.log(inFOpSTack);
-                            console.log(opSTack);
-                            console.log(calSTack);
+                            console.log(posFixStack);
 
                         } else {
 
                             // THEIS SECTION NEEDS REVISITING
+
+                            // While there's an operator on top of operator stack with greater precedence:
 
                             let tempIFStrLv = 0;
                             let tempPFStrLv = 0;
@@ -641,25 +594,23 @@ function algSolver () {
                             // Pop operator from the stack onto output queue
                             if (tempPFStrLv > tempIFStrLv) {
                     
-                                opSTack.push(tempIFStr); 
+                                posFixStack.push(tempPFStr); 
 
-                                inFOpSTack.push(tempPFStr);
+                                inFOpSTack.push(tempIFStr);
 
-                                console.log("Part 5: Adding "+tempIFStr+" (higher precedence) to oPStack and "+tempPFStr+" (Lower precedence) to inFOpSTack");
+                                console.log("Part 5: Adding "+tempPFStr+" (higher precedence) to output stack and then "+tempIFStr+" (Lower precedence) to inFOpSTack");
                                 console.log(inFOpSTack);
-                                console.log(opSTack);
-                                console.log(calSTack);
+                                console.log(posFixStack);
 
                             } else {
-                
-                                opSTack.push(tempIFStr); 
+                                // Else push the top operator back to stack and push new token into stack
 
                                 inFOpSTack.push(tempPFStr);
+                                inFOpSTack.push(tempIFStr); 
 
-                                console.log("Part 6: Adding "+ tempIFStr+" (higher precedence) to oPStack and "+tempPFStr+" (Lower precedence) to inFOpSTack");
+                                console.log("Part 6: Adding "+tempPFStr+" (Lower precedence) into inFOpSTack and then "+tempIFStr+" (higher precedence) into inFOpSTack");
                                 console.log(inFOpSTack);
-                                console.log(opSTack);
-                                console.log(calSTack);
+                                console.log(posFixStack);
 
                             }
 
@@ -671,12 +622,11 @@ function algSolver () {
             
             } else {
                 // If its a number add it to the output queue
-                calSTack.push(inFixToken);
+                posFixStack.push(inFixToken);
 
-                console.log("Part 7: Adding "+inFixToken+" to calStack");
+                console.log("Part 7: Adding "+inFixToken+" to posFixStack");
                 console.log(inFOpSTack);
-                console.log(opSTack);
-                console.log(calSTack);
+                console.log(posFixStack);
 
             }
         
@@ -691,41 +641,50 @@ function algSolver () {
 
             let opSTackTop = inFOpSTack.pop();
 
-            /*
-            if (opSTackTop != "(") {
+            posFixStack.push(opSTackTop);
 
-                opSTack.push(opSTackTop);
-
-            } else {
-
-
-            }  */
-
-            opSTack.push(opSTackTop);
-
-            console.log("In 2nd while loop and adding "+opSTackTop+" to opSTack");
+            console.log("In 2nd while loop and adding "+opSTackTop+" to posFixStack");
             console.log(inFOpSTack);
-            console.log(opSTack);
-            console.log(calSTack);
+            console.log(posFixStack);
     
     }
-    
+
+    // Pop the last item from inFOpSTack and push into output queue
+    //calSTack.push(inFOpSTack.pop());
+
+
     // Log stacks before reversing
     console.log(inFixStack);
     console.log(inFOpSTack);
     console.log("Stacks before reversing");
-    console.log(opSTack);
-    console.log(calSTack);
+    console.log(posFixStack);
 
-    // Reverse stacks
-    opSTack = opSTack.reverse();
-
-    calSTack = calSTack.reverse();
+    posFixStack = posFixStack.reverse();
 
     // Log stacks
-    console.log("Stacks before reversing");
-    console.log(opSTack);
-    console.log(calSTack);
+    console.log("Stacks after reversing");
+    console.log(posFixStack);
+
+}
+
+
+function algSolver () {
+
+    // Capture current input displayed
+    let inFixStr = currNum;
+
+    // Created infix notation stack
+    infixQueRev (inFixStr);
+
+    // Convert to postfix notation stack
+    infToPosF ();
+
+    // Solve postfix notation
+
+
+    // Display final answer
+
+
     
 }
 
@@ -741,6 +700,19 @@ function clearStack () {
     calSTack = [];
     calSTack[0] = "";
     calSTack.pop();
+
+    // Clear infix and postfix stacks
+    inFixStack = [];
+    inFixStack[0] = "";
+    inFixStack.pop();
+    
+    inFOpSTack = [];
+    inFOpSTack[0] = "";
+    inFOpSTack.pop();
+
+    posFixStack = [];
+    posFixStack[0] = "";
+    posFixStack.pop();
 
     // Clear stack displays
     xStackDisp.innerHTML = " ";
