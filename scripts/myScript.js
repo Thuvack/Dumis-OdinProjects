@@ -495,20 +495,12 @@ function infToPosF () {
 
     let shuntLen = inFixStack.length;
 
-    // Log stacks
-    console.log(inFixStack);
-    console.log(inFOpSTack);
-    console.log(posFixStack);
-
-
     // Apply the shunting yard algorithm
 
     for (let i = 0; i < shuntLen; i++) {
 
         // While there are tokens to read
         while (inFixStack.length != 0) {
-
-            console.log("In 1st while loop, inFixStack :" +inFixStack.length);
             // Read a token from inFixSTack
             let inFixToken = inFixStack.pop();
 
@@ -518,25 +510,16 @@ function infToPosF () {
                     // If its a left (Openning bracket), push into stack
                     inFOpSTack.push(inFixToken);
 
-                    console.log("Part 1: Adding "+inFixToken+" to inFoPStack");
-                    console.log(inFOpSTack);
-                    console.log(posFixStack);
-
                 } else if (inFixToken == ")") {
-
-                    let opSTackTop = inFOpSTack.pop();
 
                     // While there is not a openning bracket at the top of the stack
                     while (inFOpSTack.Length !=0) {
 
+                        let opSTackTop = inFOpSTack.pop();
+
                         if (opSTackTop != "(") {
                             // Pop operators from stack onto the output queue
                             posFixStack.push(opSTackTop);
-                            console.log("Part 2: Adding "+opSTackTop+" to output queue");
-                            console.log(inFOpSTack);
-                            console.log(posFixStack);
-
-                            opSTackTop = inFOpSTack.pop();
 
                         } else {
                             // top of the stack is an opening bracket. Discard and move on.
@@ -554,31 +537,19 @@ function infToPosF () {
 
                         inFOpSTack.push(inFixToken);
 
-                        console.log("Part 3: Adding "+inFixToken+" to inFoPStack");
-                        console.log(inFOpSTack);
-                        console.log(posFixStack);
-
                     } else {
 
                         //Pop inFOpSTack and assign precedence
                         let tempIFStr = inFixToken;
                         let tempPFStr = inFOpSTack.pop();
 
-
                         //If the top element in the op stack is a bracket, then push them back into stack 
                         if (tempPFStr == "(") {
 
                             inFOpSTack.push(tempPFStr);
-                            inFOpSTack.push(inFixToken);
-
-                            console.log("Part 4: Adding both "+tempPFStr+" and "+inFixToken+" back into inFoPStack");
-                            console.log(inFOpSTack);
-                            console.log(posFixStack);
+                            inFOpSTack.push(tempIFStr);
 
                         } else {
-
-                            // THEIS SECTION NEEDS REVISITING
-
                             // While there's an operator on top of operator stack with greater precedence:
 
                             let tempIFStrLv = 0;
@@ -590,7 +561,7 @@ function infToPosF () {
                             tempIFStrLv = operandLevel;
 
                             // Assign postFix precedence
-                            assignPrec (tempPFStrLv);
+                            assignPrec (tempPFStr);
 
                             tempPFStrLv = operandLevel;
 
@@ -605,19 +576,11 @@ function infToPosF () {
 
                                 inFOpSTack.push(tempIFStr);
 
-                                console.log("Part 5: Adding "+tempPFStr+" (higher precedence) to output stack and then "+tempIFStr+" (Lower precedence) to inFOpSTack");
-                                console.log(inFOpSTack);
-                                console.log(posFixStack);
-
                             } else {
                                 // Else push the top operator back to stack and push new token into stack
 
                                 inFOpSTack.push(tempPFStr);
                                 inFOpSTack.push(tempIFStr); 
-
-                                console.log("Part 6: Adding "+tempPFStr+" (Lower precedence) into inFOpSTack and then "+tempIFStr+" (higher precedence) into inFOpSTack");
-                                console.log(inFOpSTack);
-                                console.log(posFixStack);
 
                             }
                         }
@@ -627,10 +590,6 @@ function infToPosF () {
             } else {
                 // If its a number add it to the output queue
                 posFixStack.push(inFixToken);
-
-                console.log("Part 7: Adding "+inFixToken+" to posFixStack");
-                console.log(inFOpSTack);
-                console.log(posFixStack);
 
             }
         }
@@ -643,28 +602,15 @@ function infToPosF () {
             let opSTackTop = inFOpSTack.pop();
 
             posFixStack.push(opSTackTop);
-
-            console.log("In 2nd while loop and adding "+opSTackTop+" to posFixStack");
-            console.log(inFOpSTack);
-            console.log(posFixStack);
     
     }
 
-    // Log stacks before reversing
-    console.log(inFixStack);
-    console.log(inFOpSTack);
-    console.log("Stacks before reversing");
-    console.log(posFixStack);
-
+    // Reverse Postfix stack
     posFixStack = posFixStack.reverse();
-
-    // Log stacks
-    console.log("Stacks after reversing");
-    console.log(posFixStack);
 
 }
 
-
+// Function to solve an algebraic equation
 function algSolver () {
 
     // Capture current input displayed
@@ -677,8 +623,6 @@ function algSolver () {
     infToPosF ();
 
     // Solve postfix notation
-
-    console.log(calSTack);
 
     while (posFixStack.length != 0) {
 
@@ -699,16 +643,9 @@ function algSolver () {
             // Push result into stack and display
             calSTack.push(opResult);
 
-            console.log("Pushing "+opResult+" into calSTack")
-            console.log(calSTack);
-
         } else {
             // If token is a number, then push it into calculation stack
-
             calSTack.push(postFixToken);
-            
-            console.log("Pushing "+postFixToken+" into calSTack")
-            console.log(calSTack);
 
         }
 
