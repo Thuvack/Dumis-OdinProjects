@@ -6,6 +6,9 @@ var output = document.getElementById("scrTopLeft");
 
 calcLogo = document.getElementsByClassName('Logo-text3')[0];
 
+screenTopDisp = document.getElementsByClassName('calScreenWrapper')[0];
+numScreen = document.getElementById("scrTopLeftCont");
+stackScreen = document.getElementById("scrTopRight");
 xStackDisp = document.getElementById("xStack");
 yStackDisp = document.getElementById("yStack");
 zStackDisp = document.getElementById("zStack");
@@ -77,6 +80,9 @@ function initCalc () {
         enterBtn.style.display = "none";
         equalBtn.style.display = "flex";
         calcLogo.style.display = "none";
+        stackScreen.style.display = "none";
+        screenTopDisp.style.gridTemplateAreas = '"scTopNum scTopNum" "scBotFunc scBotStack"';
+        numScreen.style.width = "300px";
 
         shiftFlag = "Off";
 
@@ -87,6 +93,9 @@ function initCalc () {
         equalBtn.style.display = "none";
         enterBtn.style.display = "flex";
         calcLogo.style.display = "flex";
+        stackScreen.style.display = "flex";
+        screenTopDisp.style.gridTemplateAreas = '"scTopNum scTopStack" "scBotFunc scBotStack"';
+        numScreen.style.width = "200px";
 
     }
     

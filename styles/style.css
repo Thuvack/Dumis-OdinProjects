@@ -265,7 +265,7 @@
   
   #scrTopLeftCont {
     grid-area: scTopNum;
-    padding-right: 5px;
+    padding-right: 10px;
     font-size: x-large;
     font-weight: 600;
     place-self: flex-end flex-end;
@@ -325,7 +325,7 @@
     font-size: small;
     font-weight: 300;
     place-self: flex-start center;
-    padding-left: 5px;
+    padding-left: 15px;
     height: 25px;
     
   }
