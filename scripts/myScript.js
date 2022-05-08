@@ -68,7 +68,6 @@ let postFixString = "";
 
 
 // Initialize RPN Mode
-
 function initCalc () {
 
     if (shiftFlag == "On") {
@@ -97,6 +96,7 @@ function initCalc () {
 
 }
 
+// Function to display RPN Stack
 function dispSTack () {
 
     // Display the latest 4 numbers in the stack
@@ -138,7 +138,7 @@ function dispSTack () {
 
 }
 
-
+// Push input number into stack
 function pushStack () {
 
     // Check if user has input a number
@@ -165,33 +165,8 @@ function pushStack () {
     
 }
 
-function assignPrec (precArg) {
 
-    if (precArg == "-") {
-
-        operandLevel = 1;
-
-    } else if (precArg == "+") {
-
-        operandLevel = 2;
-
-    } else if (precArg == "÷") { 
-
-        operandLevel = 3;
-
-    } else if (precArg == "x") { 
-
-        operandLevel = 4;
-
-    } else if (precArg == "^") { 
-
-        operandLevel = 5;
-
-    }
-
-     return;
-}
-
+// Function to capture user input into stack for both RPN & Algebraic modes
 function captUserInput (event) {
 
     // Get tagname of nummber key div that fired the event
@@ -359,6 +334,7 @@ function captUserInput (event) {
     
 }
 
+// Function to calculate a mathematical operation between two numbers
 function operate (arg1, arg2, opKey) {
 
     let numLeft = arg1;
@@ -366,25 +342,25 @@ function operate (arg1, arg2, opKey) {
     let _operand = opKey;
 
     // Perform operations
-    if (_operand == "divideK") {
+    if (_operand == "divideK" || _operand == "÷" ) {
 
         opResult = parseFloat(numLeft)/parseFloat(numRight);
 
         opResult = opResult.toFixed(2);
 
-    } else if (_operand == "multiplyK") {
+    } else if (_operand == "multiplyK" || _operand == "x") {
 
         opResult = parseFloat(numLeft)*parseFloat(numRight);
 
         opResult = opResult.toFixed(2);
 
-    } else if (_operand == "subtractK") {
+    } else if (_operand == "subtractK" || _operand == "-") {
 
         opResult = parseFloat(numLeft) - parseFloat(numRight);
 
         opResult = opResult.toFixed(2);
 
-    } else if (_operand == "addK") {
+    } else if (_operand == "addK" || _operand == "+") {
 
         opResult = parseFloat(numLeft)+parseFloat(numRight);
 
@@ -398,7 +374,7 @@ function operate (arg1, arg2, opKey) {
     return opResult;
 }
 
-
+// Function to perform RPN operation
 function opHandleRPN (event) {
 
     // Check if user is done entering number 
@@ -439,6 +415,36 @@ function opHandleRPN (event) {
 }
 
 
+// ALGEBRAIC MODE Functions
+// Function to assign operand precedence level following PEMDAS
+function assignPrec (precArg) {
+
+    if (precArg == "-") {
+
+        operandLevel = 1;
+
+    } else if (precArg == "+") {
+
+        operandLevel = 2;
+
+    } else if (precArg == "÷") { 
+
+        operandLevel = 3;
+
+    } else if (precArg == "x") { 
+
+        operandLevel = 4;
+
+    } else if (precArg == "^") { 
+
+        operandLevel = 5;
+
+    }
+
+     return;
+}
+
+// Functio to create infixque
 function infixQueRev (inFixStr) {
 
     let inFixStrLen = inFixStr.length;
@@ -484,6 +490,7 @@ function infixQueRev (inFixStr) {
 
 }
 
+// Function to convert infix stack to a postfix stack
 function infToPosF () {
 
     let shuntLen = inFixStack.length;
@@ -613,11 +620,8 @@ function infToPosF () {
                                 console.log(posFixStack);
 
                             }
-
                         }
-                    
                     }
-                    
                 }
             
             } else {
@@ -629,10 +633,7 @@ function infToPosF () {
                 console.log(posFixStack);
 
             }
-        
         }
-
-        console.log("Leaving 1st while loop :");
 
     }
     
@@ -648,10 +649,6 @@ function infToPosF () {
             console.log(posFixStack);
     
     }
-
-    // Pop the last item from inFOpSTack and push into output queue
-    //calSTack.push(inFOpSTack.pop());
-
 
     // Log stacks before reversing
     console.log(inFixStack);
@@ -681,15 +678,51 @@ function algSolver () {
 
     // Solve postfix notation
 
+    console.log(calSTack);
+
+    while (posFixStack.length != 0) {
+
+        let postFixToken = posFixStack.pop();
+
+        if (isNaN(postFixToken)) {
+         /* If the token is not a number, then Get numbers to be operated 
+            on from the calculator stack */
+
+            let opKey = postFixToken;
+    
+            let numRight = calSTack.pop();
+    
+            let numLeft = calSTack.pop();
+
+            operate (numLeft, numRight, opKey);
+
+            // Push result into stack and display
+            calSTack.push(opResult);
+
+            console.log("Pushing "+opResult+" into calSTack")
+            console.log(calSTack);
+
+        } else {
+            // If token is a number, then push it into calculation stack
+
+            calSTack.push(postFixToken);
+            
+            console.log("Pushing "+postFixToken+" into calSTack")
+            console.log(calSTack);
+
+        }
+
+    }
 
     // Display final answer
-
-
+    output.innerHTML = calSTack[0];
     
 }
 
 
+// Common functions for both modes
 
+// Clear function
 function clearStack () {
 
     // Clear number input stack
@@ -720,7 +753,7 @@ function clearStack () {
     zStackDisp.innerHTML = " ";
     wStackDisp.innerHTML = " ";
 
-    // Check if the shoft button is on
+    // Check if the shift button is on
 
     if (shiftFlag == "On") {
 
