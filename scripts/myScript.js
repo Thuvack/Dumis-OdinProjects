@@ -33,7 +33,7 @@ modeBtn = document.getElementById("stdMode");
 opBracBtn = document.getElementById("opBracKey");
 
 // Scientific Operator buttons
-
+calFunctionKeysBtn = document.getElementsByClassName('calKeyFuncWrapper')[0];
 
 // Calculator flags
 let numCaptFlag = "Ready";
@@ -310,6 +310,26 @@ function captUserInput (event) {
         
         inpSTack.push(currNum);
 
+    } else if (numKey == "back") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        if (shiftFlag == "Off") {
+            //Remove last element in string
+
+            currNum = stackVal.substring(0,stackVal.length - 1);
+
+        } else {
+            // Clear stack and user input
+
+            currNum = " ";
+            shiftFlag = "Off"
+
+        }
+        
+        inpSTack.push(currNum);
+
     } else {
 
     }
@@ -369,6 +389,21 @@ function operate (arg1, arg2, opKey) {
     } else {
 
 
+    }
+
+    // THIS NEEDS IMPROVEMENT
+    // Check if the result has any decimals above .04
+    const myOpArray = opResult.split(".");
+    let decPoint = myOpArray[1];
+    decPoint = "0."+decPoint;
+
+    console.log(decPoint);
+    if (decPoint <= 0.4) {
+        // Do not display decimal points
+        opResult = myOpArray[0];
+
+    } else {
+        // Do nothing
     }
 
     return opResult;
@@ -729,8 +764,6 @@ modeBtn.addEventListener("click",initCalc);
 
 numKeyBtn.addEventListener("click",captUserInput);
 
-enterBtn.addEventListener("click",pushStack);
-
 clearBtn.addEventListener("click",clearStack);
 
 shiftBtn.addEventListener("click", ()=>{shiftFlag = "On";});
@@ -761,5 +794,33 @@ opBracBtn.addEventListener("click",(e)=>{
 
 });
 
+calFunctionKeysBtn.addEventListener("click",(e)=>{
+        
+    if (calMode == "ALG") {
+
+        this.captUserInput(e);
+
+    } else {
+
+        let numKey = e.target.id;
+
+        if (numKey == "back") {
+            // If its the back key then invoke capturing of user input
+
+            this.captUserInput(e);
+
+        } else if (numKey == "ENTER") {
+
+            pushStack ();
+
+        } else {
+
+            this.opHandleRPN(e);
+
+        }
+    
+    }
+
+});
 
 equalBtn.addEventListener("click",algSolver);
