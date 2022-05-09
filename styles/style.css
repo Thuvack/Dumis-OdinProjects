@@ -255,7 +255,6 @@
     justify-content: center;
   }
 
-  #scrTopRight,
   #scrBottomRight {
     display: flex;
     width: 90px;
@@ -271,15 +270,6 @@
     place-self: flex-end flex-end;
     justify-content: flex-end;
     flex-direction: column;
-  }
-
-  #scrTopRight {
-    flex-direction: column;
-    grid-area: scTopStack;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 10px;
-    font-size: small;
   }
 
   #scrBottomLeft {
@@ -332,6 +322,60 @@
 
   #scrTopLeft {
     place-self: flex-end;
+  }
+
+  
+  .scrTopRightCont {
+    place-self: center center;
+    grid-area: scTopStack;
+    display: flex;
+    flex-direction: row;
+    background-color: #738a76;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .scrTopRightWrapper {
+    background-color: #738a76;
+    flex-basis: 80px;
+    display: grid;
+    grid-template-columns: 50px 30px;
+    grid-template-rows: 50px;
+    gap: 3px;
+    grid-template-areas:
+      "scrStackNum scrStackLbl"
+      "scrStackNum scrStackLbl";
+    margin: 0px 0px;
+  }
+
+  #scrTopRight,
+  #scrTopRightLbl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #scrTopRight {
+    flex-direction: column;
+    grid-area: scrStackNum;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* padding-right: 10px; */
+    font-size: small;
+    width: 50px;
+  }
+
+  #scrTopRightLbl {
+    flex-direction: column;
+    grid-area: scrStackLbl;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 10px;
+    font-size: small;
+    width: 25px;
   }
 
   /* Calcuator Keypad section wrapper and container */

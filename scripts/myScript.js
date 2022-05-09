@@ -8,7 +8,7 @@ calcLogo = document.getElementsByClassName('Logo-text3')[0];
 
 screenTopDisp = document.getElementsByClassName('calScreenWrapper')[0];
 numScreen = document.getElementById("scrTopLeftCont");
-stackScreen = document.getElementById("scrTopRight");
+stackScreen = document.getElementsByClassName('scrTopRightCont')[0];
 xStackDisp = document.getElementById("xStack");
 yStackDisp = document.getElementById("yStack");
 zStackDisp = document.getElementById("zStack");
@@ -155,6 +155,9 @@ function pushStack () {
 
         // Push captured number into stack
         calSTack.push(currNum);
+
+        // Clear current captured number from display
+        output.innerHTML = "0";
 
         // Update stack display
         dispSTack ();
