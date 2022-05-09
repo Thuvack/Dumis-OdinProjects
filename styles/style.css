@@ -436,6 +436,7 @@
 #cosKey,
 #tanKey,
 #enterKey,
+#equalKey,
 #plusMinusKey,
 #backKey {
   display: flex;
@@ -497,6 +498,10 @@
   grid-area: funcR3C12;
 }
 
+#equalKey {
+  grid-area: funcR3C12;
+}
+
 #yxKey {
   grid-area: funcR3C3;
 }
@@ -513,7 +518,8 @@
   grid-area: funcR3C6;
 }
 
-#ENTER {
+#ENTER,
+#equalNum {
   padding: 1px 4px;
   border-radius: 5px;
   cursor: pointer;
@@ -532,6 +538,11 @@
   font-size: 12pt;
 }
 
+#equalNum {
+  font-size: large;
+  justify-content: center;
+  align-items: flex-start;
+}
 
 #back {
   font-size: 10pt;
@@ -695,8 +706,7 @@
 #oneKey,
 #twoKey,
 #threeKey,
-#zeroKey,
-#equalKey {
+#zeroKey {
   display: flex;
   flex-direction: column;
   width: 50px;
@@ -741,10 +751,6 @@
   grid-area: numR3C3;
 }
 
-#equalKey {
-  grid-area: numR4C1;
-}
-
 #zeroKey {
   grid-area: numR4C2;
 }
@@ -767,8 +773,7 @@
   font-size: medium;
 }
 
-#dotNum,
-#equalNum {
+#dotNum {
   width: 50px;
   font-weight: 800;
   font-size: large;
