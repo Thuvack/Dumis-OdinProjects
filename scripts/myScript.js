@@ -409,7 +409,6 @@ function operate (arg1, arg2, opKey) {
     let decPoint = myOpArray[1];
     decPoint = "0."+decPoint;
 
-    console.log(decPoint);
     if (decPoint <= 0.4) {
         // Do not display decimal points
         opResult = myOpArray[0];
@@ -748,6 +747,7 @@ function clearStack () {
         // Switch off function displays
         funcDisp1.style.display = "none";
         funcDisp2.style.display = "none";
+        stackScreen.style.display = "none";
 
         // Reset shift flag
         shiftFlag = "Off";
@@ -761,6 +761,7 @@ function clearStack () {
         // Switch off function displays
         funcDisp1.style.display = "flex";
         funcDisp2.style.display = "flex";
+        stackScreen.style.display = "flex";
 
     }
     
