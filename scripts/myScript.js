@@ -1,14 +1,17 @@
 // This is an implementation of an RPN scientific calculator
 
+// Calculator logo
+calcLogo = document.getElementsByClassName('Logo-text3')[0];
+
 // Screen display elements
 var infixCapt = document.getElementById("scrTopLeftIn");
 var output = document.getElementById("scrTopLeft");
 
-calcLogo = document.getElementsByClassName('Logo-text3')[0];
-
 screenTopDisp = document.getElementsByClassName('calScreenWrapper')[0];
 numScreen = document.getElementById("scrTopLeftCont");
-stackScreen = document.getElementsByClassName('scrTopRightCont')[0];
+stackScreenDisp = document.getElementsByClassName('scrTopRightWrapper')[0];
+stackScreenRgt = document.getElementById("scrTopRight");
+stackScreenLBL = document.getElementById("scrTopRightLbl");
 xStackDisp = document.getElementById("xStack");
 yStackDisp = document.getElementById("yStack");
 zStackDisp = document.getElementById("zStack");
@@ -80,7 +83,10 @@ function initCalc () {
         enterBtn.style.display = "none";
         equalBtn.style.display = "flex";
         calcLogo.style.display = "none";
-        stackScreen.style.display = "none";
+        stackScreenDisp.style.display = "none";
+        stackScreenRgt.style.display = "none";
+        stackScreenLBL.style.display = "none";
+
         screenTopDisp.style.gridTemplateAreas = '"scTopNum scTopNum" "scBotFunc scBotStack"';
         numScreen.style.width = "300px";
 
@@ -93,7 +99,9 @@ function initCalc () {
         equalBtn.style.display = "none";
         enterBtn.style.display = "flex";
         calcLogo.style.display = "flex";
-        stackScreen.style.display = "flex";
+        stackScreenDisp.style.display = "flex";
+        stackScreenRgt.style.display = "flex";
+        stackScreenLBL.style.display = "flex";
         screenTopDisp.style.gridTemplateAreas = '"scTopNum scTopStack" "scBotFunc scBotStack"';
         numScreen.style.width = "200px";
 
@@ -398,24 +406,124 @@ function operate (arg1, arg2, opKey) {
 
         opResult = opResult.toFixed(2);
 
-    } else {
+    } else if (_operand == "sqrt" || _operand == "√") { 
 
+        if (shiftFlag == "Off") {
 
+            opResult = Math.sqrt(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        } else {
+
+            opResult = numRight*numRight;
+
+            opResult = opResult.toFixed(2);
+
+        }
+       
+
+    } else if (_operand == "natE" || _operand == "e^x") { 
+    
+        if (shiftFlag == "Off") {
+
+            opResult = Math.exp(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        } else {
+            
+            opResult = Math.pow(10,numRight);
+
+            opResult = opResult.toFixed(2);
+
+        }
+        
+
+    } else if (_operand == "LN" || _operand == "Lin") { 
+    
+        if (shiftFlag == "Off") {
+
+            opResult = Math.log(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        } else {
+
+            opResult = Math.log10(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        }
+
+    } else if (_operand == "Sin" || _operand == "SIN") { 
+
+        if (shiftFlag == "Off") {
+
+            opResult = Math.sin(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        } else {
+
+            opResult = Math.asin(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        }
+
+    } else if (_operand == "Cos" || _operand == "COS") { 
+    
+        if (shiftFlag == "Off") {
+
+            opResult = Math.cos(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        } else {
+
+            opResult = Math.acos(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        }
+
+    } else if (_operand == "Tan" || _operand == "TAN") { 
+    
+        if (shiftFlag == "Off") {
+
+            opResult = Math.tan(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        } else {
+
+            opResult = Math.atan(numRight);
+
+            opResult = opResult.toFixed(2);
+
+        }
+
+    } /* else if () { 
+    
+    }*/ else {
+        // Do nothing
     }
 
     // THIS NEEDS IMPROVEMENT
-    // Check if the result has any decimals above .04
-    const myOpArray = opResult.split(".");
-    let decPoint = myOpArray[1];
-    decPoint = "0."+decPoint;
+    // Check if the result has any decimals
+        // Check if the decimal is above .04
+        const myOpArray = opResult.split(".");
+        let decPoint = myOpArray[1];
+        decPoint = "0."+decPoint;
 
-    if (decPoint <= 0.4) {
-        // Do not display decimal points
-        opResult = myOpArray[0];
+        if (decPoint <= 0.4) {
+            // Do not display decimal points
+            opResult = myOpArray[0];
 
-    } else {
-        // Do nothing
-    }
+        } else {
+            // Do nothing
+        }
 
     return opResult;
 }
@@ -440,12 +548,24 @@ function opHandleRPN (event) {
     // Get tagname of nummber key div that fired the event
     let opKey = event.target.id;
 
-    // Get numbers to be operated on from the stack
-    let numRight = calSTack.pop();
-    let numLeft = calSTack.pop();
+    let funcArray = ["sqrt", "natE", "LN", "SIN", "COS", "TAN", "inv", "plusMinus"];
 
-    operate (numLeft, numRight, opKey);
+    if (funcArray.includes(opKey)) {
+        // Get the top number on stack and operate on
+        let numRight = calSTack.pop();
+        let numLeft = 0;
 
+        operate (numLeft, numRight, opKey);
+
+    } else {
+
+        // Get the 2 numbers to be operated on from the stack
+        let numRight = calSTack.pop();
+        let numLeft = calSTack.pop();
+
+        operate (numLeft, numRight, opKey);
+
+    }
     // Push result into stack and display
     calSTack.push(opResult);
 
@@ -698,7 +818,9 @@ function algSolver () {
     }
 
     // Display final answer
+    
     output.innerHTML = calSTack[0];
+
     
 }
 
@@ -747,7 +869,7 @@ function clearStack () {
         // Switch off function displays
         funcDisp1.style.display = "none";
         funcDisp2.style.display = "none";
-        stackScreen.style.display = "none";
+        stackScreenDisp.style.display = "none";
 
         // Reset shift flag
         shiftFlag = "Off";
@@ -761,7 +883,7 @@ function clearStack () {
         // Switch off function displays
         funcDisp1.style.display = "flex";
         funcDisp2.style.display = "flex";
-        stackScreen.style.display = "flex";
+        stackScreenDisp.style.display = "flex";
 
     }
     
@@ -810,8 +932,19 @@ opBracBtn.addEventListener("click",(e)=>{
 calFunctionKeysBtn.addEventListener("click",(e)=>{
         
     if (calMode == "ALG") {
+        
+        let numKey = e.target.id;
 
-        this.captUserInput(e);
+        if (numKey == "equalNum") {
+            // Update infix display to include "=" and then call algebraic solver
+            infixCapt.innerHTML = currNum+" =";
+            algSolver();
+
+        } else {
+
+            this.captUserInput(e);
+        
+        }
 
     } else {
 
@@ -835,5 +968,3 @@ calFunctionKeysBtn.addEventListener("click",(e)=>{
     }
 
 });
-
-equalBtn.addEventListener("click",algSolver);

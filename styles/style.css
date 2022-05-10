@@ -312,7 +312,7 @@
   }
 
   #scrTopLeftIn {
-    font-size: small;
+    font-size: medium;
     font-weight: 300;
     place-self: flex-start center;
     padding-left: 15px;
