@@ -350,6 +350,26 @@ function captUserInput (event) {
         
         inpSTack.push(currNum);
 
+    } else if (numKey == "plusMinus") {
+
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        if (shiftFlag == "Off") {
+            //+- Key
+
+            currNum = stackVal + "-";
+
+        } else {
+            // pi key
+            currNum = stackVal + "π";
+
+            shiftFlag = "Off"
+
+        }
+        
+        inpSTack.push(currNum);
+
     } else {
 
     }
@@ -381,30 +401,36 @@ function operate (arg1, arg2, opKey) {
     let numRight = arg2;
     let _operand = opKey;
 
+    // Check if number is pi
+
+    if (numLeft = "π") {
+
+        numLeft = Math.PI;
+
+    } else if (numRight = "π") {
+
+        numRight = Math.PI;
+
+    } else {
+        // Do nothing
+    }
+
     // Perform operations
     if (_operand == "divideK" || _operand == "÷" ) {
 
         opResult = parseFloat(numLeft)/parseFloat(numRight);
 
-        opResult = opResult.toFixed(2);
-
     } else if (_operand == "multiplyK" || _operand == "x") {
 
         opResult = parseFloat(numLeft)*parseFloat(numRight);
-
-        opResult = opResult.toFixed(2);
 
     } else if (_operand == "subtractK" || _operand == "-") {
 
         opResult = parseFloat(numLeft) - parseFloat(numRight);
 
-        opResult = opResult.toFixed(2);
-
     } else if (_operand == "addK" || _operand == "+") {
 
         opResult = parseFloat(numLeft)+parseFloat(numRight);
-
-        opResult = opResult.toFixed(2);
 
     } else if (_operand == "sqrt" || _operand == "√") { 
 
@@ -412,13 +438,9 @@ function operate (arg1, arg2, opKey) {
 
             opResult = Math.sqrt(numRight);
 
-            opResult = opResult.toFixed(2);
-
         } else {
 
             opResult = numRight*numRight;
-
-            opResult = opResult.toFixed(2);
 
         }
        
@@ -429,13 +451,9 @@ function operate (arg1, arg2, opKey) {
 
             opResult = Math.exp(numRight);
 
-            opResult = opResult.toFixed(2);
-
         } else {
             
             opResult = Math.pow(10,numRight);
-
-            opResult = opResult.toFixed(2);
 
         }
         
@@ -446,13 +464,9 @@ function operate (arg1, arg2, opKey) {
 
             opResult = Math.log(numRight);
 
-            opResult = opResult.toFixed(2);
-
         } else {
 
             opResult = Math.log10(numRight);
-
-            opResult = opResult.toFixed(2);
 
         }
 
@@ -462,13 +476,9 @@ function operate (arg1, arg2, opKey) {
 
             opResult = Math.sin(numRight);
 
-            opResult = opResult.toFixed(2);
-
         } else {
 
             opResult = Math.asin(numRight);
-
-            opResult = opResult.toFixed(2);
 
         }
 
@@ -478,13 +488,9 @@ function operate (arg1, arg2, opKey) {
 
             opResult = Math.cos(numRight);
 
-            opResult = opResult.toFixed(2);
-
         } else {
 
             opResult = Math.acos(numRight);
-
-            opResult = opResult.toFixed(2);
 
         }
 
@@ -494,36 +500,51 @@ function operate (arg1, arg2, opKey) {
 
             opResult = Math.tan(numRight);
 
-            opResult = opResult.toFixed(2);
-
         } else {
 
             opResult = Math.atan(numRight);
 
-            opResult = opResult.toFixed(2);
-
         }
+
+    } else if (_operand == "yx" || _operand == "^") { 
+    
+        opResult = Math.pow(numLeft,numRight);
+
+    } else if (_operand == "inv") { 
+    
+        if (shiftFlag == "Off") {
+            // Find the inverse of the number
+
+            opResult = 1/numRight;
+
+        } else {
+            // Covert number into percentage
+
+            opResult = numRight/100;
+            
+        }
+
+    } else if (_operand == "plusMinus") { 
+    
+        opResult = -1*numRight;
 
     } /* else if () { 
     
-    }*/ else {
+    }
+    */ else {
         // Do nothing
     }
 
-    // THIS NEEDS IMPROVEMENT
     // Check if the result has any decimals
-        // Check if the decimal is above .04
-        const myOpArray = opResult.split(".");
-        let decPoint = myOpArray[1];
-        decPoint = "0."+decPoint;
+    if (opResult % 1 != 0 ) {
+        // If result has a decimal, fix to 2 positions
 
-        if (decPoint <= 0.4) {
-            // Do not display decimal points
-            opResult = myOpArray[0];
+        opResult = opResult.toFixed(2);
 
-        } else {
-            // Do nothing
-        }
+    } else {
+
+        // Do nothing
+    }
 
     return opResult;
 }
@@ -958,6 +979,18 @@ calFunctionKeysBtn.addEventListener("click",(e)=>{
         } else if (numKey == "ENTER") {
 
             pushStack ();
+
+        } else if (numKey == "plusMinus") {
+
+            if (shiftFlag == "On") {
+                // Its a number input for pi
+
+                this.captUserInput(e);
+
+            } else {
+                // Its a +- operation
+                this.opHandleRPN(e);
+            }
 
         } else {
 
