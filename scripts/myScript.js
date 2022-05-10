@@ -88,7 +88,7 @@ function initCalc () {
         stackScreenLBL.style.display = "none";
 
         screenTopDisp.style.gridTemplateAreas = '"scTopNum scTopNum" "scBotFunc scBotStack"';
-        numScreen.style.width = "300px";
+        numScreen.style.width = "290px";
 
         shiftFlag = "Off";
 
@@ -370,6 +370,24 @@ function captUserInput (event) {
         
         inpSTack.push(currNum);
 
+    } else if (numKey == "sqrt") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        if (shiftFlag == "Off") {
+
+            currNum = stackVal + "√";
+
+        } else {
+
+            currNum = stackVal + "^2";
+            shiftFlag = "Off"
+
+        }
+        
+        inpSTack.push(currNum);
+
     } else {
 
     }
@@ -627,6 +645,10 @@ function assignPrec (precArg) {
 
         operandLevel = 5;
 
+    } else if (precArg == "√") {
+
+        operandLevel = 6;
+
     }
 
      return;
@@ -821,12 +843,26 @@ function algSolver () {
             on from the calculator stack */
 
             let opKey = postFixToken;
-    
-            let numRight = calSTack.pop();
-    
-            let numLeft = calSTack.pop();
 
-            operate (numLeft, numRight, opKey);
+            let funcArray = ["√", "e", "Lin", "Sin", "Cos", "Tan"];
+
+            if (funcArray.includes(opKey)) { 
+
+                let numRight = calSTack.pop();
+    
+                let numLeft = 0;
+
+                operate (numLeft, numRight, opKey);
+
+            } else {
+    
+                let numRight = calSTack.pop();
+    
+                let numLeft = calSTack.pop();
+
+                operate (numLeft, numRight, opKey);
+
+            }
 
             // Push result into stack and display
             calSTack.push(opResult);
