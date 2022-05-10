@@ -403,11 +403,11 @@ function operate (arg1, arg2, opKey) {
 
     // Check if number is pi
 
-    if (numLeft = "π") {
+    if (numLeft == "π") {
 
         numLeft = Math.PI;
 
-    } else if (numRight = "π") {
+    } else if (numRight == "π") {
 
         numRight = Math.PI;
 
@@ -415,6 +415,7 @@ function operate (arg1, arg2, opKey) {
         // Do nothing
     }
 
+    
     // Perform operations
     if (_operand == "divideK" || _operand == "÷" ) {
 
