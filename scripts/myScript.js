@@ -66,6 +66,7 @@ let posFixStack = [];
 
 // Calculator variables
 let currNum;
+let inputNum;
 let opResult;
 
 let operandLevel = 0;
@@ -173,6 +174,8 @@ function pushStack () {
         // Reset input stack
         inpSTack = [];
         inpSTack[0] = "";
+        
+        //currNum = inpSTack [0];
 
         // Unset number capture flag
         numCaptFlag = "Ready"
@@ -194,14 +197,7 @@ function captUserInput (event) {
 
     if (numKey == "zeroNum") {
 
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "0";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (newInFixStack.length !=0) {
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -213,10 +209,10 @@ function captUserInput (event) {
             } else {
             
                 inputNum = inputNum + "0";
-                inFixStack.push(inputNum);
+                inFixStack.push(inputNum); 
             
             }
-
+    
         } else {
 
             inFixStack.push("0");
@@ -225,15 +221,8 @@ function captUserInput (event) {
 
 
     } else if (numKey == "oneNum") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "1";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (inFixStack.length !=0) {
+     
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -251,21 +240,14 @@ function captUserInput (event) {
 
         } else {
 
-            inFixStack.push("0");
+            inFixStack.push("1");
 
         }
 
 
     } else if (numKey == "twoNum") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "2";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (inFixStack.length !=0) {
+       
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -283,21 +265,14 @@ function captUserInput (event) {
 
         } else {
 
-            inFixStack.push("0");
+            inFixStack.push("2");
 
         }
 
 
     } else if (numKey == "threeNum") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "3";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (inFixStack.length !=0) {
+       
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -321,15 +296,8 @@ function captUserInput (event) {
 
 
     } else if (numKey == "fourNum") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "4";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (inFixStack.length !=0) {
+       
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -353,14 +321,7 @@ function captUserInput (event) {
 
     } else if (numKey == "fiveNum") {
         
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "5";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (inFixStack.length !=0) {
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -384,14 +345,7 @@ function captUserInput (event) {
 
     } else if (numKey == "sixNum") {
         
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "6";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (newInFixStack.length !=0) {
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -414,15 +368,8 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "sevenNum") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "7";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (newInFixStack.length !=0) {
+       
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -445,15 +392,8 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "eightNum") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "8";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (newInFixStack.length !=0) {
+       
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -477,14 +417,7 @@ function captUserInput (event) {
 
     } else if (numKey == "nineNum") {
         
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "9";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (inFixStack.length !=0) {
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -508,14 +441,7 @@ function captUserInput (event) {
         
     } else if (numKey == "dotNum") {
         
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + ".";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
-        if (inFixStack.length !=0) {
+        if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
 
@@ -538,85 +464,40 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "divideK") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "÷";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
+       
         inFixStack.push("÷");
 
 
     } else if (numKey == "multiplyK") {
         
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "x";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
         inFixStack.push("x");
 
     } else if (numKey == "subtractK") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "-";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
+       
         inFixStack.push("-");
 
     } else if (numKey == "addK") {
         
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
-        currNum = stackVal + "+";
-        inpSTack.push(currNum);
-
-        // TRYING A STACK BASED USER INPUT CAPTURE
         inFixStack.push("+");
 
     } else if (numKey == "opBrac") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
 
         if (shiftFlag == "Off") {
 
-            currNum = stackVal + "(";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("(");
 
         } else {
 
-            currNum = stackVal + ")";
-            shiftFlag = "Off"
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push(")");
 
+            shiftFlag = "Off"
+
         }
-        
-        inpSTack.push(currNum);
 
     } else if (numKey == "back") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
 
         if (shiftFlag == "Off") {
-            //Remove last element in string
-
-            currNum = stackVal.substring(0,stackVal.length - 1);
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
+          
             let inputNum = inFixStack.pop();
 
             inputNum = inputNum.substring(0,inputNum.length - 1);
@@ -624,142 +505,82 @@ function captUserInput (event) {
             inFixStack.push(inputNum);
 
         } else {
-            // Clear stack and user input
-
-            currNum = " ";
-            shiftFlag = "Off"
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
+          
             inFixStack = [];
 
+            shiftFlag = "Off"
+
         }
-        
-        inpSTack.push(currNum);
 
     } else if (numKey == "plusMinus") {
 
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
-
         if (shiftFlag == "Off") {
-            //+- Key
-
-            currNum = stackVal + "-";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
+          
             inFixStack.push("-");
 
         } else {
-            // pi key
-            currNum = stackVal + "π";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
+        
             inFixStack.push("π");
 
             shiftFlag = "Off"
 
         }
-        
-        inpSTack.push(currNum);
 
     } else if (numKey == "sqrt") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
 
         if (shiftFlag == "Off") {
 
-            currNum = stackVal + "√";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("π");
 
         } else {
-
-            currNum = stackVal + "^2";
-            shiftFlag = "Off"
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
+            
             inFixStack.push("^");
             inFixStack.push("2");
+
+            shiftFlag = "Off"
         }
-        
-        inpSTack.push(currNum);
 
     } else if (numKey == "SIN") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
 
         if (shiftFlag == "Off") {
 
-            currNum = stackVal + "Sin";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("Sin");
 
         } else {
 
-            currNum = stackVal + "ASin";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("ASin");
 
             shiftFlag = "Off"
 
         }
-        
-        inpSTack.push(currNum);
 
     } else if (numKey == "COS") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
 
         if (shiftFlag == "Off") {
 
-            currNum = stackVal + "Cos";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("Cos");
 
         } else {
 
-            currNum = stackVal + "ACos";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("ACos");
 
             shiftFlag = "Off"
 
         }
-        
-        inpSTack.push(currNum);
 
     } else if (numKey == "TAN") {
-        
-        let stackVal = inpSTack[0];
-        inpSTack.pop();
 
         if (shiftFlag == "Off") {
 
-            currNum = stackVal + "Tan";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("Tan");
 
         } else {
 
-            currNum = stackVal + "ATan";
-
-            // TRYING A STACK BASED USER INPUT CAPTURE
             inFixStack.push("ATan");
 
             shiftFlag = "Off"
 
         }
-        
-        inpSTack.push(currNum);
 
     } else {
 
@@ -768,9 +589,15 @@ function captUserInput (event) {
     // Display captured number
     if (calMode == "RPN") {
 
+        currNum = inFixStack.pop();
+
+        inFixStack.push(currNum);
+
         output.innerHTML = currNum;
 
     } else {
+
+        currNum = inFixStack.join("");
 
         infixCapt.innerHTML = currNum;
 
@@ -983,6 +810,8 @@ function opHandleRPN (event) {
 
         // Push number that has been captured into stack
         calSTack.push(currNum);
+
+        currNum = " ";
 
         // Unset number capture flag
         numCaptFlag = "Ready";
