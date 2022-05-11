@@ -200,6 +200,30 @@ function captUserInput (event) {
         currNum = stackVal + "0";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (newInFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("0");
+
+            } else {
+            
+                inputNum = inputNum + "0";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("0");
+
+        }
+
+
     } else if (numKey == "oneNum") {
         
         let stackVal = inpSTack[0];
@@ -207,6 +231,30 @@ function captUserInput (event) {
 
         currNum = stackVal + "1";
         inpSTack.push(currNum);
+
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (inFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("1");
+
+            } else {
+            
+                inputNum = inputNum + "1";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("0");
+
+        }
+
 
     } else if (numKey == "twoNum") {
         
@@ -216,6 +264,30 @@ function captUserInput (event) {
         currNum = stackVal + "2";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (inFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("2");
+
+            } else {
+            
+                inputNum = inputNum + "2";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("0");
+
+        }
+
+
     } else if (numKey == "threeNum") {
         
         let stackVal = inpSTack[0];
@@ -223,6 +295,30 @@ function captUserInput (event) {
 
         currNum = stackVal + "3";
         inpSTack.push(currNum);
+
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (inFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("3");
+
+            } else {
+            
+                inputNum = inputNum + "3";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("3");
+
+        }
+
 
     } else if (numKey == "fourNum") {
         
@@ -232,6 +328,29 @@ function captUserInput (event) {
         currNum = stackVal + "4";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (inFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("4");
+
+            } else {
+            
+                inputNum = inputNum + "4";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("4");
+
+        }
+
     } else if (numKey == "fiveNum") {
         
         let stackVal = inpSTack[0];
@@ -239,6 +358,29 @@ function captUserInput (event) {
 
         currNum = stackVal + "5";
         inpSTack.push(currNum);
+
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (inFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("5");
+
+            } else {
+            
+                inputNum = inputNum + "5";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("5");
+
+        }
 
     } else if (numKey == "sixNum") {
         
@@ -248,6 +390,29 @@ function captUserInput (event) {
         currNum = stackVal + "6";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (newInFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("6");
+
+            } else {
+            
+                inputNum = inputNum + "6";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("6");
+
+        }
+
     } else if (numKey == "sevenNum") {
         
         let stackVal = inpSTack[0];
@@ -255,6 +420,29 @@ function captUserInput (event) {
 
         currNum = stackVal + "7";
         inpSTack.push(currNum);
+
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (newInFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("7");
+
+            } else {
+            
+                inputNum = inputNum + "7";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("7");
+
+        }
 
     } else if (numKey == "eightNum") {
         
@@ -264,6 +452,29 @@ function captUserInput (event) {
         currNum = stackVal + "8";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (newInFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("8");
+
+            } else {
+            
+                inputNum = inputNum + "8";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("8");
+
+        }
+
     } else if (numKey == "nineNum") {
         
         let stackVal = inpSTack[0];
@@ -271,6 +482,29 @@ function captUserInput (event) {
 
         currNum = stackVal + "9";
         inpSTack.push(currNum);
+
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (inFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push("9");
+
+            } else {
+            
+                inputNum = inputNum + "9";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("9");
+
+        }
         
     } else if (numKey == "dotNum") {
         
@@ -280,6 +514,29 @@ function captUserInput (event) {
         currNum = stackVal + ".";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        if (inFixStack.length !=0) {
+
+            let inputNum = inFixStack.pop();
+
+            if (isNaN(inputNum)) {
+
+                inFixStack.push(inputNum);
+                inFixStack.push(".");
+
+            } else {
+            
+                inputNum = inputNum + ".";
+                inFixStack.push(inputNum);
+            
+            }
+
+        } else {
+
+            inFixStack.push("0.");
+
+        }
+
     } else if (numKey == "divideK") {
         
         let stackVal = inpSTack[0];
@@ -287,6 +544,10 @@ function captUserInput (event) {
 
         currNum = stackVal + "÷";
         inpSTack.push(currNum);
+
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        inFixStack.push("÷");
+
 
     } else if (numKey == "multiplyK") {
         
@@ -296,6 +557,9 @@ function captUserInput (event) {
         currNum = stackVal + "x";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        inFixStack.push("x");
+
     } else if (numKey == "subtractK") {
         
         let stackVal = inpSTack[0];
@@ -304,6 +568,9 @@ function captUserInput (event) {
         currNum = stackVal + "-";
         inpSTack.push(currNum);
 
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        inFixStack.push("-");
+
     } else if (numKey == "addK") {
         
         let stackVal = inpSTack[0];
@@ -311,6 +578,9 @@ function captUserInput (event) {
 
         currNum = stackVal + "+";
         inpSTack.push(currNum);
+
+        // TRYING A STACK BASED USER INPUT CAPTURE
+        inFixStack.push("+");
 
     } else if (numKey == "opBrac") {
         
@@ -321,10 +591,16 @@ function captUserInput (event) {
 
             currNum = stackVal + "(";
 
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("(");
+
         } else {
 
             currNum = stackVal + ")";
             shiftFlag = "Off"
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push(")");
 
         }
         
@@ -340,11 +616,21 @@ function captUserInput (event) {
 
             currNum = stackVal.substring(0,stackVal.length - 1);
 
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            let inputNum = inFixStack.pop();
+
+            inputNum = inputNum.substring(0,inputNum.length - 1);
+
+            inFixStack.push(inputNum);
+
         } else {
             // Clear stack and user input
 
             currNum = " ";
             shiftFlag = "Off"
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack = [];
 
         }
         
@@ -360,9 +646,15 @@ function captUserInput (event) {
 
             currNum = stackVal + "-";
 
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("-");
+
         } else {
             // pi key
             currNum = stackVal + "π";
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("π");
 
             shiftFlag = "Off"
 
@@ -379,9 +671,90 @@ function captUserInput (event) {
 
             currNum = stackVal + "√";
 
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("π");
+
         } else {
 
             currNum = stackVal + "^2";
+            shiftFlag = "Off"
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("^");
+            inFixStack.push("2");
+        }
+        
+        inpSTack.push(currNum);
+
+    } else if (numKey == "SIN") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        if (shiftFlag == "Off") {
+
+            currNum = stackVal + "Sin";
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("Sin");
+
+        } else {
+
+            currNum = stackVal + "ASin";
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("ASin");
+
+            shiftFlag = "Off"
+
+        }
+        
+        inpSTack.push(currNum);
+
+    } else if (numKey == "COS") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        if (shiftFlag == "Off") {
+
+            currNum = stackVal + "Cos";
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("Cos");
+
+        } else {
+
+            currNum = stackVal + "ACos";
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("ACos");
+
+            shiftFlag = "Off"
+
+        }
+        
+        inpSTack.push(currNum);
+
+    } else if (numKey == "TAN") {
+        
+        let stackVal = inpSTack[0];
+        inpSTack.pop();
+
+        if (shiftFlag == "Off") {
+
+            currNum = stackVal + "Tan";
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("Tan");
+
+        } else {
+
+            currNum = stackVal + "ATan";
+
+            // TRYING A STACK BASED USER INPUT CAPTURE
+            inFixStack.push("ATan");
+
             shiftFlag = "Off"
 
         }
@@ -402,7 +775,6 @@ function captUserInput (event) {
         infixCapt.innerHTML = currNum;
 
     }
-    
 
     // Set number capture flag to complete
     numCaptFlag = "Done";
@@ -489,40 +861,76 @@ function operate (arg1, arg2, opKey) {
 
         }
 
-    } else if (_operand == "Sin" || _operand == "SIN") { 
+    } else if (_operand == "Sin" || _operand == "SIN" || _operand == "ASin" ) { 
 
-        if (shiftFlag == "Off") {
-
-            opResult = Math.sin(numRight);
-
-        } else {
-
-            opResult = Math.asin(numRight);
-
-        }
-
-    } else if (_operand == "Cos" || _operand == "COS") { 
-    
-        if (shiftFlag == "Off") {
-
-            opResult = Math.cos(numRight);
-
-        } else {
+        // Handle arc unary function in Algebraic solver
+        if (_operand == "ASin" || _operand == "ASIN") {
 
             opResult = Math.acos(numRight);
+            opResult = parseFloat(opResult);
 
+        } else {
+            
+            // Handle unary function in both Algebraic and RPN mode
+            if (shiftFlag == "Off") {
+
+                opResult = Math.sin(numRight);
+                opResult = parseFloat(opResult);
+
+            } else {
+
+                opResult = Math.asin(numRight);
+                opResult = parseFloat(opResult);
+
+            }
         }
 
-    } else if (_operand == "Tan" || _operand == "TAN") { 
+    } else if (_operand == "Cos" || _operand == "COS" || _operand == "ACos" ) { 
     
-        if (shiftFlag == "Off") {
+        // Handle arc unary function in Algebraic solver
+        if (_operand == "ACos" || _operand == "ACOS") {
 
-            opResult = Math.tan(numRight);
+            opResult = Math.acos(numRight);
+            opResult = parseFloat(opResult);
+
+        } else {
+        
+            // Handle unary function in both Algebraic and RPN mode
+            if (shiftFlag == "Off") {
+
+                opResult = Math.cos(numRight);
+                opResult = parseFloat(opResult);
+
+            } else {
+
+                opResult = Math.acos(numRight);
+                opResult = parseFloat(opResult);
+
+            }
+        }
+
+    } else if (_operand == "Tan" || _operand == "TAN" || _operand == "ATan" ) { 
+    
+        // Handle arc unary function in Algebraic solver
+        if (_operand == "ATan" || _operand == "ATAN") {
+
+            opResult = Math.atan(numRight);
+            opResult = parseFloat(opResult);
 
         } else {
 
-            opResult = Math.atan(numRight);
+            // Handle unary function in both Algebraic and RPN mode
+            if (shiftFlag == "Off") {
 
+                opResult = Math.tan(numRight);
+                opResult = parseFloat(opResult);
+
+            } else {
+
+                opResult = Math.atan(numRight);
+                opResult = parseFloat(opResult);
+
+            }
         }
 
     } else if (_operand == "yx" || _operand == "^") { 
@@ -533,12 +941,10 @@ function operate (arg1, arg2, opKey) {
     
         if (shiftFlag == "Off") {
             // Find the inverse of the number
-
             opResult = 1/numRight;
 
         } else {
-            // Covert number into percentage
-
+            // Convert number into percentage
             opResult = numRight/100;
             
         }
@@ -554,10 +960,11 @@ function operate (arg1, arg2, opKey) {
         // Do nothing
     }
 
+    console.log(opResult);
+
     // Check if the result has any decimals
     if (opResult % 1 != 0 ) {
         // If result has a decimal, fix to 2 positions
-
         opResult = opResult.toFixed(2);
 
     } else {
@@ -641,21 +1048,45 @@ function assignPrec (precArg) {
 
         operandLevel = 4;
 
-    } else if (precArg == "^") { 
-
+    } else if ( precArg == "√" || precArg == "%" ) { 
+        // Unary functions
         operandLevel = 5;
 
-    } else if (precArg == "√") {
+    } else if ( precArg == "Sin" || precArg == "Cos" || precArg == "Tan" ) { 
+        // Unary functions
+        operandLevel = 5;
+
+    } else if ( precArg == "ASin" || precArg == "ACos" || precArg == "ATan" ) { 
+        // Unary functions
+        operandLevel = 5;
+
+    } else if (precArg == "^") {
 
         operandLevel = 6;
 
+    } else {
+        // Do nothing
     }
 
      return;
 }
 
+/*
 // Functio to create infixque
 function infixQueRev (inFixStr) {
+
+    // CONTINUE FROM HERE
+    // Sanitize inFixStr by checking for trigonometric functions
+    let cleanInFixStr = inFixStr;
+
+    cleanInFixStr = cleanInFixStr.replace("ASin", "α");
+    cleanInFixStr = cleanInFixStr.replace("ACos", "β");
+    cleanInFixStr = cleanInFixStr.replace("ATan", "δ");
+    cleanInFixStr = cleanInFixStr.replace("Sin", "θ");
+    cleanInFixStr = cleanInFixStr.replace("Cos", "φ");
+    cleanInFixStr = cleanInFixStr.replace("Tan", "ϕ");
+
+    inFixStr = cleanInFixStr;
 
     let inFixStrLen = inFixStr.length;
 
@@ -668,7 +1099,36 @@ function infixQueRev (inFixStr) {
         let strExtract = inFixStr.substring(startPos, endPos);
 
         if (isNaN(strExtract)) {
-            // If the extracted string is not a number just push into stack
+            // If the extracted string is not a number, check if its not a trig function
+            // Then push into stack
+            if (strExtract == "α") {
+
+                strExtract = "ASin";
+
+            } else if (strExtract == "β") {
+
+                strExtract = "ACos";
+
+            } else if (strExtract == "δ") {
+
+                strExtract = "ATan";
+
+            } else if (strExtract == "θ") {
+
+                strExtract = "Sin";
+
+            } else if (strExtract == "φ") {
+
+                strExtract = "Cos";
+
+            } else if (strExtract == "ϕ") {
+
+                strExtract = "Tan";
+
+            } else {
+                // Do nothing
+            }
+
             inFixStack.push(strExtract);
 
         } else {
@@ -698,10 +1158,27 @@ function infixQueRev (inFixStr) {
 
     }
 
-}
+    //Reverse stack
+    newInFixStack = newInFixStack.reverse();
+
+    // Check and compare the two stacks
+    console.log("inFixStack :");
+    console.log(inFixStack);
+
+    console.log("NewInFixStack :");
+    console.log(newInFixStack);
+
+
+} 
+*/
 
 // Function to convert infix stack to a postfix stack
 function infToPosF () {
+
+    //Reverse stack
+    inFixStack = inFixStack.reverse();
+
+    console.log(inFixStack);
 
     let shuntLen = inFixStack.length;
 
@@ -778,6 +1255,8 @@ function infToPosF () {
                             // Reset operand Level
                             operandLevel = 0
 
+                            console.log(tempPFStr+" assigned level: "+tempPFStrLv);
+                            console.log(tempIFStr+" assigned level: "+tempIFStrLv);
                             // If the operator on top of operator stack has greater precedence:
                             // Pop operator from the stack onto output queue
                             if (tempPFStrLv > tempIFStrLv) {
@@ -786,12 +1265,17 @@ function infToPosF () {
 
                                 inFOpSTack.push(tempIFStr);
 
+                                console.log(posFixStack);
+                                console.log(inFOpSTack);
+
                             } else {
                                 // Else push the top operator back to stack and push new token into stack
 
                                 inFOpSTack.push(tempPFStr);
                                 inFOpSTack.push(tempIFStr); 
 
+                                console.log(posFixStack);
+                                console.log(inFOpSTack);
                             }
                         }
                     }
@@ -823,12 +1307,6 @@ function infToPosF () {
 // Function to solve an algebraic equation
 function algSolver () {
 
-    // Capture current input displayed
-    let inFixStr = currNum;
-
-    // Created infix notation stack
-    infixQueRev (inFixStr);
-
     // Convert to postfix notation stack
     infToPosF ();
 
@@ -844,7 +1322,7 @@ function algSolver () {
 
             let opKey = postFixToken;
 
-            let funcArray = ["√", "e", "Lin", "Sin", "Cos", "Tan"];
+            let funcArray = ["√", "e", "Lin", "Log", "Sin", "Cos", "Tan"];
 
             if (funcArray.includes(opKey)) { 
 
@@ -992,6 +1470,7 @@ calFunctionKeysBtn.addEventListener("click",(e)=>{
     if (calMode == "ALG") {
         
         let numKey = e.target.id;
+        console.log(numKey);
 
         if (numKey == "equalNum") {
             // Update infix display to include "=" and then call algebraic solver
