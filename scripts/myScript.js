@@ -51,10 +51,6 @@ let calSTack = [];
 calSTack[0] = "";
 calSTack.pop();
 
-// Input stack in RPN mode
-let inpSTack = [];
-inpSTack[0] = "";
-
 // Infix notation stack of user input in Algebraic mode
 let inFixStack = [];
 
@@ -516,7 +512,7 @@ function captUserInput (event) {
 
         if (shiftFlag == "Off") {
           
-            inFixStack.push("-");
+            inFixStack.push("±");
 
         } else {
         
@@ -530,7 +526,7 @@ function captUserInput (event) {
 
         if (shiftFlag == "Off") {
 
-            inFixStack.push("π");
+            inFixStack.push("√");
 
         } else {
             
@@ -582,9 +578,23 @@ function captUserInput (event) {
 
         }
 
+    } else if (numKey == "inv") {
+
+        if (shiftFlag == "Off") {
+
+        } else {
+
+            inFixStack.push("%");
+
+            shiftFlag = "Off"
+
+        }
+
     } else {
 
     }
+
+    
 
     // Display captured number
     if (calMode == "RPN") {
@@ -598,6 +608,8 @@ function captUserInput (event) {
     } else {
 
         currNum = inFixStack.join("");
+
+        currNum = currNum.replaceAll("±", "-");
 
         infixCapt.innerHTML = currNum;
 
@@ -776,14 +788,16 @@ function operate (arg1, arg2, opKey) {
             
         }
 
-    } else if (_operand == "plusMinus") { 
+    } else if (_operand == "%") { 
+    
+            // Convert number into percentage
+            opResult = numRight/100;
+
+    } else if (_operand == "plusMinus" || _operand == "±" ) { 
     
         opResult = -1*numRight;
 
-    } /* else if () { 
-    
-    }
-    */ else {
+    } else {
         // Do nothing
     }
 
@@ -873,7 +887,7 @@ function assignPrec (precArg) {
 
         operandLevel = 3;
 
-    } else if (precArg == "x") { 
+    } else if (precArg == "x" || precArg == "±") { 
 
         operandLevel = 4;
 
@@ -907,8 +921,6 @@ function infToPosF () {
     //Reverse stack
     inFixStack = inFixStack.reverse();
 
-    console.log(inFixStack);
-
     let shuntLen = inFixStack.length;
 
     // Apply the shunting yard algorithm
@@ -923,7 +935,7 @@ function infToPosF () {
             if (isNaN(inFixToken)) {
 
                 if (inFixToken == "(") {
-                    // If its a left (Openning bracket), push into stack
+                    // If its a left (Openning bracket),just push into stack
                     inFOpSTack.push(inFixToken);
 
                 } else if (inFixToken == ")") {
@@ -943,6 +955,23 @@ function infToPosF () {
                             break;
                         }
 
+                    }
+
+                } else if (inFixToken == "±") {
+                    // If its a ±, then swap wih token on top of stack 
+
+                    let opSTackTop = inFOpSTack.pop();
+
+                    if (isNaN(opSTackTop)) {
+                        // DOnt swap
+                        inFOpSTack.push(opSTackTop);    
+                        inFOpSTack.push(inFixToken);
+                    
+                    } else {
+                        // Swap
+                        inFOpSTack.push(inFixToken);
+                        inFOpSTack.push(opSTackTop);
+                    
                     }
 
                 } else {
@@ -984,8 +1013,6 @@ function infToPosF () {
                             // Reset operand Level
                             operandLevel = 0
 
-                            console.log(tempPFStr+" assigned level: "+tempPFStrLv);
-                            console.log(tempIFStr+" assigned level: "+tempIFStrLv);
                             // If the operator on top of operator stack has greater precedence:
                             // Pop operator from the stack onto output queue
                             if (tempPFStrLv > tempIFStrLv) {
@@ -994,25 +1021,42 @@ function infToPosF () {
 
                                 inFOpSTack.push(tempIFStr);
 
-                                console.log(posFixStack);
-                                console.log(inFOpSTack);
-
                             } else {
                                 // Else push the top operator back to stack and push new token into stack
 
                                 inFOpSTack.push(tempPFStr);
                                 inFOpSTack.push(tempIFStr); 
 
-                                console.log(posFixStack);
-                                console.log(inFOpSTack);
                             }
-                        }
+                        }    
+                        
                     }
                 }
             
             } else {
-                // If its a number add it to the output queue
-                posFixStack.push(inFixToken);
+                // If its a number check for juxstaposed multiplication
+
+                let opSTackTop = inFixStack.pop();
+
+                let funcArray = ["√", "e", "Lin", "Log", "Sin", "Cos", "Tan",
+                             "ASin", "ACos", "ATan", "%", "("];
+
+                if (opSTackTop == null) {
+                    // Push back into stack
+                    posFixStack.push(inFixToken);
+
+                } else if (funcArray.includes(opSTackTop)) {
+                    // Correct for juxstaposed multiplication
+                    inFixStack.push(opSTackTop);
+                    inFixStack.push("x");
+                    inFixStack.push(inFixToken);
+
+                } else {
+                    // Push number into postFix stack
+                    inFixStack.push(opSTackTop);
+                    posFixStack.push(inFixToken);
+
+                }
 
             }
         }
@@ -1051,7 +1095,8 @@ function algSolver () {
 
             let opKey = postFixToken;
 
-            let funcArray = ["√", "e", "Lin", "Log", "Sin", "Cos", "Tan"];
+            let funcArray = ["√", "e", "Lin", "Log", "Sin", "Cos", "Tan",
+                             "ASin", "ACos", "ATan", "%", "±"];
 
             if (funcArray.includes(opKey)) { 
 
@@ -1199,7 +1244,6 @@ calFunctionKeysBtn.addEventListener("click",(e)=>{
     if (calMode == "ALG") {
         
         let numKey = e.target.id;
-        console.log(numKey);
 
         if (numKey == "equalNum") {
             // Update infix display to include "=" and then call algebraic solver
