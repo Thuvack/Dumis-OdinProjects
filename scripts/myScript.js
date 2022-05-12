@@ -809,7 +809,7 @@ function operate (arg1, arg2, opKey) {
 
     } else if (_operand == "yx" || _operand == "^") { 
     
-        opResult = Math.pow(numLeft,numRight);
+        opResult = numLeft ** numRight;
 
     } else if (_operand == "inv") { 
     
