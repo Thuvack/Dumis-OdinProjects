@@ -191,6 +191,8 @@ function captUserInput (event) {
     // Get tagname of nummber key div that fired the event
     let numKey = event.target.id;
 
+    console.log(numKey+" Was pressed");
+
     if (numKey == "zeroNum") {
 
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
@@ -590,7 +592,27 @@ function captUserInput (event) {
 
         }
 
-    } else {
+    } else if (numKey == "natE") {
+
+        if (shiftFlag == "Off") {
+
+            inFixStack.push("e");
+            inFixStack.push("^");
+
+        } else {
+
+            inFixStack.push("10");
+            inFixStack.push("^");
+
+            shiftFlag = "Off"
+
+        }
+
+    }
+    
+    // IMPLEMENT  e^x/10^x; Lin/Log; yx/^ inputs for Algebraic mode
+    
+    else {
 
     }
 
@@ -623,6 +645,26 @@ function captUserInput (event) {
     
 }
 
+function checkSPecialConst (arg1) {
+
+    if (arg1 == "π") {
+
+        arg1 = Math.PI;
+        arg1 = arg1.toFixed(3);
+
+    } else if (arg1 == "e") {
+
+        arg1 = Math.E;
+        arg1 = arg1.toFixed(3);
+
+    } else {
+        // Do nothing
+    }
+
+    return arg1;
+
+}
+
 // Function to calculate a mathematical operation between two numbers
 function operate (arg1, arg2, opKey) {
 
@@ -630,21 +672,6 @@ function operate (arg1, arg2, opKey) {
     let numRight = arg2;
     let _operand = opKey;
 
-    // Check if number is pi
-
-    if (numLeft == "π") {
-
-        numLeft = Math.PI;
-
-    } else if (numRight == "π") {
-
-        numRight = Math.PI;
-
-    } else {
-        // Do nothing
-    }
-
-    
     // Perform operations
     if (_operand == "divideK" || _operand == "÷" ) {
 
@@ -673,17 +700,25 @@ function operate (arg1, arg2, opKey) {
             opResult = numRight*numRight;
 
         }
-       
 
-    } else if (_operand == "natE" || _operand == "e^x") { 
+    } else if (_operand == "^" ) { 
+
+            opResult = numLeft ** numRight;
+            opResult = parseFloat(opResult);
+       
+    } else if (_operand == "natE") { 
     
         if (shiftFlag == "Off") {
 
-            opResult = Math.exp(numRight);
+            let eNumb = Math.E;
+            
+            opResult = eNumb ** numRight;
+            opResult = parseFloat(opResult);
 
         } else {
             
             opResult = Math.pow(10,numRight);
+            opResult = parseFloat(opResult);
 
         }
         
@@ -819,6 +854,8 @@ function operate (arg1, arg2, opKey) {
 // Function to perform RPN operation
 function opHandleRPN (event) {
 
+    console.log(calSTack);
+
     // Check if user is done entering number 
     if (numCaptFlag == "Done") {
 
@@ -841,23 +878,49 @@ function opHandleRPN (event) {
     let funcArray = ["sqrt", "natE", "LN", "SIN", "COS", "TAN", "inv", "plusMinus"];
 
     if (funcArray.includes(opKey)) {
+
+        console.log("Performing a unary operation");
+
+        console.log(calSTack);
+
         // Get the top number on stack and operate on
         let numRight = calSTack.pop();
         let numLeft = 0;
+
+        // Check if number is a special constant
+        numRight = checkSPecialConst(numRight);
+
+        console.log("Performing a Unary function operation")
+        console.log("numLeft :"+numLeft);
+        console.log("numRight :"+numRight);
+        console.log("_operand :"+opKey);
 
         operate (numLeft, numRight, opKey);
 
     } else {
 
+        console.log(calSTack);
+        
         // Get the 2 numbers to be operated on from the stack
         let numRight = calSTack.pop();
         let numLeft = calSTack.pop();
+
+        // Check if number is a special constant
+        numLeft = checkSPecialConst(numLeft);
+        numRight = checkSPecialConst(numRight);
+
+        console.log("Performing a two number operation")
+        console.log("numLeft :"+numLeft);
+        console.log("numRight :"+numRight);
+        console.log("_operand :"+opKey);
 
         operate (numLeft, numRight, opKey);
 
     }
     // Push result into stack and display
     calSTack.push(opResult);
+
+    console.log(calSTack);
 
     output.innerHTML = opResult;
 
@@ -877,37 +940,41 @@ function assignPrec (precArg) {
 
     if (precArg == "-") {
 
-        operandLevel = 1;
+        operandLevel = 2;
 
     } else if (precArg == "+") {
 
-        operandLevel = 2;
+        operandLevel = 3;
 
     } else if (precArg == "÷") { 
 
-        operandLevel = 3;
+        operandLevel = 4;
 
     } else if (precArg == "x" || precArg == "±") { 
 
-        operandLevel = 4;
+        operandLevel = 5;
 
     } else if ( precArg == "√" || precArg == "%" ) { 
         // Unary functions
-        operandLevel = 5;
+        operandLevel = 6;
 
     } else if ( precArg == "Sin" || precArg == "Cos" || precArg == "Tan" ) { 
         // Unary functions
-        operandLevel = 5;
+        operandLevel = 6;
 
     } else if ( precArg == "ASin" || precArg == "ACos" || precArg == "ATan" ) { 
         // Unary functions
-        operandLevel = 5;
+        operandLevel = 6;
 
     } else if (precArg == "^") {
 
-        operandLevel = 6;
+        operandLevel = 7;
 
-    } else {
+    } else if (precArg == "e" || precArg == "π" ) {
+
+        operandLevel = 8;
+
+    }  else {
         // Do nothing
     }
 
@@ -1013,6 +1080,10 @@ function infToPosF () {
                             // Reset operand Level
                             operandLevel = 0
 
+                            console.log("Element on top of stack is :"+tempPFStr+" and Assigned Level :"+tempPFStrLv);
+
+                            console.log("Element on to be queued is :"+tempIFStr+" and Assigned Level :"+tempIFStrLv);
+
                             // If the operator on top of operator stack has greater precedence:
                             // Pop operator from the stack onto output queue
                             if (tempPFStrLv > tempIFStrLv) {
@@ -1084,8 +1155,14 @@ function algSolver () {
     infToPosF ();
 
     // Solve postfix notation
-
     while (posFixStack.length != 0) {
+
+        // Check stacks
+        console.log("posFixStack :");
+        console.log(posFixStack);
+
+        console.log("calSTack :");
+        console.log(calSTack);
 
         let postFixToken = posFixStack.pop();
 
@@ -1095,29 +1172,51 @@ function algSolver () {
 
             let opKey = postFixToken;
 
-            let funcArray = ["√", "e", "Lin", "Log", "Sin", "Cos", "Tan",
+            let funcArray = ["√", "Lin", "Log", "Sin", "Cos", "Tan",
                              "ASin", "ACos", "ATan", "%", "±"];
+
+            let constArray = ["e", "π"];
 
             if (funcArray.includes(opKey)) { 
 
                 let numRight = calSTack.pop();
+
+                numRight = checkSPecialConst(numRight);
     
                 let numLeft = 0;
 
+                console.log("Performing a Unary function operation")
+                console.log("numLeft :"+numLeft);
+                console.log("numRight :"+numRight);
+                console.log("_operand :"+opKey);
+
                 operate (numLeft, numRight, opKey);
 
+                // Push result into stack and display
+                calSTack.push(opResult);
+
+            } else if (constArray.includes(opKey)) { 
+
+               let specialNum = checkSPecialConst(postFixToken);
+
+               posFixStack.push(specialNum);
+
             } else {
-    
+
                 let numRight = calSTack.pop();
     
                 let numLeft = calSTack.pop();
 
+                console.log("Performing a Two number operation")
+                console.log("numLeft :"+numLeft);
+                console.log("numRight :"+numRight);
+                console.log("_operand :"+opKey);
+
                 operate (numLeft, numRight, opKey);
 
+                // Push result into stack and display
+                calSTack.push(opResult);
             }
-
-            // Push result into stack and display
-            calSTack.push(opResult);
 
         } else {
             // If token is a number, then push it into calculation stack
@@ -1129,7 +1228,7 @@ function algSolver () {
 
     // Display final answer
     
-    output.innerHTML = calSTack[0];
+    output.innerHTML = opResult;
 
     
 }
