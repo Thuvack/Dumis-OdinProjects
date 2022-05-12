@@ -584,6 +584,9 @@ function captUserInput (event) {
 
         if (shiftFlag == "Off") {
 
+            inFixStack.push("^");
+            inFixStack.push("-1");
+
         } else {
 
             inFixStack.push("%");
@@ -608,15 +611,33 @@ function captUserInput (event) {
 
         }
 
-    }
+    } else if (numKey == "LN") { 
     
-    // IMPLEMENT  e^x/10^x; Lin/Log; yx/^ inputs for Algebraic mode
+        if (shiftFlag == "Off") {
+
+            inFixStack.push("Lin");
+
+        } else {
+
+            inFixStack.push("Log");
+
+        }
+
+    } else if (numKey == "yx") { 
     
-    else {
+        if (shiftFlag == "Off") {
+
+            inFixStack.push("^");
+
+        } else {
+
+            inFixStack.push("^");
+
+        }
+
+    } else {
 
     }
-
-    
 
     // Display captured number
     if (calMode == "RPN") {
@@ -732,8 +753,12 @@ function operate (arg1, arg2, opKey) {
         } else {
 
             opResult = Math.log10(numRight);
-
+            
         }
+
+    } else if (_operand == "Log") { 
+
+            opResult = Math.log10(numRight);
 
     } else if (_operand == "Sin" || _operand == "SIN" || _operand == "ASin" ) { 
 
@@ -1226,10 +1251,8 @@ function algSolver () {
 
     }
 
-    // Display final answer
-    
+    // Display final answer 
     output.innerHTML = opResult;
-
     
 }
 
