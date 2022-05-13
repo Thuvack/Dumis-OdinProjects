@@ -664,7 +664,17 @@ function captUserInput (event) {
 
         currNum = currNum.replaceAll("±", "-");
 
-        infixCapt.innerHTML = currNum;
+        // Correct number length before displaying
+        if (currNum.length >= 25) {
+
+            let rpnResDisp = "... "+currNum.slice(-25);
+
+            infixCapt.innerHTML = rpnResDisp;
+
+        } else {
+
+            infixCapt.innerHTML = currNum;
+        }
 
     }
 
