@@ -110,6 +110,30 @@ function initCalc () {
 
 }
 
+
+// Correct stack display for long numbers
+function dispLenCorr (DStackNum) {
+
+    if (DStackNum.length >= 7) {
+
+        let disPow = DStackNum.length - 1;
+
+        console.log(disPow);
+
+        DStackNum = parseFloat(DStackNum / (10 ** disPow));
+
+        DStackNum = DStackNum.toFixed(2);
+
+        DStackNum = DStackNum + "E" + disPow;
+
+    } else {
+        // Do nothing
+    }
+
+    return DStackNum;
+}
+
+
 // Function to display RPN Stack
 function dispSTack () {
 
@@ -118,31 +142,63 @@ function dispSTack () {
 
     if (ArrLen == 1) {
 
-        xStackDisp.innerHTML = calSTack[0];
+        let xStackNum = calSTack[0];
+
+        // Correct number length before displaying
+        xStackNum = dispLenCorr(xStackNum);
+
+        xStackDisp.innerHTML = xStackNum;
         yStackDisp.innerHTML = " ";
         zStackDisp.innerHTML = " ";
         wStackDisp.innerHTML = " ";
 
     } else if (ArrLen == 2) {
 
-        xStackDisp.innerHTML = calSTack[1];
-        yStackDisp.innerHTML = calSTack[0];
+        let xStackNum = calSTack[1];
+        let yStackNum = calSTack[0];
+
+        // Correct number length before displaying
+        xStackNum = dispLenCorr(xStackNum);
+        yStackNum = dispLenCorr(yStackNum);
+
+        xStackDisp.innerHTML = xStackNum;
+        yStackDisp.innerHTML = yStackNum;
         zStackDisp.innerHTML = " ";
         wStackDisp.innerHTML = " ";
 
     } else if (ArrLen == 3) {
 
-        xStackDisp.innerHTML = calSTack[2];
-        yStackDisp.innerHTML = calSTack[1];
-        zStackDisp.innerHTML = calSTack[0];
+        let xStackNum = calSTack[2];
+        let yStackNum = calSTack[1];
+        let zStackNum = calSTack[0];
+
+        // Correct number length before displaying
+        xStackNum = dispLenCorr(xStackNum);
+        yStackNum = dispLenCorr(yStackNum);
+        zStackNum = dispLenCorr(zStackNum);
+
+        xStackDisp.innerHTML = xStackNum;
+        yStackDisp.innerHTML = yStackNum;
+        zStackDisp.innerHTML = zStackNum;
         wStackDisp.innerHTML = " ";
 
     } else if (ArrLen >= 4) {
 
-        xStackDisp.innerHTML = calSTack[ArrLen-1];
-        yStackDisp.innerHTML = calSTack[ArrLen-2];
-        zStackDisp.innerHTML = calSTack[ArrLen-3];
-        wStackDisp.innerHTML = calSTack[ArrLen-4];
+        let xStackNum = calSTack[ArrLen-1];
+        let yStackNum = calSTack[ArrLen-2];
+        let zStackNum = calSTack[ArrLen-3];
+        let wStackNum = calSTack[ArrLen-4];
+
+        // Correct number length before displaying
+        xStackNum = dispLenCorr(xStackNum);
+        yStackNum = dispLenCorr(yStackNum);
+        zStackNum = dispLenCorr(zStackNum);
+        wStackNum = dispLenCorr(wStackNum);
+
+        xStackDisp.innerHTML = xStackNum;
+        yStackDisp.innerHTML = yStackNum;
+        zStackDisp.innerHTML = zStackNum;
+        wStackDisp.innerHTML = wStackNum;
 
     } else {
 
