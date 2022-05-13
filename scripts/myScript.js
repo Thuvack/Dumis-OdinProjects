@@ -646,7 +646,17 @@ function captUserInput (event) {
 
         inFixStack.push(currNum);
 
-        output.innerHTML = currNum;
+        // Correct number length before displaying
+        if (currNum.length >= 14) {
+
+            let rpnResDisp = "... "+currNum.slice(-12);
+
+            output.innerHTML = rpnResDisp;
+
+        } else {
+
+            output.innerHTML = currNum;
+        }
 
     } else {
 
@@ -946,6 +956,8 @@ function opHandleRPN (event) {
     calSTack.push(opResult);
 
     console.log(calSTack);
+
+    // Correct number length before displaying
 
     output.innerHTML = opResult;
 
@@ -1250,6 +1262,9 @@ function algSolver () {
         }
 
     }
+
+    // Correct number length before displaying
+
 
     // Display final answer 
     output.innerHTML = opResult;
