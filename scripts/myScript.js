@@ -927,7 +927,7 @@ function operate (arg1, arg2, opKey) {
     } else if (_operand == "%") { 
     
             // Convert number into percentage
-            opResult = numRight/100;
+            opResult = numLeft * (numRight/100);
 
     } else if (_operand == "plusMinus" || _operand == "±" ) { 
     
@@ -975,6 +975,14 @@ function opHandleRPN (event) {
     
     // Get tagname of nummber key div that fired the event
     let opKey = event.target.id;
+
+    if (opKey == "inv" && shiftFlag == "On") {
+
+        opKey = "%";
+
+    } else {
+        // Do nothing
+    }
 
     let funcArray = ["sqrt", "natE", "LN", "SIN", "COS", "TAN", "inv", "plusMinus"];
 
@@ -1073,7 +1081,7 @@ function assignPrec (precArg) {
 
         operandLevel = 7;
 
-    } else if (precArg == "e" || precArg == "π" ) {
+    } else if (precArg == "e" || precArg == "π") {
 
         operandLevel = 8;
 
@@ -1141,6 +1149,22 @@ function infToPosF () {
                         // Swap
                         inFOpSTack.push(inFixToken);
                         inFOpSTack.push(opSTackTop);
+                    
+                    }
+
+                } else if (inFixToken == "%") {
+                    // If its a %, then omit the multiplication sign on top of stack 
+
+                    let opSTackTop = inFOpSTack.pop();
+
+                    if (isNaN(opSTackTop)) {
+                        // Omit tokem    
+                        inFOpSTack.push(inFixToken);
+                    
+                    } else {
+                        // Push back to stack
+                        inFOpSTack.push(opSTackTop);
+                        inFOpSTack.push(inFixToken);
                     
                     }
 
@@ -1212,8 +1236,9 @@ function infToPosF () {
 
                 let opSTackTop = inFixStack.pop();
 
+                // Omitted pi and % [[TO-DO]]
                 let funcArray = ["√", "e", "Lin", "Log", "Sin", "Cos", "Tan",
-                             "ASin", "ACos", "ATan", "%", "("];
+                             "ASin", "ACos", "ATan", "(", "π"];
 
                 if (opSTackTop == null) {
                     // Push back into stack
@@ -1276,7 +1301,7 @@ function algSolver () {
             let opKey = postFixToken;
 
             let funcArray = ["√", "Lin", "Log", "Sin", "Cos", "Tan",
-                             "ASin", "ACos", "ATan", "%", "±"];
+                             "ASin", "ACos", "ATan", "±"];
 
             let constArray = ["e", "π"];
 
