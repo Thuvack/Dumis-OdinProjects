@@ -772,13 +772,17 @@ function operate (arg1, arg2, opKey) {
     // Perform operations
     if (_operand == "divideK" || _operand == "÷" ) {
 
-        if (numRight == 0 || numLeft === undefined) {
+        if (numRight == 0) {
 
             opResult = "Devide by 0";
 
+        } else if (numLeft === undefined) {
+
+            opResult = "Enter 2 nums";
+
         } else {
 
-        opResult = parseFloat(numLeft)/parseFloat(numRight);
+            opResult = parseFloat(numLeft)/parseFloat(numRight);
 
         }
 
