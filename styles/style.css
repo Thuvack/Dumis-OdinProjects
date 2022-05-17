@@ -342,7 +342,7 @@
     flex-basis: 80px;
     display: grid;
     grid-template-columns: 50px 30px;
-    grid-template-rows: 50px;
+    grid-template-rows: 45px;
     gap: 3px;
     grid-template-areas:
       "scrStackNum scrStackLbl"
@@ -363,7 +363,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     /* padding-right: 10px; */
-    font-size: small;
+    font-size: x-small;
     width: 50px;
   }
 
@@ -373,7 +373,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     padding-right: 10px;
-    font-size: small;
+    font-size: x-small;
     width: 25px;
   }
 
