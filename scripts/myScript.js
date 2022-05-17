@@ -772,19 +772,51 @@ function operate (arg1, arg2, opKey) {
     // Perform operations
     if (_operand == "divideK" || _operand == "÷" ) {
 
+        if (numRight == 0 || numLeft === undefined) {
+
+            opResult = "Devide by 0";
+
+        } else {
+
         opResult = parseFloat(numLeft)/parseFloat(numRight);
+
+        }
 
     } else if (_operand == "multiplyK" || _operand == "x") {
 
-        opResult = parseFloat(numLeft)*parseFloat(numRight);
+        if (numLeft === undefined) {
+            
+            opResult = "Enter 2 nums";
+
+        } else {
+        
+            opResult = parseFloat(numLeft)*parseFloat(numRight);
+        
+        }
 
     } else if (_operand == "subtractK" || _operand == "-") {
 
-        opResult = parseFloat(numLeft) - parseFloat(numRight);
+        if (numLeft === undefined) {
+            
+            opResult = "Enter 2 nums";
+
+        } else {
+
+            opResult = parseFloat(numLeft) - parseFloat(numRight);
+
+        }
 
     } else if (_operand == "addK" || _operand == "+") {
 
-        opResult = parseFloat(numLeft)+parseFloat(numRight);
+        if (numLeft === undefined) {
+
+            opResult = "Enter 2 nums";
+        
+        } else {
+
+            opResult = parseFloat(numLeft)+parseFloat(numRight);
+
+        }
 
     } else if (_operand == "sqrt" || _operand == "√") { 
 
@@ -800,8 +832,16 @@ function operate (arg1, arg2, opKey) {
 
     } else if (_operand == "^" ) { 
 
+        if (numLeft === undefined) {
+            
+            opResult = "Enter 2 nums";
+
+        } else {
+
             opResult = numLeft ** numRight;
             opResult = parseFloat(opResult);
+
+        }
        
     } else if (_operand == "natE") { 
     
@@ -910,7 +950,15 @@ function operate (arg1, arg2, opKey) {
 
     } else if (_operand == "yx" || _operand == "^") { 
     
-        opResult = numLeft ** numRight;
+        if (numLeft === undefined) {
+            
+            opResult = "Enter 2 nums";
+            
+        } else {
+
+            opResult = numLeft ** numRight;
+
+        }
 
     } else if (_operand == "inv") { 
     
@@ -926,8 +974,15 @@ function operate (arg1, arg2, opKey) {
 
     } else if (_operand == "%") { 
     
+        if (numLeft === undefined) {
+            
+            opResult = "Enter 2 nums";
+
+        } else {
             // Convert number into percentage
             opResult = numLeft * (numRight/100);
+
+        }
 
     } else if (_operand == "plusMinus" || _operand == "±" ) { 
     
@@ -939,14 +994,20 @@ function operate (arg1, arg2, opKey) {
 
     console.log(opResult);
 
-    // Check if the result has any decimals
-    if (opResult % 1 != 0 ) {
-        // If result has a decimal, fix to 2 positions
-        opResult = opResult.toFixed(2);
+    if (isNaN(opResult)) {
+
+        // Do not attempt to fix decimals
 
     } else {
 
-        // Do nothing
+        // Check if the result has any decimals
+        if (opResult % 1 != 0 ) {
+            // If result has a decimal, fix to 2 positions
+            opResult = opResult.toFixed(2);
+
+        } else {
+            // Do nothing
+        }
     }
 
     return opResult;
@@ -1026,12 +1087,21 @@ function opHandleRPN (event) {
         operate (numLeft, numRight, opKey);
 
     }
-    // Push result into stack and display
-    calSTack.push(opResult);
 
-    console.log(calSTack);
+    // Check that result is not an error
 
-    // Correct number length before displaying
+    if (isNaN(opResult)) {
+
+        // Do not push to stack
+
+    } else {
+
+        // Push result into stack and display
+        calSTack.push(opResult);
+
+        console.log(calSTack);
+
+    }
 
     output.innerHTML = opResult;
 
@@ -1320,8 +1390,18 @@ function algSolver () {
 
                 operate (numLeft, numRight, opKey);
 
-                // Push result into stack and display
-                calSTack.push(opResult);
+                if (isNaN(opResult)) {
+
+                    // Do not push to stack
+            
+                } else {
+            
+                    // Push result into stack and display
+                    calSTack.push(opResult);
+            
+                    console.log(calSTack);
+            
+                }
 
             } else if (constArray.includes(opKey)) { 
 
@@ -1342,8 +1422,19 @@ function algSolver () {
 
                 operate (numLeft, numRight, opKey);
 
-                // Push result into stack and display
-                calSTack.push(opResult);
+                if (isNaN(opResult)) {
+
+                    // Do not push to stack
+            
+                } else {
+            
+                    // Push result into stack and display
+                    calSTack.push(opResult);
+            
+                    console.log(calSTack);
+            
+                }
+
             }
 
         } else {
