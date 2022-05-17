@@ -239,7 +239,6 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 60px 22px;
-    gap: 3px;
     grid-template-areas:
       "scTopNum scTopStack"
       "scBotFunc scBotStack";
