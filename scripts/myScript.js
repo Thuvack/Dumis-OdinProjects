@@ -91,7 +91,7 @@ function initCalc () {
 
     } else {
 
-        calMode = "RPN"
+        calMode = "RPN";
 
         equalBtn.style.display = "none";
         enterBtn.style.display = "flex";
@@ -103,10 +103,10 @@ function initCalc () {
         numScreen.style.width = "200px";
 
     }
-    
+
     clearStack();
 
-    console.log(calMode)
+    console.log(calMode);
 
 }
 
@@ -226,18 +226,17 @@ function pushStack () {
         // Reset input stack
         inpSTack = [];
         inpSTack[0] = "";
-        
+
         //currNum = inpSTack [0];
 
         // Unset number capture flag
-        numCaptFlag = "Ready"
+        numCaptFlag = "Ready";
 
     } else {
-        
         // DO nothing
 
     }
-    
+
 }
 
 
@@ -261,12 +260,12 @@ function captUserInput (event) {
                 inFixStack.push("0");
 
             } else {
-            
+
                 inputNum = inputNum + "0";
-                inFixStack.push(inputNum); 
-            
+                inFixStack.push(inputNum);
+
             }
-    
+
         } else {
 
             inFixStack.push("0");
@@ -275,7 +274,7 @@ function captUserInput (event) {
 
 
     } else if (numKey == "oneNum") {
-     
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -286,10 +285,10 @@ function captUserInput (event) {
                 inFixStack.push("1");
 
             } else {
-            
+
                 inputNum = inputNum + "1";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -300,7 +299,7 @@ function captUserInput (event) {
 
 
     } else if (numKey == "twoNum") {
-       
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -311,10 +310,10 @@ function captUserInput (event) {
                 inFixStack.push("2");
 
             } else {
-            
+
                 inputNum = inputNum + "2";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -325,7 +324,7 @@ function captUserInput (event) {
 
 
     } else if (numKey == "threeNum") {
-       
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -336,10 +335,10 @@ function captUserInput (event) {
                 inFixStack.push("3");
 
             } else {
-            
+
                 inputNum = inputNum + "3";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -350,7 +349,7 @@ function captUserInput (event) {
 
 
     } else if (numKey == "fourNum") {
-       
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -361,10 +360,10 @@ function captUserInput (event) {
                 inFixStack.push("4");
 
             } else {
-            
+
                 inputNum = inputNum + "4";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -374,7 +373,7 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "fiveNum") {
-        
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -385,10 +384,10 @@ function captUserInput (event) {
                 inFixStack.push("5");
 
             } else {
-            
+
                 inputNum = inputNum + "5";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -398,7 +397,7 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "sixNum") {
-        
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -409,10 +408,10 @@ function captUserInput (event) {
                 inFixStack.push("6");
 
             } else {
-            
+
                 inputNum = inputNum + "6";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -422,7 +421,7 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "sevenNum") {
-       
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -433,10 +432,10 @@ function captUserInput (event) {
                 inFixStack.push("7");
 
             } else {
-            
+
                 inputNum = inputNum + "7";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -446,7 +445,7 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "eightNum") {
-       
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -457,10 +456,10 @@ function captUserInput (event) {
                 inFixStack.push("8");
 
             } else {
-            
+
                 inputNum = inputNum + "8";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -470,7 +469,7 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "nineNum") {
-        
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -481,10 +480,10 @@ function captUserInput (event) {
                 inFixStack.push("9");
 
             } else {
-            
+
                 inputNum = inputNum + "9";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -492,9 +491,9 @@ function captUserInput (event) {
             inFixStack.push("9");
 
         }
-        
+
     } else if (numKey == "dotNum") {
-        
+
         if (inFixStack.length !=0 && numCaptFlag == "Done") {
 
             let inputNum = inFixStack.pop();
@@ -505,10 +504,10 @@ function captUserInput (event) {
                 inFixStack.push(".");
 
             } else {
-            
+
                 inputNum = inputNum + ".";
                 inFixStack.push(inputNum);
-            
+
             }
 
         } else {
@@ -518,20 +517,20 @@ function captUserInput (event) {
         }
 
     } else if (numKey == "divideK") {
-       
+
         inFixStack.push("÷");
 
 
     } else if (numKey == "multiplyK") {
-        
+
         inFixStack.push("x");
 
     } else if (numKey == "subtractK") {
-       
+
         inFixStack.push("-");
 
     } else if (numKey == "addK") {
-        
+
         inFixStack.push("+");
 
     } else if (numKey == "opBrac") {
@@ -544,14 +543,14 @@ function captUserInput (event) {
 
             inFixStack.push(")");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
     } else if (numKey == "back") {
 
         if (shiftFlag == "Off") {
-          
+
             let inputNum = inFixStack.pop();
 
             inputNum = inputNum.substring(0,inputNum.length - 1);
@@ -559,24 +558,24 @@ function captUserInput (event) {
             inFixStack.push(inputNum);
 
         } else {
-          
+
             inFixStack = [];
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
     } else if (numKey == "plusMinus") {
 
         if (shiftFlag == "Off") {
-          
+
             inFixStack.push("±");
 
         } else {
-        
+
             inFixStack.push("π");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
@@ -587,11 +586,11 @@ function captUserInput (event) {
             inFixStack.push("√");
 
         } else {
-            
+
             inFixStack.push("^");
             inFixStack.push("2");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
         }
 
     } else if (numKey == "SIN") {
@@ -604,7 +603,7 @@ function captUserInput (event) {
 
             inFixStack.push("ASin");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
@@ -618,7 +617,7 @@ function captUserInput (event) {
 
             inFixStack.push("ACos");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
@@ -632,7 +631,7 @@ function captUserInput (event) {
 
             inFixStack.push("ATan");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
@@ -647,7 +646,7 @@ function captUserInput (event) {
 
             inFixStack.push("%");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
@@ -663,12 +662,12 @@ function captUserInput (event) {
             inFixStack.push("10");
             inFixStack.push("^");
 
-            shiftFlag = "Off"
+            shiftFlag = "Off";
 
         }
 
-    } else if (numKey == "LN") { 
-    
+    } else if (numKey == "LN") {
+
         if (shiftFlag == "Off") {
 
             inFixStack.push("Lin");
@@ -679,8 +678,8 @@ function captUserInput (event) {
 
         }
 
-    } else if (numKey == "yx") { 
-    
+    } else if (numKey == "yx") {
+
         if (shiftFlag == "Off") {
 
             inFixStack.push("^");
@@ -739,7 +738,7 @@ function captUserInput (event) {
 
     // Display the stack
     dispSTack ();
-    
+
 }
 
 function checkSPecialConst (arg1) {
@@ -789,19 +788,19 @@ function operate (arg1, arg2, opKey) {
     } else if (_operand == "multiplyK" || _operand == "x") {
 
         if (numLeft === undefined) {
-            
+
             opResult = "Enter 2 nums";
 
         } else {
-        
+
             opResult = parseFloat(numLeft)*parseFloat(numRight);
-        
+
         }
 
     } else if (_operand == "subtractK" || _operand == "-") {
 
         if (numLeft === undefined) {
-            
+
             opResult = "Enter 2 nums";
 
         } else {
@@ -815,14 +814,14 @@ function operate (arg1, arg2, opKey) {
         if (numLeft === undefined) {
 
             opResult = "Enter 2 nums";
-        
+
         } else {
 
             opResult = parseFloat(numLeft)+parseFloat(numRight);
 
         }
 
-    } else if (_operand == "sqrt" || _operand == "√") { 
+    } else if (_operand == "sqrt" || _operand == "√") {
 
         if (shiftFlag == "Off") {
 
@@ -834,10 +833,10 @@ function operate (arg1, arg2, opKey) {
 
         }
 
-    } else if (_operand == "^" ) { 
+    } else if (_operand == "^" ) {
 
         if (numLeft === undefined) {
-            
+
             opResult = "Enter 2 nums";
 
         } else {
@@ -846,26 +845,26 @@ function operate (arg1, arg2, opKey) {
             opResult = parseFloat(opResult);
 
         }
-       
-    } else if (_operand == "natE") { 
-    
+
+    } else if (_operand == "natE") {
+
         if (shiftFlag == "Off") {
 
             let eNumb = Math.E;
-            
+
             opResult = eNumb ** numRight;
             opResult = parseFloat(opResult);
 
         } else {
-            
+
             opResult = Math.pow(10,numRight);
             opResult = parseFloat(opResult);
 
         }
-        
 
-    } else if (_operand == "LN" || _operand == "Lin") { 
-    
+
+    } else if (_operand == "LN" || _operand == "Lin") {
+
         if (shiftFlag == "Off") {
 
             opResult = Math.log(numRight);
@@ -873,14 +872,14 @@ function operate (arg1, arg2, opKey) {
         } else {
 
             opResult = Math.log10(numRight);
-            
+
         }
 
-    } else if (_operand == "Log") { 
+    } else if (_operand == "Log") {
 
             opResult = Math.log10(numRight);
 
-    } else if (_operand == "Sin" || _operand == "SIN" || _operand == "ASin" ) { 
+    } else if (_operand == "Sin" || _operand == "SIN" || _operand == "ASin" ) {
 
         // Handle arc unary function in Algebraic solver
         if (_operand == "ASin" || _operand == "ASIN") {
@@ -889,7 +888,7 @@ function operate (arg1, arg2, opKey) {
             opResult = parseFloat(opResult);
 
         } else {
-            
+
             // Handle unary function in both Algebraic and RPN mode
             if (shiftFlag == "Off") {
 
@@ -904,8 +903,8 @@ function operate (arg1, arg2, opKey) {
             }
         }
 
-    } else if (_operand == "Cos" || _operand == "COS" || _operand == "ACos" ) { 
-    
+    } else if (_operand == "Cos" || _operand == "COS" || _operand == "ACos" ) {
+
         // Handle arc unary function in Algebraic solver
         if (_operand == "ACos" || _operand == "ACOS") {
 
@@ -913,7 +912,7 @@ function operate (arg1, arg2, opKey) {
             opResult = parseFloat(opResult);
 
         } else {
-        
+
             // Handle unary function in both Algebraic and RPN mode
             if (shiftFlag == "Off") {
 
@@ -928,8 +927,8 @@ function operate (arg1, arg2, opKey) {
             }
         }
 
-    } else if (_operand == "Tan" || _operand == "TAN" || _operand == "ATan" ) { 
-    
+    } else if (_operand == "Tan" || _operand == "TAN" || _operand == "ATan" ) {
+
         // Handle arc unary function in Algebraic solver
         if (_operand == "ATan" || _operand == "ATAN") {
 
@@ -952,20 +951,20 @@ function operate (arg1, arg2, opKey) {
             }
         }
 
-    } else if (_operand == "yx" || _operand == "^") { 
-    
+    } else if (_operand == "yx" || _operand == "^") {
+
         if (numLeft === undefined) {
-            
+
             opResult = "Enter 2 nums";
-            
+
         } else {
 
             opResult = numLeft ** numRight;
 
         }
 
-    } else if (_operand == "inv") { 
-    
+    } else if (_operand == "inv") {
+
         if (shiftFlag == "Off") {
             // Find the inverse of the number
             opResult = 1/numRight;
@@ -973,13 +972,13 @@ function operate (arg1, arg2, opKey) {
         } else {
             // Convert number into percentage
             opResult = numRight/100;
-            
+
         }
 
-    } else if (_operand == "%") { 
-    
+    } else if (_operand == "%") {
+
         if (numLeft === undefined) {
-            
+
             opResult = "Enter 2 nums";
 
         } else {
@@ -988,8 +987,8 @@ function operate (arg1, arg2, opKey) {
 
         }
 
-    } else if (_operand == "plusMinus" || _operand == "±" ) { 
-    
+    } else if (_operand == "plusMinus" || _operand == "±" ) {
+
         opResult = -1*numRight;
 
     } else {
@@ -1022,7 +1021,7 @@ function opHandleRPN (event) {
 
     console.log(calSTack);
 
-    // Check if user is done entering number 
+    // Check if user is done entering number
     if (numCaptFlag == "Done") {
 
         // Push number that has been captured into stack
@@ -1037,7 +1036,7 @@ function opHandleRPN (event) {
 
         // Operate numbers in the existing stack
     }
-    
+
     // Get tagname of nummber key div that fired the event
     let opKey = event.target.id;
 
@@ -1074,7 +1073,7 @@ function opHandleRPN (event) {
     } else {
 
         console.log(calSTack);
-        
+
         // Get the 2 numbers to be operated on from the stack
         let numRight = calSTack.pop();
         let numLeft = calSTack.pop();
@@ -1131,23 +1130,23 @@ function assignPrec (precArg) {
 
         operandLevel = 3;
 
-    } else if (precArg == "÷") { 
+    } else if (precArg == "÷") {
 
         operandLevel = 4;
 
-    } else if (precArg == "x" || precArg == "±") { 
+    } else if (precArg == "x" || precArg == "±") {
 
         operandLevel = 5;
 
-    } else if ( precArg == "√" || precArg == "%" ) { 
+    } else if ( precArg == "√" || precArg == "%") {
         // Unary functions
         operandLevel = 6;
 
-    } else if ( precArg == "Sin" || precArg == "Cos" || precArg == "Tan" ) { 
+    } else if ( precArg == "Sin" || precArg == "Cos" || precArg == "Tan" ) {
         // Unary functions
         operandLevel = 6;
 
-    } else if ( precArg == "ASin" || precArg == "ACos" || precArg == "ATan" ) { 
+    } else if ( precArg == "ASin" || precArg == "ACos" || precArg == "ATan" ) {
         // Unary functions
         operandLevel = 6;
 
@@ -1203,27 +1202,26 @@ function infToPosF () {
 
                         } else {
                             // top of the stack is an opening bracket. Discard and move on.
-                
                             break;
                         }
 
                     }
 
                 } else if (inFixToken == "±") {
-                    // If its a ±, then swap wih token on top of stack 
+                    // If its a ±, then swap wih token on top of stack
 
                     let opSTackTop = inFOpSTack.pop();
 
                     if (isNaN(opSTackTop)) {
                         // DOnt swap
-                        inFOpSTack.push(opSTackTop);    
+                        inFOpSTack.push(opSTackTop);
                         inFOpSTack.push(inFixToken);
-                    
+
                     } else {
                         // Swap
                         inFOpSTack.push(inFixToken);
                         inFOpSTack.push(opSTackTop);
-                    
+
                     }
 
                 } else if (inFixToken == "%") {
@@ -1232,18 +1230,18 @@ function infToPosF () {
                     let opSTackTop = inFOpSTack.pop();
 
                     if (isNaN(opSTackTop)) {
-                        // Omit tokem    
+                        // Omit tokem
                         inFOpSTack.push(inFixToken);
-                    
+
                     } else {
                         // Push back to stack
                         inFOpSTack.push(opSTackTop);
                         inFOpSTack.push(inFixToken);
-                    
+
                     }
 
                 } else {
-            
+
                     // check that inFOpSTack is empty
 
                     if (inFOpSTack.length == 0) {
@@ -1256,14 +1254,16 @@ function infToPosF () {
                         let tempIFStr = inFixToken;
                         let tempPFStr = inFOpSTack.pop();
 
-                        //If the top element in the op stack is a bracket, then push them back into stack 
+                        //If the top element in the op stack is a bracket,
+                        //then push them back into stack
                         if (tempPFStr == "(") {
 
                             inFOpSTack.push(tempPFStr);
                             inFOpSTack.push(tempIFStr);
 
                         } else {
-                            // While there's an operator on top of operator stack with greater precedence:
+                            // While there's an operator on top of operator
+                            // stack with greater precedence:
 
                             let tempIFStrLv = 0;
                             let tempPFStrLv = 0;
@@ -1288,8 +1288,8 @@ function infToPosF () {
                             // If the operator on top of operator stack has greater precedence:
                             // Pop operator from the stack onto output queue
                             if (tempPFStrLv > tempIFStrLv) {
-                    
-                                posFixStack.push(tempPFStr); 
+
+                                posFixStack.push(tempPFStr);
 
                                 inFOpSTack.push(tempIFStr);
 
@@ -1297,14 +1297,14 @@ function infToPosF () {
                                 // Else push the top operator back to stack and push new token into stack
 
                                 inFOpSTack.push(tempPFStr);
-                                inFOpSTack.push(tempIFStr); 
+                                inFOpSTack.push(tempIFStr);
 
                             }
-                        }    
-                        
+                        }
+
                     }
                 }
-            
+
             } else {
                 // If its a number check for juxstaposed multiplication
 
@@ -1335,14 +1335,14 @@ function infToPosF () {
         }
 
     }
-    
+
     // While there are operators on the stack, pop them and push into output queue
     while (inFOpSTack.length !=0) {
 
             let opSTackTop = inFOpSTack.pop();
 
             posFixStack.push(opSTackTop);
-    
+
     }
 
     // Reverse Postfix stack
@@ -1369,7 +1369,7 @@ function algSolver () {
         let postFixToken = posFixStack.pop();
 
         if (isNaN(postFixToken)) {
-         /* If the token is not a number, then Get numbers to be operated 
+         /* If the token is not a number, then Get numbers to be operated
             on from the calculator stack */
 
             let opKey = postFixToken;
@@ -1379,12 +1379,12 @@ function algSolver () {
 
             let constArray = ["e", "π"];
 
-            if (funcArray.includes(opKey)) { 
+            if (funcArray.includes(opKey)) {
 
                 let numRight = calSTack.pop();
 
                 numRight = checkSPecialConst(numRight);
-    
+
                 let numLeft = 0;
 
                 console.log("Performing a Unary function operation")
@@ -1397,17 +1397,17 @@ function algSolver () {
                 if (isNaN(opResult)) {
 
                     // Do not push to stack
-            
+
                 } else {
-            
+
                     // Push result into stack and display
                     calSTack.push(opResult);
-            
+
                     console.log(calSTack);
-            
+
                 }
 
-            } else if (constArray.includes(opKey)) { 
+            } else if (constArray.includes(opKey)) {
 
                let specialNum = checkSPecialConst(postFixToken);
 
@@ -1416,7 +1416,7 @@ function algSolver () {
             } else {
 
                 let numRight = calSTack.pop();
-    
+
                 let numLeft = calSTack.pop();
 
                 console.log("Performing a Two number operation")
@@ -1429,14 +1429,14 @@ function algSolver () {
                 if (isNaN(opResult)) {
 
                     // Do not push to stack
-            
+
                 } else {
-            
+
                     // Push result into stack and display
                     calSTack.push(opResult);
-            
+
                     console.log(calSTack);
-            
+
                 }
 
             }
@@ -1452,9 +1452,9 @@ function algSolver () {
     // Correct number length before displaying
 
 
-    // Display final answer 
+    // Display final answer
     output.innerHTML = opResult;
-    
+
 }
 
 
@@ -1476,7 +1476,7 @@ function clearStack () {
     inFixStack = [];
     inFixStack[0] = "";
     inFixStack.pop();
-    
+
     inFOpSTack = [];
     inFOpSTack[0] = "";
     inFOpSTack.pop();
@@ -1519,7 +1519,7 @@ function clearStack () {
         stackScreenDisp.style.display = "flex";
 
     }
-    
+
 
 }
 
@@ -1537,7 +1537,7 @@ clearBtn.addEventListener("click",clearStack);
 shiftBtn.addEventListener("click", ()=>{shiftFlag = "On";});
 
 opBracBtn.addEventListener("click",(e)=>{
-        
+
     if (calMode == "ALG") {
 
         this.captUserInput(e);
@@ -1546,10 +1546,10 @@ opBracBtn.addEventListener("click",(e)=>{
         // Do nothing
     }
 
-})
+});
 
  operandTwoKeyBtn.addEventListener("click",(e)=>{
-        
+
     if (calMode == "ALG") {
 
         this.captUserInput(e);
@@ -1557,15 +1557,15 @@ opBracBtn.addEventListener("click",(e)=>{
     } else {
 
         this.opHandleRPN(e);
-    
+
     }
 
 });
 
 calFunctionKeysBtn.addEventListener("click",(e)=>{
-        
+
     if (calMode == "ALG") {
-        
+
         let numKey = e.target.id;
 
         if (numKey == "equalNum") {
@@ -1576,7 +1576,7 @@ calFunctionKeysBtn.addEventListener("click",(e)=>{
         } else {
 
             this.captUserInput(e);
-        
+
         }
 
     } else {
@@ -1609,7 +1609,7 @@ calFunctionKeysBtn.addEventListener("click",(e)=>{
             this.opHandleRPN(e);
 
         }
-    
+
     }
 
 });
