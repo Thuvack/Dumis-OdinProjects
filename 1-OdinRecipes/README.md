@@ -10,3 +10,6 @@ Being South Africa, I chose local cousine dishes and available recipes online. I
 
 Most of the contents and images are sourced from Wikipedia or Commons, which use [CC-BY-SA licence](https://creativecommons.org/licenses/by-sa/4.0/)
 
+## Project deployment on github
+
+Click [this link](https://thuvack.github.io/odin-recipes/) see the deploment of this project gihub pages.
