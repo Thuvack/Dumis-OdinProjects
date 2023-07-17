@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>home</title>
+</head>
+<body>
+    <!-- Header section   -->
+    <div class="header">
+        <div class="header-cont">
+            <div class="header-logo">
+                <span class="red-text">R</span>
+                <span class="blue-text">P</span>
+                <span class="green-text">S</span>
+                .emu
+            </div>
+            <div class="right-links">
+                <ul>
+                    <li>Game rules</li>
+                    <li>About us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body section   -->
+    <div class="gameMain-cont">
+        <div class="gameMainWrapper"></div>
+
+        <!-- Screen 1: Welcome screen   -->
+        <div class="scr1GridWrapper-cont">
+            <div class="scr1GridWrapper">
+
+                <div class="scr1Img">
+                    <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
+                </div>
+                <div class="sc1-text-lg">
+                    Hello! I'm RPS.emu a game engine.<br /><br />
+                    Do you know how to play Rock - Paper - Scissors?<br /><br />
+                    Come play with me!
+                </div>
+                <button id="clickPlay">
+                    Click here to play
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Screen 2: Player capture screen   -->
+        <div class="scr2GridWrapper-cont">
+            <div class="scr2GridWrapper">
+        
+                    <div class="scr2GridLs">
+                        <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
+                    </div>
+                    <div class="scr2GridRs-Title">
+                        Who will I be playing against?
+                    </div>
+                    <div class="scr2GridRs-Form">
+                        player Name:
+                        <input type="text" name="playerName" size="20" id="playerName" autocomplete="off" class="scr2Form">
+                    </div>
+                    <button id="clickGameStart">
+                        Start game
+                    </button>
+                  
+            </div>
+        </div>
+
+        <!-- Screen 3: game screen   -->
+
+        <div class="scr3GridWrapper-cont">
+            <div class="scr3GridWrapper">
+                
+                <!-- Game title section -->
+                <div class="gameTitle">
+                    Rock - Paper - Scissors
+                </div>
+
+                <!-- Game score section -->
+                <div class="player-avatar">
+                    <img src="./images/User_(89619)_-_The_Noun_Project.svg.png" alt="User icon">
+                </div>
+                <div class="PScore-Cont">
+                    <div class="player-name">&nbsp; P Name</div>
+                    <div class="Pscore-bar1">&nbsp;</div>
+                    <div class="Pscore-bar2">&nbsp;</div>
+                    <div class="Pscore-bar3">&nbsp;</div>
+                    <div class="Pscore-bar4">&nbsp;</div>
+                    <div class="Pscore-bar5">&nbsp;</div>
+                </div>
+                <div class="player-score">
+                    0
+                </div>
+                <div class="versus">
+                    V/S
+                </div>
+                <div class="comp-score">
+                    0
+                </div>
+                <div class="CScore-cont">
+                    <div class="comp-name">Computer &nbsp;</div>
+                    <div class="Cscore-bar1">&nbsp;</div>
+                    <div class="Cscore-bar2">&nbsp;</div>
+                    <div class="Cscore-bar3">&nbsp;</div>
+                    <div class="Cscore-bar4">&nbsp;</div>
+                    <div class="Cscore-bar5">&nbsp;</div>
+                </div>
+                <div class="comp-avatar">
+                    <img src="./images/32px-Atomic_-_The_Noun_Project.svg.png" alt="User icon">
+                </div>
+
+                <!-- Results screen-->
+                <div class="resultScrn"></div>
+
+                <!-- Game content section -->
+                <div class="player-choice">
+                    <button class="clickRock">
+                        <img src="./images/I_Rock01.png" alt="rock icon">
+                    </button>
+                    <button class="clickPaper">
+                        <img src="./images/Aufsatz.png" alt="paper icon">
+                    </button>
+                    <button class="clickScissors">
+                        <img src="./images/Rating-Christgau-choice-cut.png" alt="scissors icon">
+                    </button>
+                </div>
+                <div class="comp-choice">
+                    <button class="comp-choice-play">
+                        <img id="compImg" src="./images/64px-Question_mark2.svg.png" alt="question mark icon">
+                    </button>
+                </div>
+            
+
+                <!-- Game control buttons section -->
+                <div class="game-controls-cont">
+                    <button class="clickPlayRound">
+                        Play round
+                    </button>
+                    <button id="clickPlayAgain">
+                        Click here to play again
+                    </button>
+                    <button id="clickQuit">
+                        Click here to quit game
+                    </button>
+                </div>
+
+                <!-- Game Billboard -->
+                <div class="billBoard">
+                    ** Message to player **
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Screen 4: End game screen   -->
+        <div class="scr4GridWrapper-cont">
+            <div class="scr4GridWrapper">
+
+                <div class="scr4Img-Ls">
+                    <img src="./images/Computer-cartoon.png" alt="Image of desktop computer cartoon">
+                </div>
+                <div class="scr4GridRs-Text">
+                    Thank you for playing with me.<br />
+                    I had so much fun
+                </div>
+                <button id="confirmEndGame">
+                    Reset game
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer section   -->
+    <div class="footer">
+        Copyright &copy; The Odin Project 2022
+    </div>
+
+    <!-- Scrip section:   -->
+    <script src="./scripts/myScript.js" defer></script>
+
+</body>
+</html>
