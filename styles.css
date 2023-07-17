@@ -1,0 +1,337 @@
+/* Global declarations */
+
+* {
+    font-family: sans-serif !important;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px auto 50px;
+}
+
+/* Styling for the header */
+
+.header, .header-cont,
+.right-links {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.header {
+    position: sticky;
+	top: 0;
+	width: 100%;
+    background-color:#1F3927;
+    color: white;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.header-cont {
+    flex-basis: 950px;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.yellow-text {
+    font-family: 'Courier New' !important;
+    font-size: 20px;
+    color: yellow;
+}
+
+.red-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: red;
+    font-weight: 800;
+}
+
+/* Style hover effects on links */
+
+ .right-links ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #ffee10;
+    transition: .5s;
+    transform: scale(.9);
+    z-index: -1;
+  }
+  
+ .right-links ul li:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+  }
+  
+ .right-links ul li:hover {
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+  }
+  
+
+/* Styling body container */
+.body-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Styling body-head section */
+
+.body-head-cont, .body-head, 
+.header-main-textbox, 
+.header-main-imagebox {
+    display: flex;
+    flex-direction: row;
+}
+
+.body-head-cont {
+    background-color:#1F3927;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex:1;
+}
+
+.body-head {
+    color: white;
+    flex-basis: 950px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    gap: 10px;
+}
+
+.header-main-textbox {
+    flex: 1 1 50%;
+    flex-flow: row wrap;
+}
+
+.header-main-imagebox {
+    flex: 1 1 50%;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+}
+
+.header-title {
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.header-text {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+button {
+    padding: 10px 30px;
+    border-radius: 8px;
+  }
+
+button.signup {
+    background: royalblue;
+    border: 1px solid royalblue;
+    color: white;
+  }
+
+/* Styling body-top section */
+
+.body-top-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    flex:1;
+}
+
+.body-top {
+    color: #1F2937;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 950px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.body-top-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.body-top-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-self: center;
+}
+
+.card {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-basis: 180px;
+    gap: 10px;
+}
+
+.image-holder {
+    display: flex;
+    background: white;
+    border: 5px solid royalblue;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    width: 180px;
+    height: 200px;
+}
+
+.text {
+    display: flex;
+    flex-flow: column wrap;
+    text-align: center;
+}
+
+/* Styling body-middle section */
+
+.body-middle-cont {
+    background-color:#E5E7EB;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    flex:1;
+}
+
+.body-middle {
+    color: #1F2937;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 950px;
+}
+
+.body-middle-quote {
+    margin-top: 50px;
+    margin-bottom: 5px;
+    display: flex;
+    font-size: 36px;
+    font-style: italic;
+}
+
+.body-middle-quote-attr {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.cite-text {
+    color: dimgrey;
+    font-style: italic;
+    font-size: medium;
+    font-weight: 300;
+}
+
+/* Styling body-bottom section */
+.body-bottom-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex:1;
+}
+
+.body-bottom {
+    color: #1F2937;
+    display: flex;
+    flex-direction: row;
+    flex-basis: 950px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.body-bottom-box {
+    background: royalblue;
+    border: 5px solid royalblue;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-basis: 900px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+button.signup-rev {
+    background: royalblue;
+    border: 3px solid white;
+    color: white;
+  }
+
+.body-bottom-title {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/* Styling of the footer */
+.footer {
+    background-color:#1F3927;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 15px;
+}
+
+/* --       Styling for other properties        -- */
+ul {
+    /* Removes the dots on the list items  */
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+  }
+  
+  a {
+    /* Removes the line under the links */
+    font-size: 12px;
+    text-decoration: none;
+    color: gray;
+  }
