@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>home</title>
+</head>
+<body>
+    <!-- Header section   -->
+    <div class="header">
+        <div class="headerCont">
+        <div class="header-cont">
+            <!--  <div class="innerCont"> -->
+            <div class="header-logo">
+                <span class="red-text">Etch</span>
+                <span class="blue-text">-a-</span>
+                <span class="green-text">Sketch</span>
+            </div>
+            <div class="right-links">
+                <ul>
+
+                </ul>
+            </div>
+            
+            <!-- Insert instruction for using sketchpad -->
+            <div class="sketchPadInstr">
+                Choose sketch pad size, then click on pad to start drawing. Click to stop drawing.
+            </div>
+
+            <!-- Color pallete selectors -->
+            <div class="sketchPadBGCol">
+                <span id="sketchPadBGCol-white"></span>
+            </div>
+            <div class="sketchPenCol">
+                <div class="sketchPenCol-text">Pen color</div>
+                <div id="sketchPenCol-Rainbow">Rainbow</div>
+                <div id="sketchPenCol-black"></div>
+                <div id="sketchPenCol-red"></div>
+                <div id="sketchPenCol-blue"></div>
+                <div id="sketchPenCol-green"></div>
+                <div id="sketchPenCol-Eraser">Eraser</div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+    <!-- Body section   -->
+    <div class="sketchPadMain-cont">
+        <div class="sketchPadMainWrapper">
+
+        <!-- Sketch section   -->
+        <div class="spGridWrapper-cont">
+            <div class="spGridWrapper">
+
+                <!-- Sketchpad control buttons section -->
+                <div class="sketchPadCont">
+                    <div class="gridSelCont">
+                        <div id="gridMinWin">
+                            Min <br /> 2
+                        </div>
+                        <div id="gridSlideTxt">
+                            100 x 100
+                        </div>
+                        <div id="gridSliderWin">
+                            <input type="range" min="2" max="100" value="50" class="slider" id="myRange">
+                        </div>
+                        <div id="gridMaxWin">
+                            Max <br /> 100
+                        </div>
+                    </div>
+
+                    <button id="clickNewPad">
+                        Apply grid
+                    </button>
+
+                    <button id="clickResetPad">
+                        Clear Sketchpad
+                    </button>
+                </div>
+
+                <!-- Sketchpad section -->
+                <div class="sketchPad">
+                   
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+    </div>
+    <!-- Footer section   -->
+    <div class="footer">
+        Copyright &copy; The Odin Project 2022
+    </div>
+
+    <!-- Scrip section:   -->
+    <script src="./scripts/myScript.js" defer></script>
+
+</body>
+</html>

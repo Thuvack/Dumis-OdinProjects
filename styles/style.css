@@ -1,0 +1,470 @@
+/* Global declarations */
+
+* {
+  font-family: sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100px auto 50px;
+}
+
+/* Styling for the header */
+
+.header,
+.header-cont,
+.right-links {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #1f3927;
+  color: white;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.header-cont {
+  display: grid;
+  grid-template-columns: 500px 500px;
+  grid-template-rows: 25px 30px 45px;
+  grid-template-areas:
+    "headerLogo headerRight"
+    "headerMid headerMid"
+    "sketchBGCol sketchPenCol";
+  padding: 0px 0px;
+  background-color: #1f3927;
+}
+
+.yellow-text {
+  font-family: "Courier New" !important;
+  font-size: 20px;
+  color: yellow;
+}
+
+.red-text,
+.player-choice-text {
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: red;
+  font-weight: 800;
+}
+
+.blue-text {
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: blue;
+  font-weight: 800;
+}
+
+.green-text {
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: green;
+  font-weight: 800;
+}
+
+/* Style hover effects on links */
+
+.right-links ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: #ffee10;
+  transition: 0.5s;
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+.right-links ul li:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
+}
+
+.right-links ul li:hover {
+  color: #ffee10;
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  grid-area: headerLogo;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.right-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-area: headerRight;
+}
+
+/* Styling sketchpad instructions section */
+
+.sketchPadInstr {
+  background-color: #1f3927;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px;
+  grid-area: headerMid;
+}
+
+/* Styling color pallet selector */
+
+.sketchPadBGCol {
+  background-color: #629973;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px 5px;
+  grid-area: sketchBGCol;
+}
+
+.sketchPadBGCol-text {
+  padding: 0px 10px;
+}
+
+#sketchPadBGCol-white,
+#sketchPadBGCol-lightgrey,
+#sketchPadBGCol-lightyellow {
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px solid black;
+  margin: 0px 5px;
+}
+
+#sketchPadBGCol-white {
+  background-color: #629973;
+  border: 1px solid #629973;
+}
+
+#sketchPadBGCol-lightgrey {
+  background-color: lightgrey;
+}
+
+#sketchPadBGCol-lightyellow {
+  background-color: lightyellow;
+}
+
+.sketchPenCol {
+  background-color: #629973;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px 5px;
+  grid-area: sketchPenCol;
+}
+
+.sketchPenCol-text {
+  padding: 0px 10px;
+}
+
+#sketchPenCol-Eraser,
+#sketchPenCol-Rainbow,
+#sketchPenCol-black,
+#sketchPenCol-red,
+#sketchPenCol-blue,
+#sketchPenCol-green {
+  display: inline-block;
+  min-width: 20px;
+  min-height: 20px;
+  border: 1px solid black;
+  margin: 0px 5px;
+}
+
+#sketchPenCol-Eraser {
+  display: flex;
+  font-size: small;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+  color: black;
+}
+
+#sketchPenCol-Rainbow {
+  display: flex;
+  font-size: small;
+  width: 60px;
+  align-items: center;
+  justify-content: center;
+  background-color: lightgrey;
+  color: black;
+}
+
+#sketchPenCol-black {
+  background-color: black;
+}
+
+#sketchPenCol-red {
+  background-color: red;
+}
+
+#sketchPenCol-blue {
+  background-color: blue;
+}
+
+#sketchPenCol-green {
+  background-color: green;
+}
+
+/* Styling SketchPad container*/
+.sketchPadMain-cont {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  background-color: darkolivegreen;
+  justify-content: center;
+  padding: 20px 20px;
+}
+
+.sketchPadMainWrapper {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  grid-template-areas: "screen1";
+}
+
+/* Styling Screen 3 section */
+
+.spGridWrapper-cont {
+  place-self: flex-start center;
+  grid-area: screen1;
+  display: flex;
+  flex-direction: row;
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 3px;
+  flex: 1;
+}
+
+.spGridWrapper {
+  background-color: lightgreen;
+  flex-basis: 700px;
+  display: grid;
+  grid-template-columns: 750px;
+  grid-template-rows: 70px 600px;
+  gap: 3px;
+  grid-template-areas:
+    "sketchPadControl"
+    "sketchPad";
+  border: 4px solid black;
+  border-radius: 8px;
+}
+
+.sketchPad {
+  color: black;
+  background-color: whitesmoke;
+  font-family: "Lucida Sans";
+  font-size: 40px;
+  font-weight: 1000;
+  text-align: center;
+  padding: 5px 0px 5px 0px;
+  place-self: center stretch;
+  grid-area: sketchPad;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-template-rows: repeat(10, auto);
+  border-radius: 8px;
+  margin: 0px 5px;
+  padding: 5px 5px;
+  text-shadow: 2px 1px 2px #ffee10;
+  height: 96%;
+  width: 97%;
+  grid-auto-flow: dense;
+}
+
+.sketchPadCont {
+  display: flex;
+  flex-direction: row;
+  padding: 0px 10px;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: sketchPadControl;
+  gap: 10px;
+}
+
+.gridSelCont {
+  background-color: lightseagreen;
+  flex-basis: 300px;
+  display: grid;
+  grid-template-columns: 50px 200px 50px;
+  grid-template-rows: 15px 15px;
+  grid-template-areas:
+    "gridMin gridVal gridMax"
+    "gridMin gridSlider gridMax";
+  border-radius: 8px;
+  padding: 5px 5px;
+}
+
+#gridMinWin {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridMin;
+  font-size: small;
+  text-align: center;
+}
+
+#gridSlideTxt {
+  display: flex;
+  flex-direction: row;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridVal;
+  font-size: small;
+}
+
+#gridSliderWin {
+  display: flex;
+  flex-direction: row;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridSlider;
+  margin: 5px 0px;
+}
+
+#gridMaxWin {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px;
+  place-self: center stretch;
+  justify-content: center;
+  align-items: center;
+  grid-area: gridMax;
+  font-size: small;
+}
+
+.sketchPadCell {
+  background-color: cornsilk;
+}
+
+.sketchPadCellOn {
+  background-color: black;
+}
+
+/* Styling of the footer */
+.footer {
+  background-color: #1f3927;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 15px;
+}
+
+/* -- Styling buttons -- */
+
+button {
+  padding: 10px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+#clickNewPad,
+#clickResetPad {
+  display: flex;
+  background: royalblue;
+  color: white;
+  padding: 10px 30px;
+  font-size: medium;
+  place-self: center center;
+  /* grid-area: scr1GridBtn; */
+}
+
+/* --       Styling for other properties        -- */
+ul {
+  /* Removes the dots on the list items  */
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+a {
+  /* Removes the line under the links */
+  font-size: 12px;
+  text-decoration: none;
+  color: gray;
+}
+
+/* Styling the range slyder */
+
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 10px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 10px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 10px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
