@@ -19,4 +19,7 @@ https://thuvack.github.io/Dumis-OdinProjects/4-OdinRPSGame/
 ## 5. Odin Java excercise 
 This is an excercise to understand how Java works. There are multiple exercises herein and no single landing page.
 
+## 6. Odin Etch-a-Sketch 
+This is an implementation of "Etch-a-Sketch" based on Odin Project excercise
+https://thuvack.github.io/Dumis-OdinProjects/6-Odin-Etch-A-Sketch/
 
