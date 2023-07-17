@@ -16,4 +16,7 @@ https://thuvack.github.io/Dumis-OdinProjects/3-OdinLandingPage/
 This is an implementation of the "Rock-Paper-Scissors" game based on Odin Project excercise
 https://thuvack.github.io/Dumis-OdinProjects/4-OdinRPSGame/
 
+## 5. Odin Java excercise 
+This is an excercise to understand how Java works. There are multiple exercises herein and no single landing page.
+
 
