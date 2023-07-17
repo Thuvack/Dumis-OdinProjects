@@ -3,6 +3,8 @@ This is an implementation of the Calculator project in a browser environment, cr
 
 For this project I was inspired by the [HP 32S II calculator](https://www.calculator.org/calculators/Hewlett-Packard_HP_32S_II.html), which was a gift from my engineering mentor many moons ago. It is one of the best calculators I have ever owned.
 
+[Click this link](https://thuvack.github.io/Dumis-OdinProjects/7-OdinCalculator/) to view this implementation on github pages.
+
 ## Some important lessons
 
 - Plan your calculator layout before implementing CSS. Changing later will lead to some unnecessary grief.

@@ -23,3 +23,8 @@ This is an excercise to understand how Java works. There are multiple exercises 
 This is an implementation of "Etch-a-Sketch" based on Odin Project excercise
 https://thuvack.github.io/Dumis-OdinProjects/6-Odin-Etch-A-Sketch/
 
+## 7. Odin Calculator 
+This is an implementation of "RPN Calculator" based on Odin Project excercise
+https://thuvack.github.io/Dumis-OdinProjects/7-OdinCalculator/
+
+
