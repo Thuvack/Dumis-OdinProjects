@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>home</title>
+</head>
+<body>
+    <!-- Header section   -->
+    <div class="header">
+        <div class="header-cont">
+            <div class="header-logo">
+                <span class="red-text">My</span>
+                <span class="blue-text">Calculator</span>
+            </div>
+            <div class="right-links">
+                <ul>
+                    <li>Retro Calc</li>
+                    <li>About MyCalculator</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body section   -->
+    <div class="bodyMain-cont">
+        <div class="bodyMainWrapper">
+
+            <!-- Calculator Grid section   -->
+            <div class="calGridWrapper-cont">
+                <div class="calGridWrapper">
+
+                    <!-- Calculator Logo Section -->
+                    <div class="calLogoWrapper-cont">
+                        <div class="calLogoWrapper">
+                            <div id="LogoLeft">
+                                <span class="Logo-text1">32S</span>
+                                <span class="Logo-text2">Basic</span>
+                            </div>
+                            <div id="logoMid">
+                            </div>
+                            <div id="LogoRight">
+                                <span class="Logo-text3">RPN</span>
+                                <span class="Logo-text4">SCIENTIFIC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Screen Section -->
+                    <div class="calScreenWrapper-cont">
+                        <div class="calScreenWrapper">
+                            <div id="scrTopLeftCont">
+                                <div id="scrTopLeftIn">
+                                    in
+                                </div>
+                                <div id="scrTopLeft">
+                                    0
+                                </div>
+                            </div>
+
+                            <div class="scrTopRightCont">
+                                <div class="scrTopRightWrapper">
+
+                                    <div id="scrTopRight">
+                                        <div id="wStack">
+                                            " "
+                                        </div>
+                                        <div id="zStack">
+                                            " "
+                                        </div>
+                                        <div id="yStack">
+                                            " "
+                                        </div>
+                                        <div id="xStack">
+                                            " "
+                                        </div>
+                                    </div>
+
+                                    <div id="scrTopRightLbl">
+                                        <div id="wStackLbl">
+                                            w
+                                        </div>
+                                        <div id="zStackLbl">
+                                            z
+                                        </div>
+                                        <div id="yStackLbl">
+                                            y
+                                        </div>
+                                        <div id="xStackLbl">
+                                            x
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="scrBottomLeft">
+                                <div id="funcT1">
+                                    f1
+                                </div>
+                                <div id="funcT2">
+                                    f2
+                                </div>
+                                <div id="funcT3">
+                                    f3
+                                </div>
+                                <div id="funcT4">
+                                    f4
+                                </div>
+                            </div>
+                            <div id="scrBottomRight">
+                                <div id="funcT5">
+                                    f5
+                                </div>
+                                <div id="funcT6">
+                                    f6
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculator Keypad Section -->
+                    <div class="calKeypadWrapper-cont">
+                        <div class="calKeypadWrapper">
+
+                            <!-- Calculator special functions keypad Section -->
+                            <div class="calKeyFuncWrapper-cont">
+                                <div class="calKeyFuncWrapper">
+
+                                    <!-- Row 1 Function Keys-->
+                                    <div id="func1Key">
+                                        <button id="func1">
+                                            <div id="funcBG"></div>
+                                        </button>
+                                    </div>
+
+                                    <div id="func2Key">
+                                        <button id="func2">
+                                            <div id="funcBG"></div>
+                                        </button>
+                                    </div>
+
+                                    <div id="func3Key">
+                                        <button id="func3">
+                                            <div id="funcBG"></div>
+                                        </button>
+                                    </div>
+
+                                    <div id="func4Key">
+                                        <button id="func4">
+                                            <div id="funcBG"></div>
+                                        </button>
+                                    </div>
+
+                                    <div id="func5Key">
+                                        <button id="func5">
+                                            <div id="funcBG"></div>
+                                        </button>
+                                    </div>
+
+                                    <div id="func6Key">
+                                        <button id="func6">
+                                            <div id="funcBG"></div>
+                                        </button>
+                                    </div>
+
+                                    <!-- Row 2 Function Keys-->
+
+                                    <div id="sqrtKey">
+                                        <div class="btnText">
+                                            x<sup>2</sup>
+                                        </div>
+                                        <button id="sqrt">
+                                            √x
+                                        </button>
+                                    </div>
+
+                                    <div id="natExpKey">
+                                        <div class="btnText">
+                                            10<sup>x</sup>
+                                        </div>
+                                        <button id="natE">
+                                            e<sup>x</sup>
+                                        </button>
+                                    </div>
+
+                                    <div id="linKey">
+                                        <div class="btnText">
+                                            LOG10
+                                        </div>
+                                        <button id="LN">
+                                            LN
+                                        </button>
+                                    </div>
+
+                                    <div id="sinKey">
+                                        <div class="btnText">
+                                            ASIN
+                                        </div>
+                                        <button id="SIN">
+                                            SIN
+                                        </button>
+                                    </div>
+
+                                    <div id="cosKey">
+                                        <div class="btnText">
+                                            ACOS
+                                        </div>
+                                        <button id="COS">
+                                            COS
+                                        </button>
+                                    </div>
+
+                                    <div id="tanKey">
+                                        <div class="btnText">
+                                            ATAN
+                                        </div>
+                                        <button id="TAN">
+                                            TAN
+                                        </button>
+                                    </div>
+
+                                    <!-- Row 3 Function Keys-->
+                                    <div id="enterKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="ENTER">
+                                            ENTER
+                                        </button>
+                                    </div>
+
+                                    <div id="equalKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="equalNum">
+                                            =
+                                        </button>
+                                    </div>
+
+                                    <div id="yxKey">
+                                        <div class="btnText">
+                                            ^
+                                        </div>
+                                        <button id="yx">
+                                            y<sup>x</sup>
+                                        </button>
+                                    </div>
+
+                                    <div id="invKey">
+                                        <div class="btnText">
+                                            %
+                                        </div>
+                                        <button id="inv">
+                                            1/x
+                                        </button>
+                                    </div>
+
+                                    <div id="plusMinusKey">
+                                        <div class="btnText">
+                                            π
+                                        </div>
+                                        <button id="plusMinus">
+                                            ±
+                                        </button>
+                                    </div>
+
+                                    <div id="backKey">
+                                        <div class="btnText">
+                                            CLEAR
+                                        </div>
+                                        <button id="back">
+                                            &#8678;
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Calculator special operations keypad Section -->
+                            <div class="calKeyOp1Wrapper-cont">
+                                <div class="calKeyOp1Wrapper">
+
+                                    <div id="modeKey">
+                                        <div class="btnText">
+                                            Algebraic
+                                        </div>
+                                        <button id="stdMode">
+                                            RPN
+                                        </button>
+                                    </div>
+
+                                    <div id="opBracKey">
+                                        <div class="btnText">
+                                            )
+                                        </div>
+                                        <button id="opBrac">
+                                            (
+                                        </button>
+                                    </div>
+
+                                    <div id="shiftKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="shiftK">
+                                            <div id="shiftBG"></div>
+                                        </button>
+                                    </div>
+
+                                    <div id="onKey">
+                                        <div class="btnText">
+                                            OFF
+                                        </div>
+                                        <button id="onK">
+                                            C
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Calculator special operations keypad Section -->
+                            <div class="calKeyNumWrapper-cont">
+                                <div class="calKeyNumWrapper">
+
+                                    <div id="sevenKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="sevenNum">
+                                            7
+                                        </button>
+                                    </div>
+
+                                    <div id="eightKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="eightNum">
+                                            8
+                                        </button>
+                                    </div>
+
+                                    <div id="nineKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="nineNum">
+                                            9
+                                        </button>
+                                    </div>
+
+                                    <div id="fourKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="fourNum">
+                                            4
+                                        </button>
+                                    </div>
+
+                                    <div id="fiveKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="fiveNum">
+                                            5
+                                        </button>
+                                    </div>
+
+                                    <div id="sixKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="sixNum">
+                                            6
+                                        </button>
+                                    </div>
+
+                                    <div id="oneKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="oneNum">
+                                            1
+                                        </button>
+                                    </div>
+
+                                    <div id="twoKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="twoNum">
+                                            2
+                                        </button>
+                                    </div>
+
+                                    <div id="threeKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="threeNum">
+                                            3
+                                        </button>
+                                    </div>
+
+                                    <div id="zeroKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="zeroNum">
+                                            0
+                                        </button>
+                                    </div>
+
+                                    <div id="dotKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="dotNum">
+                                            &bull;
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Calculator special operations keypad Section -->
+                            <div class="calKeyOp2Wrapper-cont">
+                                <div class="calKeyOp2Wrapper">
+
+                                    <div id="divideKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="divideK">
+                                            ÷
+                                        </button>
+                                    </div>
+
+                                    <div id="multiplyKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="multiplyK">
+                                            x
+                                        </button>
+                                    </div>
+
+                                    <div id="subtractKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="subtractK">
+                                            -
+                                        </button>
+                                    </div>
+
+                                    <div id="additionKey">
+                                        <div class="btnText">
+                                        </div>
+                                        <button id="addK">
+                                            +
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer section   -->
+    <div class="footer">
+        Copyright &copy  | Thuvack  | The Odin Project 2022
+    </div>
+
+    <!-- Scrip section:   -->
+    <script src="./scripts/myScript.js" defer></script>
+
+</body>
+</html>

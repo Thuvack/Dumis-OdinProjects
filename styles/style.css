@@ -1,0 +1,919 @@
+/* Global declarations */
+
+* {
+    font-family: sans-serif;
+  }
+  
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 50px auto 50px;
+  }
+  
+  /* Styling for the header */
+  
+  .header,
+  .header-cont,
+  .right-links {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  
+  .header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #1f3927;
+    color: white;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .header-cont {
+    flex-basis: 950px;
+    justify-content: space-between;
+    margin-top: 15px 0px;
+  }
+  
+  .yellow-text {
+    font-family: "Courier New" !important;
+    font-size: 20px;
+    color: yellow;
+  }
+  
+  .red-text,
+  .player-choice-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: red;
+    font-weight: 800;
+  }
+  
+  .blue-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: blue;
+    font-weight: 800;
+  }
+  
+  .green-text {
+    font-family: Helvetica !important;
+    font-size: 20px;
+    color: green;
+    font-weight: 800;
+  }
+  
+  /* Style hover effects on links */
+  
+  .right-links ul li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background: #ffee10;
+    transition: 0.5s;
+    transform: scale(0.9);
+    z-index: -1;
+  }
+  
+  .right-links ul li:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ffee10;
+  }
+  
+  .right-links ul li:hover {
+    color: #ffee10;
+    box-shadow: 0 0 5px #ffee10;
+    text-shadow: 0 0 5px #ffee10;
+  }
+  
+  /* Styling window container which houses the calculator */
+  .bodyMain-cont {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    background-color: darkolivegreen;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .bodyMainWrapper {
+    display: grid;
+    margin: 0;
+    padding: 20px 20px;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas:
+      "screen1";
+  }
+
+  /* Calculator container*/
+
+  .calGridWrapper-cont {
+    place-self: center center;
+    grid-area: screen1;
+    display: flex;
+    flex-direction: row;
+    background-color: darkolivegreen;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 3px;
+    flex: 1;
+  }
+  
+  .calGridWrapper {
+    background-color: #504a4e;
+    flex-basis: 700px;
+    display: grid;
+    grid-template-columns: 350px;
+    grid-template-rows: 50px 100px 385px;
+    grid-template-areas:
+      "calcTop"
+      "calcScreen"
+      "calcKeypad";
+    border: 2px solid black;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Calcuator logo section */
+  
+  .calLogoWrapper-cont {
+    place-self: flex-end center;
+    grid-area: calcTop;
+    display: flex;
+    flex-direction: row;
+    background-color: #504a4e;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .calLogoWrapper {
+    background-color: #655b64;
+    flex-basis: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 36px;
+    grid-template-areas:
+      "calcLogoLeft calcLogoMid calcLogoRight";
+    margin: 5px 15px 0px 15px;
+  }
+  
+  #LogoLeft,
+  #logoMid,
+  #LogoRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: silver;
+    align-items: flex-end;
+    padding-bottom: 3px;
+    font-size: 11pt;
+    width: 60px;
+  }
+
+  #LogoLeft {
+    grid-area: calcLogoLeft;
+    justify-content: flex-start;
+    padding-left: 10px;
+  }
+
+  #logoMid {
+    grid-area: calcLogoMid;
+  }
+
+  #LogoRight {
+    grid-area: calcLogoRight;
+    justify-content: flex-end;
+    padding-right: 8px;
+    width: 135px;
+  }
+
+  .Logo-text1,
+  .Logo-text3 {
+    font-weight: 1000;
+    padding-right: 2px;
+  }
+
+  .Logo-text2,
+  .Logo-text4 {
+    font-style: italic;
+  }
+
+  /* Calcuator Screen section */
+
+  .calScreenWrapper-cont {
+    place-self: center center;
+    grid-area: calcScreen;
+    display: flex;
+    flex-direction: row;
+    background-color: #504a4e;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .calScreenWrapper {
+    background-color: #738a76;
+    flex-basis: 700px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 60px 22px;
+    grid-template-areas:
+      "scTopNum scTopStack"
+      "scBotFunc scBotStack";
+    margin: 0px 15px;
+    border: 3px solid black;
+  }
+    
+  #scrTopLeftCont,
+  #scrBottomLeft {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #scrBottomRight {
+    display: flex;
+    width: 90px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #scrTopLeftCont {
+    grid-area: scTopNum;
+    padding-right: 10px;
+    font-size: x-large;
+    font-weight: 600;
+    place-self: flex-end flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  #scrBottomLeft {
+    grid-area: scBotFunc;
+    justify-content: space-evenly;
+    place-self: center flex-end;
+  }
+  
+  #scrBottomRight {
+    grid-area: scBotStack;
+    align-items: center;
+    justify-content: center;
+    place-self: center baseline;
+  }
+
+  #funcT1,
+  #funcT2,
+  #funcT3,
+  #funcT4 {
+    background-color: darkslategray;
+    color: #738a76;
+    margin: 0px 3px;
+    align-items: center;
+    justify-content: baseline;
+    width: 60px;
+    padding-left: 5px;
+    font-size: x-small;
+  }
+
+  #funcT5,
+  #funcT6 {
+    background-color: darkslategray;
+    color: #738a76;
+    margin: 0px 3px;
+    align-items: center;
+    justify-content: baseline;
+    width: 80px;
+    padding-left: 5px;
+    font-size: x-small;
+  }
+
+  #scrTopLeftIn {
+    font-size: medium;
+    font-weight: 300;
+    place-self: flex-start center;
+    padding-left: 15px;
+    height: 25px;
+    
+  }
+
+  #scrTopLeft {
+    place-self: flex-end;
+  }
+
+  
+  .scrTopRightCont {
+    place-self: center center;
+    grid-area: scTopStack;
+    display: flex;
+    flex-direction: row;
+    background-color: #738a76;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .scrTopRightWrapper {
+    background-color: #738a76;
+    flex-basis: 80px;
+    display: grid;
+    grid-template-columns: 50px 30px;
+    grid-template-rows: 45px;
+    gap: 3px;
+    grid-template-areas:
+      "scrStackNum scrStackLbl"
+      "scrStackNum scrStackLbl";
+    margin: 0px 0px;
+  }
+
+  #scrTopRight,
+  #scrTopRightLbl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #scrTopRight {
+    flex-direction: column;
+    grid-area: scrStackNum;
+    justify-content: flex-end;
+    align-items: flex-end;
+    /* padding-right: 10px; */
+    font-size: x-small;
+    width: 50px;
+  }
+
+  #scrTopRightLbl {
+    flex-direction: column;
+    grid-area: scrStackLbl;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 10px;
+    font-size: x-small;
+    width: 25px;
+  }
+
+  /* Calcuator Keypad section wrapper and container */
+  
+  .calKeypadWrapper-cont {
+    place-self: center center;
+    grid-area: calcKeypad;
+    display: flex;
+    flex-direction: row;
+    background-color: #504a4e;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    flex: 1;
+  }
+  
+  .calKeypadWrapper {
+    background-color: #3d3a41;
+    display: grid;
+    grid-template-columns: 70px auto 70px;
+    grid-template-rows: 130px 225px;
+    gap: 3px;
+    grid-template-areas:
+      "calKeyFunc calKeyFunc calKeyFunc"
+      "calOp1 calNumKey calOp2";
+    margin: 0px 10px 25px 10px;
+    width: 320px;
+  }
+
+
+  button {
+    padding: 1px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid grey;
+    background-color: black;
+    color: white;
+    width: 55px;
+    height: 31px;
+    font-size: 10pt;
+  }
+
+  .btnText {
+    font-size: x-small;
+    color: orangered;
+    padding-bottom: 3px;
+  }
+
+/* Calculator keypad sections */
+
+/* Calculator keypad sections for special functions of calculator*/
+
+.calKeyFuncWrapper-cont {
+  place-self: flex-start center;
+  grid-area: calKeyFunc;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+}
+
+.calKeyFuncWrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px;
+  grid-template-areas:
+    "funcR1C1 funcR1C2 funcR1C3 funcR1C4 funcR1C5 funcR1C6"
+    "funcR2C1 funcR2C2 funcR2C3 funcR2C4 funcR2C5 funcR2C6"
+    "funcR3C12 funcR3C12 funcR3C3 funcR3C4 funcR3C5 funcR3C6";
+  margin: 3px 3px 0px 3px;
+  width: 310px;
+  height: 115px;
+}
+
+
+#func1Key,
+#func2Key,
+#func3Key,
+#func4Key,
+#func5Key,
+#func6Key {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+#sqrtKey,
+#natExpKey,
+#linKey,
+#yxKey,
+#invKey,
+#sinKey,
+#cosKey,
+#tanKey,
+#enterKey,
+#equalKey,
+#plusMinusKey,
+#backKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#func1Key {
+  grid-area: funcR1C1;
+}
+
+#func2Key {
+  grid-area: funcR1C2;
+}
+
+#func3Key {
+  grid-area: funcR1C3;
+}
+
+#func4Key {
+  grid-area: funcR1C4;
+}
+
+#func5Key {
+  grid-area: funcR1C5;
+}
+
+#func6Key {
+  grid-area: funcR1C6;
+}
+
+#sqrtKey {
+  grid-area: funcR2C1;
+}
+
+#natExpKey {
+  grid-area: funcR2C2;
+}
+
+#linKey {
+  grid-area: funcR2C3;
+}
+
+#sinKey {
+  grid-area: funcR2C4;
+}
+
+#cosKey {
+  grid-area: funcR2C5;
+}
+
+#tanKey {
+  grid-area: funcR2C6;
+}
+
+#enterKey {
+  grid-area: funcR3C12;
+}
+
+#equalKey {
+  grid-area: funcR3C12;
+}
+
+#yxKey {
+  grid-area: funcR3C3;
+}
+
+#invKey {
+  grid-area: funcR3C4;
+}
+
+#plusMinusKey {
+  grid-area: funcR3C5;
+}
+
+#backKey {
+  grid-area: funcR3C6;
+}
+
+#ENTER,
+#equalNum {
+  padding: 1px 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid grey;
+  background-color: black;
+  color: white;
+  width: 94px;
+  height: 21px;
+  font-size: 10pt;
+  align-self: stretch;
+  margin-left: 3px;
+  justify-content: center;
+}
+
+#plusMinus {
+  font-size: 12pt;
+}
+
+#equalNum {
+  font-size: large;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#back {
+  font-size: 10pt;
+  font-weight: 700;
+  justify-content: center;
+  align-items: flex-start;
+  width: 47px;
+  height: 21px;
+} 
+
+#func1,
+#func2,
+#func3,
+#func4,
+#func5,
+#func6, 
+#sqrt,
+#natE,
+#LN,
+#yx,
+#inv,
+#RDWN,
+#SIN,
+#COS,
+#TAN,
+#plusMinus {
+  width: 47px;
+  height: 21px;
+}
+
+/* Calculator keypad sections for algebraic Operations*/
+
+.calKeyOp1Wrapper-cont {
+  place-self: flex-start center;
+  grid-area: calOp1;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+  flex-basis: 50px;
+}
+
+.calKeyOp1Wrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  grid-template-areas:
+    "op1R1C1"
+    "op1R2C1"
+    "op1R3C1"
+    "op1R4C1";
+  margin: 0px 0px 3px 3px;
+  width: 63px;
+  height: 220px;
+}
+
+#modeKey,
+#opBracKey,
+#shiftKey,
+#onKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  place-self: flex-end center;
+}
+
+
+#modeKey {
+  grid-area: op1R1C1;
+}
+
+#opBracKey {
+  grid-area: op1R2C1;
+}
+
+#shiftKey {
+  grid-area: op1R3C1;
+}
+
+#onKey {
+  grid-area: op1R4C1;
+}
+
+#onK {
+  font-size: medium;
+}
+
+#shiftBG {
+  background: rgb(235, 111, 66);
+  width: 42px;
+  height: 21px;
+  margin-left: 2px;
+  border-radius: 3px;
+}
+
+#funcBG {
+  background: silver;
+  width: 37px;
+  height: 12px;
+  border-radius: 3px;
+  margin: 0px 0px 2px 0px;
+}
+
+#btnTextUp {
+  color: orangered;
+  font-size: 14pt;
+}
+
+#opBrac {
+  font-size: 14pt;
+}
+
+
+/* Calculator keypad sections for numberic entry*/
+
+.calKeyNumWrapper-cont {
+  place-self: flex-start center;
+  grid-area: calNumKey;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+  flex-basis: 200px;
+}
+
+.calKeyNumWrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  grid-template-areas:
+    "numR1C1 numR1C2 numR1C3"
+    "numR2C1 numR2C2 numR2C3"
+    "numR3C1 numR3C2 numR3C3"
+    "numR4C1 numR4C2 numR4C3";
+  margin: 0px 0px 3px 0px;
+  width: 170px;
+  height: 220px;
+}
+
+#dotKey,
+#sevenKey,
+#eightKey,
+#nineKey,
+#fourKey,
+#fiveKey,
+#sixKey,
+#oneKey,
+#twoKey,
+#threeKey,
+#zeroKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  place-self: flex-end center;
+}
+
+#sevenKey {
+  grid-area: numR1C1;
+}
+
+#eightKey {
+  grid-area: numR1C2;
+}
+
+#nineKey {
+  grid-area: numR1C3;
+}
+
+#fourKey {
+  grid-area: numR2C1;
+}
+
+#fiveKey {
+  grid-area: numR2C2;
+}
+
+#sixKey {
+  grid-area: numR2C3;
+}
+
+#oneKey {
+  grid-area: numR3C1;
+}
+
+#twoKey {
+  grid-area: numR3C2;
+}
+
+#threeKey {
+  grid-area: numR3C3;
+}
+
+#zeroKey {
+  grid-area: numR4C2;
+}
+
+#dotKey {
+  grid-area: numR4C3;
+}
+
+#sevenNum,
+#eightNum,
+#nineNum,
+#fourNum,
+#fiveNum,
+#sixNum,
+#oneNum,
+#twoNum,
+#threeNum,
+#zeroNum {
+  width: 50px;
+  font-size: medium;
+}
+
+#dotNum {
+  width: 50px;
+  font-weight: 800;
+  font-size: large;
+}
+
+/* Calculator keypad sections for operations only */
+
+.calKeyOp2Wrapper-cont {
+  place-self: flex-start center;
+  grid-area: calOp2;
+  display: flex;
+  flex-direction: row;
+  background-color: #3d3a41;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  flex: 1;
+}
+
+.calKeyOp2Wrapper {
+  background-color: #3d3a41;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  grid-template-areas:
+    "op2R1C1"
+    "op2R2C1"
+    "op2R3C1"
+    "op2R4C1";
+  margin: 0px 3px 3px 0px;
+  width: 63px;
+  height: 220px;
+}
+
+#divideKey,
+#multiplyKey,
+#subtractKey,
+#additionKey {
+  display: flex;
+  flex-direction: column;
+  width: 50px;
+  align-items: center;
+  justify-content: flex-end;
+  place-self: flex-end center;
+}
+
+
+#divideKey {
+  grid-area: op2R1C1;
+}
+
+#multiplyKey {
+  grid-area: op2R2C1;
+}
+
+#subtractKey {
+  grid-area: op2R3C1;
+}
+
+#additionKey {
+  grid-area: op2R4C1;
+}
+
+#divideK,
+#subtractK,
+#addK {
+  font-size: 23px;
+}
+
+  
+/* Styling of the footer */
+  .footer {
+    background-color: #1f3927;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 15px;
+  }
+  
+  
+  /* --       Styling for other properties        -- */
+  ul {
+    /* Removes the dots on the list items  */
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+  }
+  
+  a {
+    /* Removes the line under the links */
+    font-size: 12px;
+    text-decoration: none;
+    color: gray;
+  }  
