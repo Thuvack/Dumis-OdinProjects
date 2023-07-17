@@ -3,6 +3,8 @@
 This is an implementation of the Rock Paper Scissors game in a browser environment, created as part of my
 [Odin Project](https://www.theodinproject.com/) assignment for the foundation phase.
 
+[Click here](https://thuvack.github.io/Dumis-OdinProjects/4-OdinRPSGame/) to vie this game on github pages.
+
 ## Some important lessons
 - Eventlisteners are loaded first before executed, so be careful where you initialise them in your code.
 

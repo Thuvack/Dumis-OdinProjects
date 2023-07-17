@@ -12,4 +12,8 @@ This is an excercise to understand how CSS works. There are multiple exercises h
 This is a simple landing page based on Odin Project excercise
 https://thuvack.github.io/Dumis-OdinProjects/3-OdinLandingPage/
 
-## 3. 
+## 4. Odin Rock-Paper-Scissors game 
+This is an implementation of the "Rock-Paper-Scissors" game based on Odin Project excercise
+https://thuvack.github.io/Dumis-OdinProjects/4-OdinRPSGame/
+
+
