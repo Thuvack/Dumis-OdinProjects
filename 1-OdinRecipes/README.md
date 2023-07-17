@@ -12,4 +12,5 @@ Most of the contents and images are sourced from Wikipedia or Commons, which use
 
 ## Project deployment on github
 
-Click [this link](https://thuvack.github.io/odin-recipes/) see the deploment of this project gihub pages.
+Click [this link](https://thuvack.github.io/Dumis-OdinProjects/1-OdinRecipes/) see the deploment of this project gihub pages.
+
