@@ -2,6 +2,8 @@
 
 This is project submission as part of the foundation path in web development course on the [Odin Project](http://www.theodinproject.com), to build real, working websites.
 
+[Click this link](https://thuvack.github.io/Dumis-OdinProjects/3-OdinLandingPage/) to view this page on github pages.
+
 
 ## Page content choice
 
